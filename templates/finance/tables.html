@@ -1,0 +1,48 @@
+<h3>Short-Term Plays</h3>
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>Stock Ticker</th>
+			<th>Company Name</th>
+			<th>Date of Purchase</th>
+			<th>Adjusted Cost Price</th>
+			<th>Current Stock Price</th>
+			<th>Gain/Loss per Share</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="short in shorts" ng-click="open(short)" href>
+			<td>{{short.ticker}}</td>
+			<td>{{short.name}}</td>
+			<td>{{short.purchdate}}</td>
+			<td>{{short.cost}}</td>
+			<td>{{short.price}}</td>
+			<td><span>{{short.diff}}</span></td>
+		</tr>
+	</tbody>
+</table>
+<br />
+<br />
+<h3>Long Plays</h3>
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>Stock Ticker</th>
+			<th>Company Name</th>
+			<th>Date of Purchase</th>
+			<th>Adjusted Cost Price</th>
+			<th>Current Stock Price</th>
+			<th>Gain/Loss per Share</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="long in longs" ng-click="open(long)" href>
+			<td>{{long.ticker}}</td>
+			<td>{{long.name}}</td>
+			<td>{{long.purchdate}}</td>
+			<td>{{long.cost}}</td>
+			<td>{{long.price}}</td>
+			<td><span>{{long.diff}}</span></td>
+		</tr>
+	</tbody>
+</table>

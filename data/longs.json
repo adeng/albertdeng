@@ -1,0 +1,50 @@
+[
+	{
+		"ticker": "INTC",
+		"name": "Intel Corporation",
+		"purchdate": "1/18/2013",
+		"cost": 21.21
+	},
+	{
+		"ticker": "T",
+		"name": "AT&T Inc.",
+		"purchdate": "1/18/2013",
+		"cost": 32.80
+	},
+	{
+		"ticker": "MRK",
+		"name": "Merck & Co., Inc.",
+		"purchdate": "2/4/2013",
+		"cost": 41.22
+	},
+	{
+		"ticker": "AAPL",
+		"name": "Apple Inc.",
+		"purchdate": "2/25/2015",
+		"cost": 116.75
+	},
+	{
+		"ticker": "MSFT",
+		"name": "Microsoft Corporation",
+		"purchdate": "4/22/2015",
+		"cost": 43.08
+	},
+	{
+		"ticker": "PYPL",
+		"name": "Paypal Holdings Inc",
+		"purchdate": "7/17/2015",
+		"cost": 38.71
+	},
+	{
+		"ticker": "GILD",
+		"name": "Gilead Sciences, Inc.",
+		"purchdate": "7/24/2015",
+		"cost": 116.55
+	},
+	{
+		"ticker": "BAC",
+		"name": "Bank of America Corp",
+		"purchdate": "9/1/2015",
+		"cost": 15.78
+	}
+]
