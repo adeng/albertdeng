@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Welcome</title>
+
+    <!-- Bootstrap -->
+	<link href="css/styles.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- Angular -->
+	<script src="js/core/angular.min.js"></script>
+	<script src="js/core/angular-bootstrap.min.js"></script>
+	<script src="js/core/angular-route.min.js"></script>
+  
+  <script src="js/module/app.js"></script>
+  <script src="js/module/controllers.js"></script>
+  <script src="js/module/services.js"></script>
+  </head>
+  <body ng-app="main">
+    <nav class="navbar navbar-default navbar-fixed-top" ng-include="'templates/interface/navbar.html'">
+    </nav>
+    
+    <div style="padding-top: 100px" />
+    
+    <!-- Jumbotron -->
+    <div class="container main-header" ng-include="'templates/home/jumbotron.html'">
+    </div>
+    
+    <!-- Circles! -->
+    <div class="container circles" ng-include="'templates/home/circles.html'">
+    </div>
+    
+  </body>
+</html>
