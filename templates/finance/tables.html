@@ -11,13 +11,13 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr ng-repeat="short in shorts" ng-click="open(short)" href>
+		<tr class="clickable" ng-repeat="short in shorts" ng-click="open(short)" href>
 			<td>{{short.ticker}}</td>
 			<td>{{short.name}}</td>
 			<td>{{short.purchdate}}</td>
 			<td>{{short.cost}}</td>
 			<td>{{short.price}}</td>
-			<td><span>{{short.diff}}</span></td>
+			<td><span ng-bind-html="short.diff"></span></td>
 		</tr>
 	</tbody>
 </table>
@@ -36,13 +36,13 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr ng-repeat="long in longs" ng-click="open(long)" href>
+		<tr class="clickable" ng-repeat="long in longs" ng-click="open(long)" href>
 			<td>{{long.ticker}}</td>
 			<td>{{long.name}}</td>
 			<td>{{long.purchdate}}</td>
 			<td>{{long.cost}}</td>
 			<td>{{long.price}}</td>
-			<td><span>{{long.diff}}</span></td>
+			<td><span ng-bind-html="long.diff"></span></td>
 		</tr>
 	</tbody>
 </table>

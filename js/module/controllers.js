@@ -8,7 +8,31 @@ angular.module('main.controllers', [])
 	
 })
 
-.controller('StocksCtrl', function($q, $scope, $modal, Stocks) {
+.controller('AboutCtrl', function($scope) {
+	$scope.selected;
+	
+	$scope.set = function( curr ) {
+		switch(curr) {
+			case 0:
+				$scope.selected = 'templates/about/panels/experience.html';
+				break;
+			
+			case 1:
+				$scope.selected = 'templates/about/panels/extracurriculars.html';
+				break;
+			
+			case 2:
+				$scope.selected = 'templates/about/panels/education.html';
+				break;
+				
+			case 3:
+				$scope.selected = 'templates/about/panels/bio.html';
+				break;
+		}
+	}
+})
+
+.controller('StocksCtrl', function($q, $scope, $modal, $sce, Stocks) {
 	var tickers = new Array();
 	var promises = [ Stocks.getPortfolio("shorts"), Stocks.getPortfolio("longs") ];
 	
@@ -58,7 +82,7 @@ angular.module('main.controllers', [])
 	$scope.getDiff = function( cost, lastprice ) {
 		var price = parseFloat(lastprice);
 		var diff = $scope.formatMoney(price - parseFloat(cost));
-		return (parseFloat(diff) > 0 ? "+" : "" ) + diff;
+		return $sce.trustAsHtml("<span style='color:" + (parseFloat(diff) > 0 ? "green" : "red") + "'>" + (parseFloat(diff) > 0 ? "+" : "" ) + diff + " (" + (parseFloat(diff)*100/parseFloat(cost)).toFixed(2) + "%)</span>");
 	}
 })
 
@@ -67,6 +91,8 @@ angular.module('main.controllers', [])
 	$scope.ticker = ticker;
 	$http.get(template).success( function( data, something, headers, config ) {
 		$scope.template = $sce.trustAsHtml(data);
+	}).error( function( data, blah, headers, config ) {
+		$scope.template = "<p>No due diligence available at the moment! I promise I will get around to it soon!</p>";
 	});
 
 	$scope.ok = function () {

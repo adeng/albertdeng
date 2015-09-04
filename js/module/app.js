@@ -14,13 +14,16 @@
 			url: '/finance',
 			templateUrl: 'templates/finance/index.html',
 			controller: 'FinanceCtrl'
+		})
+		
+		.state('about', {
+			url: '/about',
+			templateUrl: 'templates/about/index.html',
+			controller: 'AboutCtrl'
 		});
 		
 		$urlRouterProvider.otherwise("/");
 		
-		$locationProvider.html5Mode({
-			enabled: true,
-			requireBase: false
-		});
+		//$locationProvider.html5Mode({	enabled: true, requireBase: false });
 	});
 })();
