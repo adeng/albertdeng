@@ -8,8 +8,10 @@ angular.module('main.controllers', [])
 	
 })
 
-.controller('AboutCtrl', function($scope) {
+.controller('AboutCtrl', function($scope, About) {
 	$scope.selected;
+	$scope.filter = 0;
+
 	
 	$scope.set = function( curr ) {
 		switch(curr) {
@@ -30,6 +32,23 @@ angular.module('main.controllers', [])
 				break;
 		}
 	}
+	
+	$scope.match = function( first, second ) {
+		switch( $scope.filter ) {
+			case 0:
+				return first || second;
+				
+			case 1:
+				return first;
+			
+			case 2:
+				return second;
+		}
+	}
+	
+	About.loadItems('experience').then( function(val) {
+		$scope.experiences = val;
+	});
 })
 
 .controller('StocksCtrl', function($q, $scope, $modal, $sce, Stocks) {

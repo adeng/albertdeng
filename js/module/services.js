@@ -40,4 +40,19 @@ angular.module('main.services', [])
 			return deferred.promise;
 		},
 	}
+})
+
+.factory('About', function($q, $http) {
+	
+	return {
+		loadItems: function(filename) {
+			var deferred = $q.defer();
+			
+			$http.get('/data/about/' + filename + '.json').success( function(data, status, headers, config) {
+				deferred.resolve(data);
+			});
+			
+			return deferred.promise;
+		}
+	}
 });

@@ -1,0 +1,62 @@
+[
+	{
+		"company": "PricewaterhouseCoopers, LLC",
+		"time": "Jun 2015 - Aug 2015",
+		"title": "Risk Assurance - IAS/PA Intern",
+		"tech": true,
+		"biz": true,
+		"content": [
+			"Lorem ipsum text"
+		]
+	},
+	{
+		"company": "UCLA Student Media",
+		"time": "Jun 2015 - Present",
+		"title": "Director of Bruin Mobile",
+		"tech": true,
+		"biz": true,
+		"content": [
+			"Lorem ipsum text"
+		]
+	},
+	{
+		"company": "UCLA Student Media",
+		"time": "Aug 2014 - Aug 2015",
+		"title": "Publications Accountant",
+		"tech": false,
+		"biz": true,
+		"content": [
+			"Lorem ipsum text"
+		]
+	},
+	{
+		"company": "UCLA Student Media",
+		"time": "Jan 2013 - Jun 2015",
+		"title": "Chief Technology Officer",
+		"tech": true,
+		"biz": true,
+		"content": [
+			"Lorem ipsum text"
+		]
+	},
+	{
+		"company": "UCLA Student Media",
+		"time": "Oct 2012 - Jan 2013",
+		"title": "Marketing Intern",
+		"tech": false,
+		"biz": true,
+		"content": [
+			"Lorem ipsum text"
+		]
+	},
+	{
+		"company": "UCLA Student Media",
+		"time": "Jun 2012 - Jul 2014",
+		"title": "Co-Founder/Chief Financial Officer",
+		"tech": true,
+		"biz": true,
+		"content": [
+			"Lorem ipsum text"
+		]
+	}
+]

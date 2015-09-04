@@ -1,8 +1,39 @@
-<p>
-	This is a brief two line description where I will fill in something much more meaningfull hopefully before any recruiters come look at this website :( Here is the second line of the two line description.
-</p>
+<div class="well">
+	<h3>Quick Reference</h3>
+	<p>Programming Languages</p>
+	<ul>
+		<li>Javascript</li>
+		<li>HTML / CSS</li>
+		<li>C++</li>
+	</ul>
+</div>
 
-<div class="container">
-	<ul class="timeline" style="height: 1500px">
+<div class="filter-btns">
+	<p>Filter experience by relevant category
+    <div class="btn-group btn-group-justified">
+        <label class="btn btn-primary" ng-model="filter" btn-radio="0">All</label>
+        <label class="btn btn-success" ng-model="filter" btn-radio="1">Tech</label>
+        <label class="btn btn-warning" ng-model="filter" btn-radio="2">Business</label>
+    </div>
+</div>
+
+<div>
+	<ul class="timeline">
+		<li ng-repeat="exp in experiences | filter: match(exp.tech, exp.biz)">
+			<div class="thumbnail">
+				<p class="badge">{{exp.time}}</p>
+				<p class="badge alert-success" ng-if="exp.tech">Tech</p>
+				<p class="badge alert-warning" ng-if="exp.biz">Business</p>
+				<div class="caption">
+					<h3>{{exp.company}}</h3>
+					<h4>{{exp.title}}</h4>
+					<ul>
+						<li ng-repeat="stuff in exp.content">
+							{{stuff}}
+						</li>
+					</ul>
+				</div>
+			</div>
+		</li>
 	</ul>
 </div>

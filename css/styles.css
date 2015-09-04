@@ -33,34 +33,6 @@ body {
   width: auto;
 }
 
-
-/* Carousel
--------------------------------------------------- */
-
-/* Carousel base class */
-.carousel {
-  height: 500px;
-  margin-bottom: 60px;
-}
-/* Since positioning the image, we need to help out the caption */
-.carousel-caption {
-  z-index: 10;
-}
-
-/* Declare heights because of positioning of img element */
-.carousel .item {
-  height: 500px;
-  background-color: #777;
-}
-.carousel-inner > .item > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  height: 500px;
-}
-
-
 /* Circles
 -------------------------------------------------- */
 
@@ -107,19 +79,63 @@ body {
   color: red;
 }
 
+/* Button Filters
+-------------------------------------------------- */
+
+.filter-btns {
+  padding-bottom: 40px;
+  width: 80%;
+  margin: auto;
+}
+
 /* Timeline
 -------------------------------------------------- */
 
+.timeline {
+  padding: 0px;
+  border-top: 2px solid #EEE;
+}
+
 .timeline::before {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background-color: #ccc;
+  width: 2px;
+  background-color: #EEE;
   left: 50%;
   margin-left: -1.5px;
   content: "";
+  height: 1500px;
 }
+
+.timeline > li {
+  list-style-type: none;
+  width: 100%;
+  display: table;
+}
+
+.timeline > li > .thumbnail {
+  width: 45%;
+}
+
+.timeline > li:nth-child(1) {
+  padding-top: 40px;
+}
+
+.timeline > li:nth-child(odd) > .thumbnail {
+  float: left;
+}
+
+.timeline > li:nth-child(even) > .thumbnail {
+  float: right;
+}
+
+.thumbnail > .badge {
+  margin: 10px 0px 0px 10px;
+}
+
+.thumbnail > .caption {
+  padding-top: 0px;
+} 
+
 
 /* Animations for UI View
 -------------------------------------------------- */
