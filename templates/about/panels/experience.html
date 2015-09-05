@@ -11,15 +11,15 @@
 <div class="filter-btns">
 	<p>Filter experience by relevant category
     <div class="btn-group btn-group-justified">
-        <label class="btn btn-primary" ng-model="filter" btn-radio="0">All</label>
-        <label class="btn btn-success" ng-model="filter" btn-radio="1">Tech</label>
-        <label class="btn btn-warning" ng-model="filter" btn-radio="2">Business</label>
+        <label class="btn btn-primary" ng-model="radioModel" btn-radio="0">All</label>
+        <label class="btn btn-success" ng-model="radioModel" btn-radio="1">Tech</label>
+        <label class="btn btn-warning" ng-model="radioModel" btn-radio="2">Business</label>
     </div>
 </div>
 
 <div>
 	<ul class="timeline">
-		<li ng-repeat="exp in experiences | filter: match(exp.tech, exp.biz)">
+		<li ng-repeat="exp in experiences" ng-if="radioModel == 0 || (radioModel == 1 && exp.tech) || (radioModel == 2 && exp.biz)">
 			<div class="thumbnail">
 				<p class="badge">{{exp.time}}</p>
 				<p class="badge alert-success" ng-if="exp.tech">Tech</p>

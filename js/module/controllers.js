@@ -8,11 +8,10 @@ angular.module('main.controllers', [])
 	
 })
 
-.controller('AboutCtrl', function($scope, About) {
+.controller('AboutCtrl', function($scope, $rootScope, About) {
 	$scope.selected;
-	$scope.filter = 0;
+	$scope.radioModel = 0;
 
-	
 	$scope.set = function( curr ) {
 		switch(curr) {
 			case 0:
@@ -34,7 +33,7 @@ angular.module('main.controllers', [])
 	}
 	
 	$scope.match = function( first, second ) {
-		switch( $scope.filter ) {
+		switch( parseInt( $scope.radioModel )) {
 			case 0:
 				return first || second;
 				
