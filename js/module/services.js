@@ -7,6 +7,7 @@ angular.module('main.services', [])
 			var deferred = $q.defer();
 			
 			$http.get('/data/' + filename + '.json').success( function(data, status, headers, config) {
+				console.log(data);
 				deferred.resolve(data);
 			});
 			

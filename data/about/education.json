@@ -1,0 +1,342 @@
+[
+	{
+		"no": "MATH 32A",
+		"name": "Calculus of Several Variables",
+		"professor": "Salazar",
+		"units": 4,
+		"grade": "B+",
+		"tags": [
+			0
+		]
+	},
+	{
+		"no": "HIST 13A",
+		"name": "US History: Colonial Origins and First Nation Building Acts",
+		"professor": "Meranze",
+		"units": 5,
+		"grade": "A",
+		"tags": [
+			0, 1
+		]
+	},
+	{
+		"no": "NEUROSCI 10",
+		"name": "Neuroscience for the 21st Century",
+		"professor": "Levine and Watson",
+		"units": 5,
+		"grade": "A",
+		"tags": [
+			0, 1
+		]
+	},
+	{
+		"no": "ECON 11",
+		"name": "Microeconomic Theory I",
+		"professor": "Sproul",
+		"units": 4,
+		"grade": "A-",
+		"tags": [
+			0, 2, 7
+		]
+	},
+	{
+		"no": "ANTHRO 7",
+		"name": "Human Evolution",
+		"professor": "Snyder",
+		"units": 5,
+		"grade": "A",
+		"tags": [
+			0, 1
+		]
+	},
+	{
+		"no": "POL SCI 40",
+		"name": "Introduction to American Politics",
+		"professor": "Tausanovitch",
+		"units": 5,
+		"grade": "A",
+		"tags": [
+			0, 1, 7
+		]
+	},
+	{
+		"no": "HIST 13C",
+		"name": "US History: 20th Century",
+		"professor": "Lytle Hernandez",
+		"units": 5,
+		"grade": "A+",
+		"tags": [
+			0, 1
+		]
+	},
+	{
+		"no": "COM LIT 2CW",
+		"name": "Survey of Literature: Age of Enlightenment to 20th Century",
+		"professor": "Komar",
+		"units": 5,
+		"grade": "A",
+		"tags": [
+			0, 1, 2
+		]
+	},
+	{
+		"no": "MGMT 1A",
+		"name": "Principles of Accounting I",
+		"professor": "Litt",
+		"units": 4,
+		"grade": "A",
+		"tags": [
+			0, 2, 5, 7
+		]
+	},
+	{
+		"no": "MGMT 1B",
+		"name": "Principles of Accounting II",
+		"professor": "Ravetch",
+		"units": 4,
+		"grade": "A-",
+		"tags": [
+			0, 2, 5, 7
+		]
+	},
+	{
+		"no": "STATS 10",
+		"name": "Introduction to Statistical Reasoning",
+		"professor": "Esfandiari",
+		"units": 5,
+		"grade": "A",
+		"tags": [
+			0, 1, 2, 5, 6, 7
+		]
+	},
+	{
+		"no": "DESMA 10",
+		"name": "Introduction to Design Culture",
+		"professor": "Huhtamo",
+		"units": 5,
+		"grade": "A-",
+		"tags": [
+			0, 1
+		]
+	},
+	{
+		"no": "MGMT 120A",
+		"name": "Intermediate Financial Accounting I",
+		"professor": "Ravetch",
+		"units": 5,
+		"grade": "A",
+		"tags": [
+			0, 2, 3, 5, 7
+		]
+	},
+	{
+		"no": "ECON 101",
+		"name": "Microeconomic Theory II",
+		"professor": "Sproul",
+		"units": 4,
+		"grade": "A+",
+		"tags": [
+			0, 2, 3, 7
+		]
+	},
+	{
+		"no": "PIC 10A",
+		"name": "Introduction to Programming - C++",
+		"professor": "Ouelette",
+		"units": 4,
+		"grade": "A",
+		"tags": [
+			0, 4, 6
+		]
+	},
+	{
+		"no": "MGMT 120B",
+		"name": "Intermediate Financial Accounting II",
+		"professor": "Ravetch",
+		"units": 5,
+		"grade": "A",
+		"tags": [
+			0, 2, 3, 5, 7
+		]
+	},
+	{
+		"no": "ECON 41",
+		"name": "Statistics for Economists",
+		"professor": "Liao",
+		"units": 4,
+		"grade": "A",
+		"tags": [
+			0, 2, 6, 7
+		]
+	},
+	{
+		"no": "MGMT 127A",
+		"name": "Tax Principles and Policy",
+		"professor": "Berges",
+		"units": 4,
+		"grade": "A",
+		"tags": [
+			0, 2, 3, 5, 7
+		]
+	},
+	{
+		"no": "ECON 102",
+		"name": "Macroeconomic Theory",
+		"professor": "Cantu Garcia",
+		"units": 4,
+		"grade": "A+",
+		"tags": [
+			0, 2, 3, 7
+		]
+	},
+	{
+		"no": "MGMT 142",
+		"name": "Information Technology in Accounting",
+		"professor": "Ravetch",
+		"units": 4,
+		"grade": "P",
+		"tags": [
+			0, 3, 5, 6, 7
+		]
+	},
+	{
+		"no": "MATH 61",
+		"name": "Introduction to Discrete Structures",
+		"professor": "Unger",
+		"units": 4,
+		"grade": "A",
+		"tags": [
+			0, 4, 6
+		]
+	},
+	{
+		"no": "ASTRO 3",
+		"name": "Nature of Universe",
+		"professor": "Furlanetto",
+		"units": 5,
+		"grade": "A",
+		"tags": [
+			0, 1
+		]
+	},
+	{
+		"no": "MGMT 108",
+		"name": "Business Law",
+		"professor": "Boss",
+		"units": 4,
+		"grade": "A",
+		"tags": [
+			0, 2, 3, 5, 7
+		]
+	},
+	{
+		"no": "CHIN 1 - 3",
+		"name": "Modern Chinese for Advanced Beginners",
+		"professor": "Sun",
+		"units": 15,
+		"grade": "P",
+		"tags": [
+			0
+		]
+	},
+	{
+		"no": "MGMT 121",
+		"name": "Ethical Leadership in Accounting",
+		"professor": "Williams",
+		"units": 4,
+		"grade": "A",
+		"tags": [
+			0, 2, 3, 5, 7
+		]
+	},
+	{
+		"no": "MGMT 122",
+		"name": "Management Accounting",
+		"professor": "Williams",
+		"units": 4,
+		"grade": "A+",
+		"tags": [
+			0, 2, 3, 5, 7
+		]
+	},
+	{
+		"no": "PIC 10B",
+		"name": "Intermediate Programming - C++",
+		"professor": "Ouelette",
+		"units": 4,
+		"grade": "A+",
+		"tags": [
+			0, 4, 6
+		]
+	},
+	{
+		"no": "MGMT 126",
+		"name": "Financial Statement Analysis",
+		"professor": "Williams",
+		"units": 4,
+		"grade": "A",
+		"tags": [
+			0, 2, 3, 5, 7
+		]
+	},
+	{
+		"no": "ECON 122",
+		"name": "International Finance",
+		"professor": "McDevitt",
+		"units": 4,
+		"grade": "A",
+		"tags": [
+			0, 2, 3, 7
+		]
+	},
+	{
+		"no": "ECON 103/103L",
+		"name": "Introduction to Econometrics",
+		"professor": "Atkins",
+		"units": 5,
+		"grade": "A+",
+		"tags": [
+			0, 2, 3, 4, 7
+		]
+	},
+	{
+		"no": "ECON 106T/106TL",
+		"name": "Economics of Technology and E-Commerce",
+		"professor": "Board",
+		"units": 5,
+		"grade": "IP",
+		"tags": [
+			0, 2, 3, 4, 6, 7
+		]
+	},
+	{
+		"no": "PIC 20A",
+		"name": "Principles of Java Language with Applications",
+		"professor": "Haberland",
+		"units": 4,
+		"grade": "IP",
+		"tags": [
+			0, 4, 6
+		]
+	},
+	{
+		"no": "PIC 40A",
+		"name": "Introduction to Programming for Internet",
+		"professor": "Virtanen",
+		"units": 4,
+		"grade": "IP",
+		"tags": [
+			0, 4, 6
+		]
+	},
+	{
+		"no": "MGMT 123",
+		"name": "Auditing",
+		"professor": "Gardner",
+		"units": 4,
+		"grade": "IP",
+		"tags": [
+			0, 2, 3, 5, 7
+		]
+	}
+]

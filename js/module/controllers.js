@@ -11,6 +11,7 @@ angular.module('main.controllers', [])
 .controller('AboutCtrl', function($scope, $rootScope, About) {
 	$scope.selected;
 	$scope.radioModel = 0;
+	$scope.classModel = 0;
 
 	$scope.set = function( curr ) {
 		switch(curr) {
@@ -45,24 +46,64 @@ angular.module('main.controllers', [])
 		}
 	}
 	
+	$scope.filterClasses = function( param ) {
+		About.loadItems('education').then( function(val) {
+			var arr = new Array();
+			for( var a in val ) {
+				if( val[a].tags.indexOf( param ) != -1 )
+					arr.push( val[a] );
+			}
+			
+			$scope.classes = arr;
+			$scope.gpa = $scope.calculateGPA();
+		});
+	}
+	
 	About.loadItems('experience').then( function(val) {
 		$scope.experiences = val;
 	});
+	
+	About.loadItems('education').then( function(val) {
+		$scope.classes = val;
+		$scope.gpa = $scope.calculateGPA();
+	});
+	
+	$scope.calculateGPA = function() {
+		var gA = {"A+": 4.0, "A": 4.0, "A-": 3.7, "B+": 3.3};
+		var units = 0, sum = 0;
+		for( var c in $scope.classes ) {
+			var cla = $scope.classes[c];
+			
+			// Skip P/NP
+			if( cla.grade == "P" || cla.grade == "IP" )
+				continue;
+				
+			sum += gA[cla.grade]*cla.units;
+			units += cla.units;
+		}
+		
+		return (sum/units).toFixed(3);
+	}
 })
 
 .controller('StocksCtrl', function($q, $scope, $modal, $sce, Stocks) {
 	var tickers = new Array();
-	var promises = [ Stocks.getPortfolio("shorts"), Stocks.getPortfolio("longs") ];
+	var promises = [ Stocks.getPortfolio("shorts"), Stocks.getPortfolio("longs"), Stocks.getPortfolio("closed") ];
 	
 	$q.all(promises).then( function( val ) {
 		$scope.shorts = val[0];
 		$scope.longs = val[1];
+		$scope.closeds = val[2];
 		
 		for( var i = 0; i < val[0].length; ++i ) {
 			tickers.push(val[0][i]['ticker']);
 		}
 		for( var j = 0; j < val[1].length; ++j ) {
 			tickers.push(val[1][j]['ticker']);
+		}
+		
+		for( var k = 0; k < $scope.closeds.length; ++k ) {
+			$scope.closeds[k]['diff'] = $scope.getDiff($scope.closeds[k]['cost'], $scope.closeds[k]['exit']);
 		}
 		
 		Stocks.getStocks(tickers).then( function( val ) {

@@ -1,0 +1,42 @@
+[
+	{
+		"ticker": "AAL",
+		"name": "American Airlines",
+		"purchdate": "8/21/2015",
+		"exitdate": "9/9/2015",
+		"cost": 39.91,
+		"exit": 41.50
+	},
+	{
+		"ticker": "BOX",
+		"name": "Box Inc.",
+		"purchdate": "9/1/2015",
+		"exitdate": "9/9/2015",
+		"cost": 13.11,
+		"exit": 14.50
+	},
+	{
+		"ticker": "NKE",
+		"name": "Nike Inc",
+		"purchdate": "9/16/2015",
+		"exitdate": "9/25/2015",
+		"cost": 114.00,
+		"exit": 125.03	
+	},
+	{
+		"ticker": "MU",
+		"name": "Micron Technology, Inc.",
+		"purchdate": "9/18/2015",
+		"exitdate": "9/30/2015",
+		"cost": 14.84,
+		"exit": 15.16
+	},
+	{
+		"ticker": "LUV",
+		"name": "Southwest Airlines Co",
+		"purchdate": "7/16/2015",
+		"exitdate": "10/9/2015",
+		"cost": 34.74,
+		"exit": 40.08
+	}
+]

@@ -1,8 +1,51 @@
 <div class="well">
 	<h3>Quick Reference</h3>
 	<ul>
+		<li>Business Economics, B.A.</li>
+		<li>Specializing in Computing</li>
+		<li>Accounting Minor</li>
 	</ul>
 </div>
 
 <div>
+	<div class="filter-btns">
+		<p>Select relevant classes</p>
+		<div class="btn-group btn-group-justified">
+			<label class="btn btn-success" ng-model="classModel" ng-change="filterClasses(classModel)" btn-radio="0">All</label>
+			<label class="btn btn-primary" ng-model="classModel" ng-change="filterClasses(classModel)" btn-radio="1">General Ed</label>
+			<label class="btn btn-primary" ng-model="classModel" ng-change="filterClasses(classModel)" btn-radio="2">Major Classes</label>
+			<label class="btn btn-primary" ng-model="classModel" ng-change="filterClasses(classModel)" btn-radio="3">Upper Div</label>
+			<label class="btn btn-primary" ng-model="classModel" ng-change="filterClasses(classModel)" btn-radio="4">Computing</label>
+			<label class="btn btn-primary" ng-model="classModel" ng-change="filterClasses(classModel)" btn-radio="5">Accounting</label>
+			<label class="btn btn-primary" ng-model="classModel" ng-change="filterClasses(classModel)" btn-radio="6">Tech</label>
+			<label class="btn btn-primary" ng-model="classModel" ng-change="filterClasses(classModel)" btn-radio="7">Business</label>
+		</div>
+	</div>
+	
+	<div class="input-group input-group-lg">
+		<span class="input-group-addon" id="sizing-addon1">GPA</span>
+		<input type="text" class="form-control" ng-model="gpa" disabled="disabled">
+	</div>
+	
+	<br />
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Class Symbol</th>
+				<th>Course Name</th>
+				<th>Professor</th>
+				<th>Units</th>
+				<th>Grade</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="class in classes">
+				<td>{{class.no}}</td>
+				<td>{{class.name}}</td>
+				<td>{{class.professor}}</td>
+				<td>{{class.units}}</td>
+				<td>{{class.grade}}</td>
+			</tr>
+		</tbody>
+	</table>
 </div>

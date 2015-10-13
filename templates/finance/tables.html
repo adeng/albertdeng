@@ -46,3 +46,30 @@
 		</tr>
 	</tbody>
 </table>
+<br />
+<br />
+<h3>Closed Positions</h3>
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>Stock Ticker</th>
+			<th>Company Name</th>
+			<th>Date of Purchase</th>
+			<th>Date of Sale</th>
+			<th>Cost Price</th>
+			<th>Sale Price</th>
+			<th>Gain/Loss per Share</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="clickable" ng-repeat="closed in closeds" ng-click="open(closed)" href>
+			<td>{{closed.ticker}}</td>
+			<td>{{closed.name}}</td>
+			<td>{{closed.purchdate}}</td>
+			<td>{{closed.exitdate}}</td>
+			<td>{{closed.cost}}</td>
+			<td>{{formatMoney(closed.exit)}}</td>
+			<td><span ng-bind-html="closed.diff"></span></td>
+		</tr>
+	</tbody>
+</table>

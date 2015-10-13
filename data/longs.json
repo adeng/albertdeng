@@ -45,6 +45,24 @@
 		"ticker": "BAC",
 		"name": "Bank of America Corp",
 		"purchdate": "9/1/2015",
-		"cost": 15.78
+		"cost": 15.41
+	},
+	{
+		"ticker": "F",
+		"name": "Ford Motor Company",
+		"purchdate": "9/28/2015",
+		"cost": 13.22
+	},
+	{
+		"ticker": "BIIB",
+		"name": "Biogen Inc",
+		"purchdate": "10/9/2015",
+		"cost": 269.31
+	},
+	{
+		"ticker": "TGT",
+		"name": "Target Corporation",
+		"purchdate": "10/9/2015",
+		"cost": 78.73
 	}
 ]
