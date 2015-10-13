@@ -6,7 +6,7 @@ angular.module('main.services', [])
 		getPortfolio: function(filename) {
 			var deferred = $q.defer();
 			
-			$http.get('/data/' + filename + '.json').success( function(data, status, headers, config) {
+			$http.get('https://cdn.rawgit.com/adeng/albertdeng/master/data/' + filename + '.json').success( function(data, status, headers, config) {
 				console.log(data);
 				deferred.resolve(data);
 			});
@@ -49,7 +49,7 @@ angular.module('main.services', [])
 		loadItems: function(filename) {
 			var deferred = $q.defer();
 			
-			$http.get('/data/about/' + filename + '.json').success( function(data, status, headers, config) {
+			$http.get('https://cdn.rawgit.com/adeng/albertdeng/master/data/about/' + filename + '.json').success( function(data, status, headers, config) {
 				deferred.resolve(data);
 			});
 			
