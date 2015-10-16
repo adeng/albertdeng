@@ -1,14 +1,14 @@
 [
 	{
-		"ticker": "RXII",
-		"name": "RXi Pharmaceuticals Corporation",
-		"purchdate": "9/11/2015",
-		"cost": 0.50
-	},
-	{
 		"ticker": "TSLA",
 		"name": "Tesla Motors Inc",
 		"purchdate": "10/13/2015",
 		"cost": 219.88
+	},
+	{
+		"ticker": "WMT",
+		"name": "Wal-Mart Stores, Inc",
+		"purchdate": "10/16/2015",
+		"cost": 59.28
 	}
 ]
