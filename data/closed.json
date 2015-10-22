@@ -38,5 +38,13 @@
 		"exitdate": "10/9/2015",
 		"cost": 34.74,
 		"exit": 40.08
+	},
+	{
+		"ticker": "BAC",
+		"name": "Bank of America Corp",
+		"purchdate": "9/2/2015",
+		"exitdate": "10/16/2015",
+		"cost": 15.80,
+		"exit": 16.10
 	}
 ]
