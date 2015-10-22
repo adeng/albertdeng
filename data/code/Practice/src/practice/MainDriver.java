@@ -26,5 +26,5 @@ public class MainDriver {
         System.out.println("Is Unique: " + ArrayLists.isUniqueString("bacoero"));
         
         System.out.println("Is Armstrong: " + Others.isArmstrong(371));
-    }
+    } 
 }
