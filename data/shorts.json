@@ -1,14 +1,14 @@
 [
 	{
-		"ticker": "TSLA",
-		"name": "Tesla Motors Inc",
-		"purchdate": "10/20/2015",
-		"cost": 207.58
-	},
-	{
 		"ticker": "WMT",
 		"name": "Wal-Mart Stores, Inc",
 		"purchdate": "10/16/2015",
 		"cost": 59.28
+	},
+	{
+		"ticker": "EA",
+		"name": "Electronic Arts Inc.",
+		"purchdate": "11/2/2015",
+		"cost": 72.55
 	}
 ]

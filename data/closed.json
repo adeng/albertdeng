@@ -46,5 +46,13 @@
 		"exitdate": "10/16/2015",
 		"cost": 15.80,
 		"exit": 16.10
+	},
+	{
+		"ticker": "TSLA",
+		"name": "Tesla Motors Inc",
+		"purchdate": "10/20/2015",
+		"exitdate": "11/2/2015",
+		"cost": 207.58,
+		"exit": 212.82
 	}
 ]
