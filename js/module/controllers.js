@@ -63,6 +63,10 @@ angular.module('main.controllers', [])
 		$scope.experiences = val;
 	});
 	
+	About.loadItems('extracurriculars').then( function(val) {
+		$scope.extracurriculars = val;
+	});
+	
 	About.loadItems('education').then( function(val) {
 		$scope.classes = val;
 		$scope.gpa = $scope.calculateGPA();

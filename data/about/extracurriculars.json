@@ -1,0 +1,38 @@
+[
+	{
+		"company": "Bruin Hedge Fund",
+		"time": "Apr 2015 - Present",
+		"title": "VP of Analysis",
+		"tech": true,
+		"biz": true,
+		"content": [
+			"As Information Technology research team head, trained and led team to identify undervalued investment opportunities with an emphasis on emerging cloud and enterprise technologies",
+			"Developed valuation tool to quickly identify intrinsic value using residual income methodology and alert the user to trading opportunities based on technical analysis",
+			"Sponsored and competed in Estimize.com company earnings estimation challenge"
+		]
+	},
+	{
+		"company": "Ascend at UCLA",
+		"time": "Apr 2015 - Present",
+		"title": "Treasurer",
+		"tech": false,
+		"biz": true,
+		"content": [
+			"Reconciled three years of non-standardized journal entries constructed by past treasurers to new financial system; had to search for missing documentation and uncovered misappropriation of funds",
+			"Developed incentivization proposal to boost waning motivation and ensure support for necessary but unpopular programs",
+			"Responsible for organizing and leading Excel workshops with university professors, providing almost 40% of the organization’s quarter-to-quarter operating revenue"
+		]
+	},
+	{
+		"company": "Ascend at UCLA",
+		"time": "Apr 2014 - Apr 2015",
+		"title": "VP of Information Technology",
+		"tech": true,
+		"biz": true,
+		"content": [
+			"Built and maintained internal finance system capable of managing a general ledger, accounts payables and receivables, budgeting, and GAAP financial statements using Google Apps script",
+			"Created and maintained website, managing not only the front-end but also acquiring a domain and hosting service",
+			"Developed scripts to efficiently manage membership status, generate and send newsletters, and schedule events"
+		]
+	}
+]

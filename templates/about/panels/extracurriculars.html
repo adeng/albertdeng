@@ -6,42 +6,19 @@
 
 <div>
 	<ul class="timeline">
-		<li>
+		<li ng-repeat="ext in extracurriculars" ng-if="radioModel == 0 || (radioModel == 1 && ext.tech) || (radioModel == 2 && ext.biz)">
 			<div class="thumbnail">
+				<p class="badge">{{ext.time}}</p>
+				<p class="badge alert-success" ng-if="ext.tech">Tech</p>
+				<p class="badge alert-warning" ng-if="ext.biz">Business</p>
 				<div class="caption">
-					<h3>Bruin Hedge Fund</h3>
-					<h4>Head Research Analyst (Information Technology)</h4>
-					<p>Lorem ipsum text</p>
-				</div>
-			</div>
-		</li>
-		
-		<li>
-			<div class="thumbnail">
-				<div class="caption">
-					<h3>Ascend at UCLA</h3>
-					<h4>Treasurer</h4>
-					<p>Lorem ipsum text</p>
-				</div>
-			</div>
-		</li>
-		
-		<li>
-			<div class="thumbnail">
-				<div class="caption">
-					<h3>UCLA Anderson School of Management</h3>
-					<h4>Grader</h4>
-					<p>Lorem ipsum text</p>
-				</div>
-			</div>
-		</li>
-		
-		<li>
-			<div class="thumbnail">
-				<div class="caption">
-					<h3>Ascend at UCLA</h3>
-					<h4>Vice President of Information Technology</h4>
-					<p>Lorem ipsum text</p>
+					<h3>{{ext.company}}</h3>
+					<h4>{{ext.title}}</h4>
+					<ul>
+						<li ng-repeat="stuff in ext.content">
+							{{stuff}}
+						</li>
+					</ul>
 				</div>
 			</div>
 		</li>
