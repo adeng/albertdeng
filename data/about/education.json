@@ -304,7 +304,7 @@
 		"name": "Economics of Technology and E-Commerce",
 		"professor": "Board",
 		"units": 5,
-		"grade": "IP",
+		"grade": "A",
 		"tags": [
 			0, 2, 3, 4, 6, 7
 		]
@@ -314,7 +314,7 @@
 		"name": "Principles of Java Language with Applications",
 		"professor": "Haberland",
 		"units": 4,
-		"grade": "IP",
+		"grade": "A+",
 		"tags": [
 			0, 4, 6
 		]
@@ -324,15 +324,35 @@
 		"name": "Introduction to Programming for Internet",
 		"professor": "Virtanen",
 		"units": 4,
-		"grade": "IP",
+		"grade": "A",
 		"tags": [
 			0, 4, 6
 		]
 	},
 	{
-		"no": "MGMT 123",
-		"name": "Auditing",
-		"professor": "Gardner",
+		"no": "ECON 106V/106VL",
+		"name": "Investments",
+		"professor": "Weill",
+		"units": 5,
+		"grade": "IP",
+		"tags": [
+			0, 2, 3, 6, 7
+		]
+	},
+	{
+		"no": "ENGCOMP 131B",
+		"name": "Specialized Writing: Business and Social Policy",
+		"professor": "Westrup",
+		"units": 4,
+		"grade": "IP",
+		"tags": [
+			0, 2, 3, 6, 7
+		]
+	},
+	{
+		"no": "MGMT 124",
+		"name": "Advanced Accounting",
+		"professor": "Williams",
 		"units": 4,
 		"grade": "IP",
 		"tags": [

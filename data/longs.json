@@ -30,18 +30,6 @@
 		"cost": 43.08
 	},
 	{
-		"ticker": "PYPL",
-		"name": "Paypal Holdings Inc",
-		"purchdate": "7/17/2015",
-		"cost": 38.71
-	},
-	{
-		"ticker": "GILD",
-		"name": "Gilead Sciences, Inc.",
-		"purchdate": "7/24/2015",
-		"cost": 116.55
-	},
-	{
 		"ticker": "BAC",
 		"name": "Bank of America Corp",
 		"purchdate": "9/1/2015",
@@ -58,11 +46,5 @@
 		"name": "Biogen Inc",
 		"purchdate": "10/9/2015",
 		"cost": 269.31
-	},
-	{
-		"ticker": "TGT",
-		"name": "Target Corporation",
-		"purchdate": "10/9/2015",
-		"cost": 78.73
 	}
 ]

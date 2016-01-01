@@ -1,32 +1,3 @@
 [
-	{
-		"ticker": "BGMD",
-		"name": "BG Medicine, Inc.",
-		"purchdate": "9/15/2015",
-		"cost": 0.54
-	},
-	{
-		"ticker": "JBLU",
-		"name": "JetBlue Airways Corporation",
-		"purchdate": "10/13/2015",
-		"cost": 24.76
-	},
-	{
-		"ticker": "WMT",
-		"name": "Wal-Mart Stores, Inc",
-		"purchdate": "10/16/2015",
-		"cost": 59.28
-	},
-	{
-		"ticker": "EA",
-		"name": "Electronic Arts Inc.",
-		"purchdate": "11/2/2015",
-		"cost": 72.55
-	},
-	{
-		"ticker": "AA",
-		"name": "Alcoa Inc",
-		"purchdate": "11/9/2015",
-		"cost": 8.54
-	}
+	
 ]

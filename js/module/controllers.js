@@ -5,7 +5,11 @@ angular.module('main.controllers', [])
 })
 
 .controller('FinanceCtrl', function($scope) {
-	
+	$scope.selected = 0;
+    
+    $scope.set = function( input ) {
+        $scope.selected = input;
+    }
 })
 
 .controller('AboutCtrl', function($scope, $rootScope, About) {
@@ -88,6 +92,10 @@ angular.module('main.controllers', [])
 		
 		return (sum/units).toFixed(3);
 	}
+})
+
+.controller('ReportsCtrl', function($scope) {
+    
 })
 
 .controller('StocksCtrl', function($q, $scope, $modal, $sce, Stocks) {

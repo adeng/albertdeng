@@ -4,6 +4,15 @@
 	</ul>
 </div>
 
+<div class="filter-btns">
+	<p>Filter experience by relevant category
+    <div class="btn-group btn-group-justified">
+        <label class="btn btn-primary" ng-model="radioModel" btn-radio="0">All</label>
+        <label class="btn btn-success" ng-model="radioModel" btn-radio="1">Tech</label>
+        <label class="btn btn-warning" ng-model="radioModel" btn-radio="2">Business</label>
+    </div>
+</div>
+
 <div>
 	<ul class="timeline">
 		<li ng-repeat="ext in extracurriculars" ng-if="radioModel == 0 || (radioModel == 1 && ext.tech) || (radioModel == 2 && ext.biz)">
