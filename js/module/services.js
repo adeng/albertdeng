@@ -7,7 +7,6 @@ angular.module('main.services', [])
 			var deferred = $q.defer();
 			
 			$http.get('https://cdn.rawgit.com/adeng/albertdeng/master/data/' + filename + '.json').success( function(data, status, headers, config) {
-				console.log(data);
 				deferred.resolve(data);
 			});
 			

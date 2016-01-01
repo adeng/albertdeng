@@ -94,8 +94,10 @@ angular.module('main.controllers', [])
 	}
 })
 
-.controller('ReportsCtrl', function($scope) {
-    
+.controller('ReportsCtrl', function($scope, Stocks) {
+    Stocks.getPortfolio("reports").then( function( val ) {
+       console.log(val); 
+    });
 })
 
 .controller('StocksCtrl', function($q, $scope, $modal, $sce, Stocks) {
