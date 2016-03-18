@@ -8,7 +8,11 @@ angular.module('main.services', [])
 			
 			$http.get('https://cdn.rawgit.com/adeng/albertdeng/master/data/' + filename + '.json').success( function(data, status, headers, config) {
 				deferred.resolve(data);
-			});
+			}).error( function(data, status, headers, config) {
+                $http.get('/data/' + filename + '.json').success( function(data, status, headers, config) { 
+                    deferred.resolve(data);
+                });
+            });
 			
 			return deferred.promise;
 		},

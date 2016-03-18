@@ -77,7 +77,7 @@ angular.module('main.controllers', [])
 	});
 	
 	$scope.calculateGPA = function() {
-		var gA = {"A+": 4.0, "A": 4.0, "A-": 3.7, "B+": 3.3};
+		var gA = {"A+": 4.0, "A": 4.0, "A-": 3.7, "B+": 3.3, "B": 3.0, "B-": 2.7};
 		var units = 0, sum = 0;
 		for( var c in $scope.classes ) {
 			var cla = $scope.classes[c];
@@ -96,8 +96,12 @@ angular.module('main.controllers', [])
 
 .controller('ReportsCtrl', function($scope, Stocks) {
     Stocks.getPortfolio("reports").then( function( val ) {
-       console.log(val); 
+        $scope.reports = val;
     });
+    
+    $scope.open = function( url ) {
+        
+    }
 })
 
 .controller('StocksCtrl', function($q, $scope, $modal, $sce, Stocks) {

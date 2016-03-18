@@ -4,14 +4,18 @@
 		<tr>
 			<th>Stock Ticker</th>
 			<th>Company Name</th>
+            <th>Sector</th>
+            <th>Industry</th>
             <th>Rating</th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr class="clickable" ng-click="open()" href>
-			<td>MSFT</td>
-			<td>Microsoft Corp</td>
-            <td>Buy</td>
+		<tr class="clickable" ng-repeat="report in reports" ng-click="open(report.url)" href>
+			<td>{{report.ticker}}</td>
+			<td>{{report.name}}</td>
+            <td>{{report.sector}}</td>
+            <td>{{report.industry}}</td>
+            <td>{{report.rating}}</td>
 		</tr>
 	</tbody>
 </table>
