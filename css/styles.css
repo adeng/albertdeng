@@ -41,9 +41,6 @@ body {
     display: none; 
 }
 
-.win-pivot-header-selected {
-    color: #356A95 !important;
-}
 .win-splitviewcommand-icon {
     font-family: 'Segoe UI' !important;
 }
@@ -75,6 +72,26 @@ hr {
     margin-top: 0px;
     padding: 10px;
     font-weight: 600;
+}
+
+.header-pivot .win-pivot-header-area {
+    background-color: #F2F2F2;
+}
+
+.header-pivot .win-pivot-headers {
+    margin-left: 0 !important;
+}
+
+.header-pivot .win-pivot-header {
+    font-size: 14px !important;
+}
+
+.header-pivot .win-pivot-header {
+    font-size: 14px !important;
+}
+
+.header-pivot .win-pivot-header-selected {
+    font-weight: bold !important;
 }
 
 /* NAVBAR
