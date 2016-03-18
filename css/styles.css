@@ -32,8 +32,12 @@ body {
   overflow: hidden !important;
 }
 
+.win-splitview-content {
+    overflow: scroll !important;
+}
+
 ::-webkit-scrollbar { 
-    display: none; /* Hide scrollbar */
+    display: none; 
 }
 
 .win-pivot-header-selected {
