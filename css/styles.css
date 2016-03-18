@@ -29,8 +29,26 @@ h1 {
 body {
   padding-bottom: 40px;
   color: #5a5a5a;
+  overflow: scroll !important;
 }
 
+::-webkit-scrollbar { 
+    display: none; /* Hide scrollbar */
+}
+
+.win-pivot-header-selected {
+    color: #356A95 !important;
+}
+
+/* UI Elements
+-------------------------------------------------- */
+.display p {
+    margin-left: 5%;
+}
+
+hr {
+    margin: 5% 0 5% 0 !important;
+}
 
 /* NAVBAR
 -------------------------------------------------- */

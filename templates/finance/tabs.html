@@ -1,5 +1,14 @@
-<tabset class="nav-justified">
-	<tab heading="Recent" select="set(0)"></tab>
-	<tab heading="Reports" select="set(1)"></tab>
-	<tab heading="Portfolio" select="set(2)"></tab>
-</tabset>
+<win-pivot>
+    <win-pivot-item header="'Recent'">
+        <div ng-include="'../templates/finance/views/recent.html'">
+        </div>
+    </win-pivot-item>
+    <win-pivot-item header="'Reports'">
+      <div ng-include="'../templates/finance/views/reports.html'">
+      </div>
+    </win-pivot-item>
+    <win-pivot-item header="'Portfolio'">
+      <div ng-include="'../templates/finance/views/portfolio.html'">
+      </div>
+    </win-pivot-item>
+</win-pivot>
