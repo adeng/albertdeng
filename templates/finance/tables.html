@@ -1,5 +1,5 @@
 <h3>Short-Term</h3>
-<table class="table table-hover">
+<table class="table">
 	<thead>
 		<tr>
 			<th>Stock Ticker</th>
@@ -11,14 +11,16 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr class="clickable" ng-repeat="short in shorts" ng-click="open(short)" href>
-			<td>{{short.ticker}}</td>
-			<td class="optional">{{short.name}}</td>
-			<td class="optional">{{short.purchdate}}</td>
-			<td class="optional">{{short.cost}}</td>
-			<td>{{short.price}}</td>
-			<td><span ng-bind-html="short.diff"></span></td>
-		</tr>
+        <win-item-container>
+            <tr ng-repeat="short in shorts" ng-click="open(short)" href>
+                <td>{{short.ticker}}</td>
+                <td class="optional">{{short.name}}</td>
+                <td class="optional">{{short.purchdate}}</td>
+                <td class="optional">{{short.cost}}</td>
+                <td>{{short.price}}</td>
+                <td><span ng-bind-html="short.diff"></span></td>
+            </tr>
+        </win-item-container>
 	</tbody>
 </table>
 <br />

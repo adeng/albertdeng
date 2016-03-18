@@ -29,6 +29,7 @@ h1 {
 body {
   padding-bottom: 40px;
   color: #5a5a5a;
+  background-color: #E6E6E6 !important;
   overflow: hidden !important;
 }
 
@@ -60,6 +61,20 @@ hr {
 
 .page-padding {
     padding: 12px 24px 12px 24px;
+}
+
+.header-bar {
+    display:inline;
+    position:fixed;
+    width:100%;
+    background-color: #F2F2F2;
+    height: 38px;
+}
+
+.header-bar h4 {
+    margin-top: 0px;
+    padding: 10px;
+    font-weight: 600;
 }
 
 /* NAVBAR
@@ -131,6 +146,18 @@ hr {
 
 .neg {
   color: red;
+}
+
+thead {
+    background-color: #D2D2D2;
+    color: #4A4A4A;
+}
+
+th {
+    border: 2px solid #fff;
+    font-weight: 100;
+    font-size: 14px;
+    border-bottom: 0px !important;
 }
 
 /* Button Filters
@@ -280,7 +307,7 @@ to prevent collapsing during animation*/
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 580px) {
     .jumbotron {
         padding: 10px 5% 10px 5%;
     }
