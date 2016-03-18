@@ -57,10 +57,10 @@ body {
 hr {
     margin: 5% 0 5% 0 !important;
 }
-/*
+
 .page-padding {
     padding: 12px 24px 12px 24px;
-}*/
+}
 
 /* NAVBAR
 -------------------------------------------------- */
@@ -287,5 +287,9 @@ to prevent collapsing during animation*/
     
     .jumbotron p {
         font-size: 18.5px !important;
+    }
+    
+    .optional {
+        display:none;
     }
 }

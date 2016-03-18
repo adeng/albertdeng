@@ -1,11 +1,11 @@
-<h3>Short-Term Plays</h3>
+<h3>Short-Term</h3>
 <table class="table table-hover">
 	<thead>
 		<tr>
 			<th>Stock Ticker</th>
-			<th>Company Name</th>
-			<th>Date of Purchase</th>
-			<th>Adjusted Cost Price</th>
+			<th class="optional">Company Name</th>
+			<th class="optional">Date of Purchase</th>
+			<th class="optional">Adjusted Cost Price</th>
 			<th>Current Stock Price</th>
 			<th>Gain/Loss per Share</th>
 		</tr>
@@ -13,9 +13,9 @@
 	<tbody>
 		<tr class="clickable" ng-repeat="short in shorts" ng-click="open(short)" href>
 			<td>{{short.ticker}}</td>
-			<td>{{short.name}}</td>
-			<td>{{short.purchdate}}</td>
-			<td>{{short.cost}}</td>
+			<td class="optional">{{short.name}}</td>
+			<td class="optional">{{short.purchdate}}</td>
+			<td class="optional">{{short.cost}}</td>
 			<td>{{short.price}}</td>
 			<td><span ng-bind-html="short.diff"></span></td>
 		</tr>
@@ -23,14 +23,14 @@
 </table>
 <br />
 <br />
-<h3>Long Plays</h3>
+<h3>Long-Term</h3>
 <table class="table table-hover">
 	<thead>
 		<tr>
 			<th>Stock Ticker</th>
-			<th>Company Name</th>
-			<th>Date of Purchase</th>
-			<th>Adjusted Cost Price</th>
+			<th class="optional">Company Name</th>
+			<th class="optional">Date of Purchase</th>
+			<th class="optional">Adjusted Cost Price</th>
 			<th>Current Stock Price</th>
 			<th>Gain/Loss per Share</th>
 		</tr>
@@ -38,9 +38,9 @@
 	<tbody>
 		<tr class="clickable" ng-repeat="long in longs" ng-click="open(long)" href>
 			<td>{{long.ticker}}</td>
-			<td>{{long.name}}</td>
-			<td>{{long.purchdate}}</td>
-			<td>{{long.cost}}</td>
+			<td class="optional">{{long.name}}</td>
+			<td class="optional">{{long.purchdate}}</td>
+			<td class="optional">{{long.cost}}</td>
 			<td>{{long.price}}</td>
 			<td><span ng-bind-html="long.diff"></span></td>
 		</tr>
@@ -53,22 +53,22 @@
 	<thead>
 		<tr>
 			<th>Stock Ticker</th>
-			<th>Company Name</th>
-			<th>Date of Purchase</th>
-			<th>Date of Sale</th>
-			<th>Cost Price</th>
-			<th>Sale Price</th>
+			<th class="optional">Company Name</th>
+			<th class="optional">Date of Purchase</th>
+			<th >Date of Sale</th>
+			<th class="optional">Cost Price</th>
+			<th class="optional">Sale Price</th>
 			<th>Gain/Loss per Share</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr class="clickable" ng-repeat="closed in closeds" ng-click="open(closed)" href>
 			<td>{{closed.ticker}}</td>
-			<td>{{closed.name}}</td>
-			<td>{{closed.purchdate}}</td>
+			<td class="optional">{{closed.name}}</td>
+			<td class="optional">{{closed.purchdate}}</td>
 			<td>{{closed.exitdate}}</td>
-			<td>{{closed.cost}}</td>
-			<td>{{formatMoney(closed.exit)}}</td>
+			<td class="optional">{{closed.cost}}</td>
+			<td class="optional">{{formatMoney(closed.exit)}}</td>
 			<td><span ng-bind-html="closed.diff"></span></td>
 		</tr>
 	</tbody>
