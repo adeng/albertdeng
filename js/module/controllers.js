@@ -1,7 +1,7 @@
 angular.module('main.controllers', [])
 
-.controller('MainCtrl', function($rootScope) {
-	// $rootScope.module = 
+.controller('MainCtrl', function($scope, $rootScope) {
+	$scope.splitViewElement = document.getElementById("splitView");
 })
 
 .controller('FinanceCtrl', function($scope) {

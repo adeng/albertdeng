@@ -29,7 +29,7 @@ h1 {
 body {
   padding-bottom: 40px;
   color: #5a5a5a;
-  overflow: scroll !important;
+  overflow: hidden !important;
 }
 
 ::-webkit-scrollbar { 
@@ -39,6 +39,10 @@ body {
 .win-pivot-header-selected {
     color: #356A95 !important;
 }
+.win-splitviewcommand-icon {
+    font-family: 'Segoe UI' !important;
+}
+
 
 /* UI Elements
 -------------------------------------------------- */
@@ -49,6 +53,10 @@ body {
 hr {
     margin: 5% 0 5% 0 !important;
 }
+/*
+.page-padding {
+    padding: 12px 24px 12px 24px;
+}*/
 
 /* NAVBAR
 -------------------------------------------------- */

@@ -30,15 +30,26 @@
     <script src="js/module/controllers.js"></script>
     <script src="js/module/services.js"></script>
   </head>
-  <body ng-app="main">
-    <nav class="navbar navbar-default navbar-fixed-top" ng-include="'templates/interface/navbar.html'">
+  <body ng-app="main" ng-controller="MainCtrl">
+    <!--<nav class="navbar navbar-default navbar-fixed-top" ng-include="'templates/interface/navbar.html'">
     </nav>
     
-    <div style="padding-top: 70px" />
+    <div style="padding-top: 70px" />-->
+    
+    <win-split-view-pane-toggle split-view="splitViewElement"></win-split-view-pane-toggle> 
+    
+    <win-split-view id="splitView">
+        <win-split-view-pane>
+            <win-split-view-command label="'Home'" icon="'home'" ui-sref="home"></win-split-view-command>
+            <win-split-view-command label="'Finance'" icon="'settings'" ui-sref="finance"></win-split-view-command>
+            <win-split-view-command label="'About'" icon="'contactinfo'" ui-sref="about"></win-split-view-command>
+        </win-split-view-pane>
+        <win-split-view-content>
+            <div ui-view>
+            </div>
+        </win-split-view-content>
+    </win-split-view>
 
-    <div class="container ui-view-container">
-      <div ui-view>
-      </div>
-    </div>
+    
   </body>
 </html>
