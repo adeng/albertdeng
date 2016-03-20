@@ -15,7 +15,7 @@ angular.module('main.controllers', [])
         init = true;
         var width = window.innerWidth;
         
-        if( width <= 480 ) {
+        if( width <= 500 ) {
             $scope.splitViewObject.closedDisplayMode = WinJS.UI.SplitView.ClosedDisplayMode.none;
         } else {
             $scope.splitViewObject.closedDisplayMode = WinJS.UI.SplitView.ClosedDisplayMode.inline;

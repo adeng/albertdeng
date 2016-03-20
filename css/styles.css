@@ -41,7 +41,7 @@ body {
     display: none; 
 }
 
-.win-splitviewcommand-icon {
+.win-splitviewcommand-icon, .win-pivot-navbutton {
     font-family: 'Segoe UI' !important;
 }
 
