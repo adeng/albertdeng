@@ -365,6 +365,10 @@ to prevent collapsing during animation*/
     .size-matters {
         display:none;
     }
+    
+    .optional {
+        display: table-cell;
+    }
 }
 
 @media (max-width: 500px) {
@@ -374,6 +378,10 @@ to prevent collapsing during animation*/
     
     .optional {
         display:none;
+    }
+    
+    .size-matters {
+        display: table-cell;
     }
     
     p {

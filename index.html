@@ -11,24 +11,17 @@
     <!-- Bootstrap -->
     <link href="css/styles.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Angular -->
-    <script src="js/core/angular.min.js"></script>
-    <script src="js/core/angular-bootstrap.min.js"></script>
-    <script src="js/core/angular-sanitize.min.js"></script>
-    <script src="js/core/angular-route.min.js"></script>
-    <script src="js/core/angular-touch.min.js"></script>
-    <script src="js/core/angular-ui-router.min.js"></script>
-    
-    <!-- WinJS -->
-    <link href="node_modules/winjs/css/ui-light.min.css" rel="stylesheet" />
-    <script src="node_modules/winjs/js/base.js"></script>
-    <script src="node_modules/winjs/js/ui.js"></script>
-    <script src="node_modules/angular-winjs/js/angular-winjs.js"></script> 
-    
-    <script src="js/module/app.js"></script>
-    <script src="js/module/controllers.js"></script>
-    <script src="js/module/services.js"></script>
+    <style>
+        .hidden {
+            display:none;
+        }
+        
+        #loader {
+            position:absolute;
+            top: 50%;
+            left: 40%;
+        }
+    </style>
   </head>
   <body ng-app="main" ng-controller="GlobalCtrl">
     <!--<nav class="navbar navbar-default navbar-fixed-top" ng-include="'templates/interface/navbar.html'">
@@ -36,7 +29,11 @@
     
     <div style="padding-top: 70px" />-->
     
-    <div>
+    <div id="loader">
+        <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHdpZHRoPScxMzZweCcgaGVpZ2h0PScxMzZweCcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiIGNsYXNzPSJ1aWwtZWxsaXBzaXMiPjxjaXJjbGUgY3g9IjE2IiBjeT0iNTAiIHI9IjE1IiBmaWxsPSIjNDAzZDNkIiB0cmFuc2Zvcm09InJvdGF0ZSgwIDUwIDUwKSI+PGFuaW1hdGUgaWQ9ImFuaXIxMSIgYXR0cmlidXRlTmFtZT0iciIgZnJvbT0iMCIgdG89IjE1IiBiZWdpbj0iMHM7YW5pcjE0LmVuZCIgZHVyPSIwLjEyNXMiIGZpbGw9ImZyZWV6ZSI+PC9hbmltYXRlPjxhbmltYXRlIGlkPSJhbmlyMTIiIGF0dHJpYnV0ZU5hbWU9InIiIGZyb209IjE1IiB0bz0iMTUiIGJlZ2luPSJhbmlyMTEuZW5kIiBkdXI9IjAuNjI1cyIgZmlsbD0iZnJlZXplIj48L2FuaW1hdGU+PGFuaW1hdGUgaWQ9ImFuaXIxMyIgYXR0cmlidXRlTmFtZT0iciIgZnJvbT0iMTUiIHRvPSIwIiBiZWdpbj0iYW5pcjEyLmVuZCIgZHVyPSIwLjEyNXMiIGZpbGw9ImZyZWV6ZSI+PC9hbmltYXRlPjxhbmltYXRlIGlkPSJhbmlyMTQiIGF0dHJpYnV0ZU5hbWU9InIiIGZyb209IjAiIHRvPSIwIiBiZWdpbj0iYW5pcjEzLmVuZCIgZHVyPSIwLjEyNXMiIGZpbGw9ImZyZWV6ZSI+PC9hbmltYXRlPjxhbmltYXRlIGlkPSJhbml4MTEiIGF0dHJpYnV0ZU5hbWU9ImN4IiBmcm9tPSIxNiIgdG89IjE2IiBiZWdpbj0iMHM7YW5peDE4LmVuZCIgZHVyPSIwLjEyNXMiIGZpbGw9ImZyZWV6ZSI+PC9hbmltYXRlPjxhbmltYXRlIGlkPSJhbml4MTIiIGF0dHJpYnV0ZU5hbWU9ImN4IiBmcm9tPSIxNiIgdG89IjE2IiBiZWdpbj0iYW5peDExLmVuZCIgZHVyPSIwLjEyNXMiIGZpbGw9ImZyZWV6ZSI+PC9hbmltYXRlPjxhbmltYXRlIGlkPSJhbml4MTMiIGF0dHJpYnV0ZU5hbWU9ImN4IiBmcm9tPSIxNiIgdG89IjUwIiBiZWdpbj0iYW5peDEyLmVuZCIgZHVyPSIwLjEyNXMiIGZpbGw9ImZyZWV6ZSI+PC9hbmltYXRlPjxhbmltYXRlIGlkPSJhbml4MTQiIGF0dHJpYnV0ZU5hbWU9ImN4IiBmcm9tPSI1MCIgdG89IjUwIiBiZWdpbj0iYW5peDEzLmVuZCIgZHVyPSIwLjEyNXMiIGZpbGw9ImZyZWV6ZSI+PC9hbmltYXRlPjxhbmltYXRlIGlkPSJhbml4MTUiIGF0dHJpYnV0ZU5hbWU9ImN4IiBmcm9tPSI1MCIgdG89Ijg0IiBiZWdpbj0iYW5peDE0LmVuZCIgZHVyPSIwLjEyNXMiIGZpbGw9ImZyZWV6ZSI+PC9hbmltYXRlPjxhbmltYXRlIGlkPSJhbml4MTYiIGF0dHJpYnV0ZU5hbWU9ImN4IiBmcm9tPSI4NCIgdG89Ijg0IiBiZWdpbj0iYW5peDE1LmVuZCIgZHVyPSIwLjEyNXMiIGZpbGw9ImZyZWV6ZSI+PC9hbmltYXRlPjxhbmltYXRlIGlkPSJhbml4MTciIGF0dHJpYnV0ZU5hbWU9ImN4IiBmcm9tPSI4NCIgdG89Ijg0IiBiZWdpbj0iYW5peDE2LmVuZCIgZHVyPSIwLjEyNXMiIGZpbGw9ImZyZWV6ZSI+PC9hbmltYXRlPjxhbmltYXRlIGlkPSJhbml4MTgiIGF0dHJpYnV0ZU5hbWU9ImN4IiBmcm9tPSI4NCIgdG89IjE2IiBiZWdpbj0iYW5peDE3LmVuZCIgZHVyPSIwLjEyNXMiIGZpbGw9ImZyZWV6ZSI+PC9hbmltYXRlPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjE1IiBmaWxsPSIjODA4YTgwIiB0cmFuc2Zvcm09InJvdGF0ZSgwIDUwIDUwKSI+PGFuaW1hdGUgaWQ9ImFuaXIyMSIgYXR0cmlidXRlTmFtZT0iciIgZnJvbT0iMTUiIHRvPSIxNSIgYmVnaW49IjBzO2FuaXIyNS5lbmQiIGR1cj0iMC41cyIgZmlsbD0iZnJlZXplIj48L2FuaW1hdGU+PGFuaW1hdGUgaWQ9ImFuaXIyMiIgYXR0cmlidXRlTmFtZT0iciIgZnJvbT0iMTUiIHRvPSIwIiBiZWdpbj0iYW5pcjIxLmVuZCIgZHVyPSIwLjEyNXMiIGZpbGw9ImZyZWV6ZSI+PC9hbmltYXRlPjxhbmltYXRlIGlkPSJhbmlyMjMiIGF0dHJpYnV0ZU5hbWU9InIiIGZyb209IjAiIHRvPSIwIiBiZWdpbj0iYW5pcjIyLmVuZCIgZHVyPSIwLjEyNXMiIGZpbGw9ImZyZWV6ZSI+PC9hbmltYXRlPjxhbmltYXRlIGlkPSJhbmlyMjQiIGF0dHJpYnV0ZU5hbWU9InIiIGZyb209IjAiIHRvPSIxNSIgYmVnaW49ImFuaXIyMy5lbmQiIGR1cj0iMC4xMjVzIiBmaWxsPSJmcmVlemUiPjwvYW5pbWF0ZT48YW5pbWF0ZSBpZD0iYW5pcjI1IiBhdHRyaWJ1dGVOYW1lPSJyIiBmcm9tPSIxNSIgdG89IjE1IiBiZWdpbj0iYW5pcjI0LmVuZCIgZHVyPSIwLjEyNXMiIGZpbGw9ImZyZWV6ZSI+PC9hbmltYXRlPjxhbmltYXRlIGlkPSJhbml4MjEiIGF0dHJpYnV0ZU5hbWU9ImN4IiBmcm9tPSIxNiIgdG89IjUwIiBiZWdpbj0iMHM7YW5peDI4LmVuZCIgZHVyPSIwLjEyNXMiIGZpbGw9ImZyZWV6ZSI+PC9hbmltYXRlPjxhbmltYXRlIGlkPSJhbml4MjIiIGF0dHJpYnV0ZU5hbWU9ImN4IiBmcm9tPSI1MCIgdG89IjUwIiBiZWdpbj0iYW5peDIxLmVuZCIgZHVyPSIwLjEyNXMiIGZpbGw9ImZyZWV6ZSI+PC9hbmltYXRlPjxhbmltYXRlIGlkPSJhbml4MjMiIGF0dHJpYnV0ZU5hbWU9ImN4IiBmcm9tPSI1MCIgdG89Ijg0IiBiZWdpbj0iYW5peDIyLmVuZCIgZHVyPSIwLjEyNXMiIGZpbGw9ImZyZWV6ZSI+PC9hbmltYXRlPjxhbmltYXRlIGlkPSJhbml4MjQiIGF0dHJpYnV0ZU5hbWU9ImN4IiBmcm9tPSI4NCIgdG89Ijg0IiBiZWdpbj0iYW5peDIzLmVuZCIgZHVyPSIwLjEyNXMiIGZpbGw9ImZyZWV6ZSI+PC9hbmltYXRlPjxhbmltYXRlIGlkPSJhbml4MjUiIGF0dHJpYnV0ZU5hbWU9ImN4IiBmcm9tPSI4NCIgdG89Ijg0IiBiZWdpbj0iYW5peDI0LmVuZCIgZHVyPSIwLjEyNXMiIGZpbGw9ImZyZWV6ZSI+PC9hbmltYXRlPjxhbmltYXRlIGlkPSJhbml4MjYiIGF0dHJpYnV0ZU5hbWU9ImN4IiBmcm9tPSI4NCIgdG89IjE2IiBiZWdpbj0iYW5peDI1LmVuZCIgZHVyPSIwLjEyNXMiIGZpbGw9ImZyZWV6ZSI+PC9hbmltYXRlPjxhbmltYXRlIGlkPSJhbml4MjciIGF0dHJpYnV0ZU5hbWU9ImN4IiBmcm9tPSIxNiIgdG89IjE2IiBiZWdpbj0iYW5peDI2LmVuZCIgZHVyPSIwLjEyNXMiIGZpbGw9ImZyZWV6ZSI+PC9hbmltYXRlPjxhbmltYXRlIGlkPSJhbml4MjgiIGF0dHJpYnV0ZU5hbWU9ImN4IiBmcm9tPSIxNiIgdG89IjE2IiBiZWdpbj0iYW5peDI3LmVuZCIgZHVyPSIwLjEyNXMiIGZpbGw9ImZyZWV6ZSI+PC9hbmltYXRlPjwvY2lyY2xlPjxjaXJjbGUgY3g9Ijg0IiBjeT0iNTAiIHI9IjE1IiBmaWxsPSIjNDAzZDNkIiB0cmFuc2Zvcm09InJvdGF0ZSgwIDUwIDUwKSI+PGFuaW1hdGUgaWQ9ImFuaXIzMSIgYXR0cmlidXRlTmFtZT0iciIgZnJvbT0iMTUiIHRvPSIxNSIgYmVnaW49IjBzO2FuaXIzNS5lbmQiIGR1cj0iMC4yNXMiIGZpbGw9ImZyZWV6ZSI+PC9hbmltYXRlPjxhbmltYXRlIGlkPSJhbmlyMzIiIGF0dHJpYnV0ZU5hbWU9InIiIGZyb209IjE1IiB0bz0iMCIgYmVnaW49ImFuaXIzMS5lbmQiIGR1cj0iMC4xMjVzIiBmaWxsPSJmcmVlemUiPjwvYW5pbWF0ZT48YW5pbWF0ZSBpZD0iYW5pcjMzIiBhdHRyaWJ1dGVOYW1lPSJyIiBmcm9tPSIwIiB0bz0iMCIgYmVnaW49ImFuaXIzMi5lbmQiIGR1cj0iMC4xMjVzIiBmaWxsPSJmcmVlemUiPjwvYW5pbWF0ZT48YW5pbWF0ZSBpZD0iYW5pcjM0IiBhdHRyaWJ1dGVOYW1lPSJyIiBmcm9tPSIwIiB0bz0iMTUiIGJlZ2luPSJhbmlyMzMuZW5kIiBkdXI9IjAuMTI1cyIgZmlsbD0iZnJlZXplIj48L2FuaW1hdGU+PGFuaW1hdGUgaWQ9ImFuaXIzNSIgYXR0cmlidXRlTmFtZT0iciIgZnJvbT0iMTUiIHRvPSIxNSIgYmVnaW49ImFuaXIzNC5lbmQiIGR1cj0iMC4zNzVzIiBmaWxsPSJmcmVlemUiPjwvYW5pbWF0ZT48YW5pbWF0ZSBpZD0iYW5peDMxIiBhdHRyaWJ1dGVOYW1lPSJjeCIgZnJvbT0iNTAiIHRvPSI4NCIgYmVnaW49IjBzO2FuaXgzOC5lbmQiIGR1cj0iMC4xMjVzIiBmaWxsPSJmcmVlemUiPjwvYW5pbWF0ZT48YW5pbWF0ZSBpZD0iYW5peDMyIiBhdHRyaWJ1dGVOYW1lPSJjeCIgZnJvbT0iODQiIHRvPSI4NCIgYmVnaW49ImFuaXgzMS5lbmQiIGR1cj0iMC4xMjVzIiBmaWxsPSJmcmVlemUiPjwvYW5pbWF0ZT48YW5pbWF0ZSBpZD0iYW5peDMzIiBhdHRyaWJ1dGVOYW1lPSJjeCIgZnJvbT0iODQiIHRvPSI4NCIgYmVnaW49ImFuaXgzMi5lbmQiIGR1cj0iMC4xMjVzIiBmaWxsPSJmcmVlemUiPjwvYW5pbWF0ZT48YW5pbWF0ZSBpZD0iYW5peDM0IiBhdHRyaWJ1dGVOYW1lPSJjeCIgZnJvbT0iODQiIHRvPSIxNiIgYmVnaW49ImFuaXgzMy5lbmQiIGR1cj0iMC4xMjVzIiBmaWxsPSJmcmVlemUiPjwvYW5pbWF0ZT48YW5pbWF0ZSBpZD0iYW5peDM1IiBhdHRyaWJ1dGVOYW1lPSJjeCIgZnJvbT0iMTYiIHRvPSIxNiIgYmVnaW49ImFuaXgzNC5lbmQiIGR1cj0iMC4xMjVzIiBmaWxsPSJmcmVlemUiPjwvYW5pbWF0ZT48YW5pbWF0ZSBpZD0iYW5peDM2IiBhdHRyaWJ1dGVOYW1lPSJjeCIgZnJvbT0iMTYiIHRvPSIxNiIgYmVnaW49ImFuaXgzNS5lbmQiIGR1cj0iMC4xMjVzIiBmaWxsPSJmcmVlemUiPjwvYW5pbWF0ZT48YW5pbWF0ZSBpZD0iYW5peDM3IiBhdHRyaWJ1dGVOYW1lPSJjeCIgZnJvbT0iMTYiIHRvPSI1MCIgYmVnaW49ImFuaXgzNi5lbmQiIGR1cj0iMC4xMjVzIiBmaWxsPSJmcmVlemUiPjwvYW5pbWF0ZT48YW5pbWF0ZSBpZD0iYW5peDM4IiBhdHRyaWJ1dGVOYW1lPSJjeCIgZnJvbT0iNTAiIHRvPSI1MCIgYmVnaW49ImFuaXgzNy5lbmQiIGR1cj0iMC4xMjVzIiBmaWxsPSJmcmVlemUiPjwvYW5pbWF0ZT48L2NpcmNsZT48Y2lyY2xlIGN4PSI4NCIgY3k9IjUwIiByPSIxNSIgZmlsbD0iIzgwOGE4MCIgdHJhbnNmb3JtPSJyb3RhdGUoMCA1MCA1MCkiPjxhbmltYXRlIGlkPSJhbmlyNDEiIGF0dHJpYnV0ZU5hbWU9InIiIGZyb209IjE1IiB0bz0iMCIgYmVnaW49IjBzO2FuaXI0NC5lbmQiIGR1cj0iMC4xMjVzIiBmaWxsPSJmcmVlemUiPjwvYW5pbWF0ZT48YW5pbWF0ZSBpZD0iYW5pcjQyIiBhdHRyaWJ1dGVOYW1lPSJyIiBmcm9tPSIwIiB0bz0iMCIgYmVnaW49ImFuaXI0MS5lbmQiIGR1cj0iMC4xMjVzIiBmaWxsPSJmcmVlemUiPjwvYW5pbWF0ZT48YW5pbWF0ZSBpZD0iYW5pcjQzIiBhdHRyaWJ1dGVOYW1lPSJyIiBmcm9tPSIwIiB0bz0iMTUiIGJlZ2luPSJhbmlyNDIuZW5kIiBkdXI9IjAuMTI1cyIgZmlsbD0iZnJlZXplIj48L2FuaW1hdGU+PGFuaW1hdGUgaWQ9ImFuaXI0NCIgYXR0cmlidXRlTmFtZT0iciIgZnJvbT0iMTUiIHRvPSIxNSIgYmVnaW49ImFuaXI0My5lbmQiIGR1cj0iMC42MjVzIiBmaWxsPSJmcmVlemUiPjwvYW5pbWF0ZT48YW5pbWF0ZSBpZD0iYW5peDQxIiBhdHRyaWJ1dGVOYW1lPSJjeCIgZnJvbT0iODQiIHRvPSI4NCIgYmVnaW49IjBzO2FuaXg0OC5lbmQiIGR1cj0iMC4xMjVzIiBmaWxsPSJmcmVlemUiPjwvYW5pbWF0ZT48YW5pbWF0ZSBpZD0iYW5peDQyIiBhdHRyaWJ1dGVOYW1lPSJjeCIgZnJvbT0iODQiIHRvPSIxNiIgYmVnaW49ImFuaXg0MS5lbmQiIGR1cj0iMC4xMjVzIiBmaWxsPSJmcmVlemUiPjwvYW5pbWF0ZT48YW5pbWF0ZSBpZD0iYW5peDQzIiBhdHRyaWJ1dGVOYW1lPSJjeCIgZnJvbT0iMTYiIHRvPSIxNiIgYmVnaW49ImFuaXg0Mi5lbmQiIGR1cj0iMC4xMjVzIiBmaWxsPSJmcmVlemUiPjwvYW5pbWF0ZT48YW5pbWF0ZSBpZD0iYW5peDQ0IiBhdHRyaWJ1dGVOYW1lPSJjeCIgZnJvbT0iMTYiIHRvPSIxNiIgYmVnaW49ImFuaXg0My5lbmQiIGR1cj0iMC4xMjVzIiBmaWxsPSJmcmVlemUiPjwvYW5pbWF0ZT48YW5pbWF0ZSBpZD0iYW5peDQ1IiBhdHRyaWJ1dGVOYW1lPSJjeCIgZnJvbT0iMTYiIHRvPSI1MCIgYmVnaW49ImFuaXg0NC5lbmQiIGR1cj0iMC4xMjVzIiBmaWxsPSJmcmVlemUiPjwvYW5pbWF0ZT48YW5pbWF0ZSBpZD0iYW5peDQ2IiBhdHRyaWJ1dGVOYW1lPSJjeCIgZnJvbT0iNTAiIHRvPSI1MCIgYmVnaW49ImFuaXg0NS5lbmQiIGR1cj0iMC4xMjVzIiBmaWxsPSJmcmVlemUiPjwvYW5pbWF0ZT48YW5pbWF0ZSBpZD0iYW5peDQ3IiBhdHRyaWJ1dGVOYW1lPSJjeCIgZnJvbT0iNTAiIHRvPSI4NCIgYmVnaW49ImFuaXg0Ni5lbmQiIGR1cj0iMC4xMjVzIiBmaWxsPSJmcmVlemUiPjwvYW5pbWF0ZT48YW5pbWF0ZSBpZD0iYW5peDQ4IiBhdHRyaWJ1dGVOYW1lPSJjeCIgZnJvbT0iODQiIHRvPSI4NCIgYmVnaW49ImFuaXg0Ny5lbmQiIGR1cj0iMC4xMjVzIiBmaWxsPSJmcmVlemUiPjwvYW5pbWF0ZT48L2NpcmNsZT48L3N2Zz4=" />
+    </div>
+    
+    <div id="header-container" class="hidden">
         <win-split-view-pane-toggle split-view="splitViewElement"></win-split-view-pane-toggle>
         <div class="header-bar">
             <h4>{{title}}</h4>
@@ -55,5 +52,23 @@
         </win-split-view-content>
     </win-split-view>
     
+    
+    <!-- Angular -->
+    <script src="js/core/angular.min.js"></script>
+    <script src="js/core/angular-bootstrap.min.js"></script>
+    <script src="js/core/angular-sanitize.min.js"></script>
+    <script src="js/core/angular-route.min.js"></script>
+    <script src="js/core/angular-touch.min.js"></script>
+    <script src="js/core/angular-ui-router.min.js"></script>
+    
+    <!-- WinJS -->
+    <link href="node_modules/winjs/css/ui-light.min.css" rel="stylesheet" />
+    <script src="node_modules/winjs/js/base.min.js"></script>
+    <script src="node_modules/winjs/js/ui.min.js"></script>
+    <script src="node_modules/angular-winjs/js/angular-winjs.min.js"></script> 
+    
+    <script src="js/module/app.js"></script>
+    <script src="js/module/controllers.js"></script>
+    <script src="js/module/services.js"></script>
   </body>
 </html>

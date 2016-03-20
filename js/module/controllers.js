@@ -2,8 +2,6 @@ angular.module('main.controllers', [])
 
 .controller('GlobalCtrl', function($scope, $rootScope, General) {
 	$scope.splitViewElement = document.getElementById("splitView");
-    var init = false;
-    
     window.onresize = setPane;
     window.onload = setPane;
     
@@ -12,19 +10,14 @@ angular.module('main.controllers', [])
     });
     
     function setPane() {
-        init = true;
+        document.getElementById("loader").innerHTML = "";
+        document.getElementById("header-container").className = "";
         var width = window.innerWidth;
         
         if( width <= 500 ) {
             $scope.splitViewObject.closedDisplayMode = WinJS.UI.SplitView.ClosedDisplayMode.none;
         } else {
             $scope.splitViewObject.closedDisplayMode = WinJS.UI.SplitView.ClosedDisplayMode.inline;
-        }
-        
-        if( width <= 850 ) {
-            $scope.splitViewObject.openedDisplayMode = WinJS.UI.SplitView.OpenedDisplayMode.overlay;
-        } else {
-            $scope.splitViewObject.openedDisplayMode = WinJS.UI.SplitView.OpenedDisplayMode.inline;
         }
     }
 })

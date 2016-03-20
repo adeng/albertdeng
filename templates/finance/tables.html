@@ -11,16 +11,14 @@
 		</tr>
 	</thead>
 	<tbody>
-        <win-item-container>
-            <tr ng-repeat="short in shorts" ng-click="open(short)" href>
-                <td><b>{{short.ticker}}</b></td>
-                <td class="optional">{{short.name}}</td>
-                <td class="optional">{{short.purchdate}}</td>
-                <td class="optional">{{short.cost}}</td>
-                <td>{{short.price}}</td>
-                <td><span ng-bind-html="short.diff"></span></td>
-            </tr>
-        </win-item-container>
+        <tr ng-repeat="short in shorts" ng-click="open(short)" href>
+            <td><b>{{short.ticker}}</b></td>
+            <td class="optional">{{short.name}}</td>
+            <td class="optional">{{short.purchdate}}</td>
+            <td class="optional">{{short.cost}}</td>
+            <td>{{short.price}}</td>
+            <td><span ng-bind-html="short.diff"></span></td>
+        </tr>
 	</tbody>
 </table>
 <br />
@@ -38,16 +36,14 @@
 		</tr>
 	</thead>
 	<tbody>
-        <win-item-container>
-            <tr class="clickable" ng-repeat="long in longs" ng-click="open(long)" href>
-                <td><b>{{long.ticker}}</b></td>
-                <td class="optional">{{long.name}}</td>
-                <td class="optional">{{long.purchdate}}</td>
-                <td class="optional">{{long.cost}}</td>
-                <td>{{long.price}}</td>
-                <td><span ng-bind-html="long.diff"></span></td>
-            </tr>
-        </win-item-container>
+        <tr class="clickable" ng-repeat="long in longs" ng-click="open(long)" href>
+            <td><b>{{long.ticker}}</b></td>
+            <td class="optional">{{long.name}}</td>
+            <td class="optional">{{long.purchdate}}</td>
+            <td class="optional">{{long.cost}}</td>
+            <td>{{long.price}}</td>
+            <td><span ng-bind-html="long.diff"></span></td>
+        </tr>
 	</tbody>
 </table>
 <br />
