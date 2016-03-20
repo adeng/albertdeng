@@ -1,38 +1,14 @@
 <div class="page-padding" ng-include="'templates/home/jumbotron.html'">
 </div>
 
-<!--<table style="padding: 25%" class="table">
-	<thead>
-		<tr>
-			<th>Stock Ticker</th>
-			<th class="optional">Company Name</th>
-			<th class="optional">Date of Purchase</th>
-			<th class="optional">Adjusted Cost Price</th>
-			<th>Current Stock Price</th>
-			<th>Gain/Loss per Share</th>
-		</tr>
-	</thead>
-	<tbody>
-        <tr ng-click="open(short)">
-            <win-item-container>
-                <td>AAPL</td>
-                <td class="optional">Microsoft Corporation</td>
-                <td class="optional">1/1/15</td>
-                <td class="optional">10</td>
-                <td>15</td>
-                <td>15</td>
-            </win-item-container>
-        </tr>
-	</tbody>
-</table>-->
-
-<win-list-view item-data-source="ratings" selection="selection">
-    <win-item-template>
-        <p>This list view item's rating is: {{item.data.rating}}</p>
-    </win-item-template>
-    <win-list-layout></win-list-layout>
-</win-list-view>
-
+<!-- If you ever need access to the WinJS winControl, you can expose it to your Angular scope by using the win-control directive -->
+<win-pivot win-control="pivotWinControl">
+    <win-pivot-item header="'Sample'">
+      This Pivot is showing how to access its winControl through Angular. 
+      The winControl can now be accessed as a variable on the Angular scope, using the same name that was 
+      specified in the directive. In this case, $scope.pivotWinControl
+    </win-pivot-item>
+</win-pivot>
 <!-- <hr class="featurette-divider">
 
 <div class="marketing" ng-include="'templates/home/circles.html'">

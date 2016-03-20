@@ -2,18 +2,40 @@ angular.module('main.controllers', [])
 
 .controller('GlobalCtrl', function($scope, $rootScope, General) {
 	$scope.splitViewElement = document.getElementById("splitView");
+    var init = false;
+    
+    window.onresize = setPane;
+    window.onload = setPane;
     
     General.getIcons().then( function(val) {
         $rootScope.icons = val;
     });
+    
+    function setPane() {
+        init = true;
+        var width = window.innerWidth;
+        
+        if( width <= 480 ) {
+            $scope.splitViewObject.closedDisplayMode = WinJS.UI.SplitView.ClosedDisplayMode.none;
+        } else {
+            $scope.splitViewObject.closedDisplayMode = WinJS.UI.SplitView.ClosedDisplayMode.inline;
+        }
+        
+        if( width <= 850 ) {
+            $scope.splitViewObject.openedDisplayMode = WinJS.UI.SplitView.OpenedDisplayMode.overlay;
+        } else {
+            $scope.splitViewObject.openedDisplayMode = WinJS.UI.SplitView.OpenedDisplayMode.inline;
+        }
+    }
 })
 
 .controller('MainCtrl', function($scope, $rootScope) {
-    $rootScope.title = "Home"
+    $rootScope.title = "Home";
+    
 })
 
 .controller('FinanceCtrl', function($scope, $rootScope) {
-    $rootScope.title = "Finance"
+    $rootScope.title = "Finance";
 	$scope.selected = 0;
     
     $scope.set = function( input ) {
