@@ -20,25 +20,40 @@
     <script src="js/core/angular-touch.min.js"></script>
     <script src="js/core/angular-ui-router.min.js"></script>
     
+    <!-- WinJS -->
+    <link href="node_modules/winjs/css/ui-light.min.css" rel="stylesheet" />
+    <script src="node_modules/winjs/js/base.js"></script>
+    <script src="node_modules/winjs/js/ui.js"></script>
+    <script src="node_modules/angular-winjs/js/angular-winjs.js"></script> 
+    
     <script src="js/module/app.js"></script>
     <script src="js/module/controllers.js"></script>
     <script src="js/module/services.js"></script>
   </head>
-  <body ng-app="main">
-    <nav class="navbar navbar-default navbar-fixed-top" ng-include="'templates/interface/navbar.html'">
+  <body ng-app="main" ng-controller="GlobalCtrl">
+    <!--<nav class="navbar navbar-default navbar-fixed-top" ng-include="'templates/interface/navbar.html'">
     </nav>
     
-    <div style="padding-top: 100px" />
+    <div style="padding-top: 70px" />-->
+    
+    <div>
+        <win-split-view-pane-toggle split-view="splitViewElement"></win-split-view-pane-toggle>
+        <div class="header-bar">
+            <h4>{{title}}</h4>
+        </div>
+    </div> 
 
-    <div class="container ui-view-container">
-      <div ui-view>
-      </div>
-    </div>
-
-      <!-- FOOTER -->
-    <footer class="container">
-      <p class="pull-right"><a href="#">Back to top</a></p>
-    </footer>
+    <win-split-view win-control="splitViewObject" id="splitView" closed-display-mode="'none'">
+        <win-split-view-pane>
+            <win-split-view-command label="'Home'" icon="'home'" ui-sref="home"></win-split-view-command>
+            <win-split-view-command label="'Finance'" icon="'world'" ui-sref="finance"></win-split-view-command>
+            <win-split-view-command label="'About'" icon="'contactinfo'" ui-sref="about"></win-split-view-command>
+        </win-split-view-pane>
+        <win-split-view-content>
+            <div ui-view>
+            </div>
+        </win-split-view-content>
+    </win-split-view>
     
   </body>
 </html>

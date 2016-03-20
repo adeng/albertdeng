@@ -2,11 +2,134 @@
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
 
+@font-face {
+   font-family: 'Segoe UI';
+   src: url(/fonts/segmdl2.ttf);
+}
+
+@font-face {
+   font-family: 'Segoe UI';
+   src: url(/fonts/seguisb.ttf);
+   font-weight: 'bold;'
+}
+
+@font-face {
+    font-family: 'Segoe UI Header';
+    src: url(/fonts/segoeuisl.ttf);
+}
+
+* { 
+    font-family: 'Segoe UI Header' !important;
+}
+
+h1 { 
+    font-family: 'Segoe UI Header' !important;
+}
+
 body {
   padding-bottom: 40px;
   color: #5a5a5a;
+  /*background-color: #E6E6E6 !important;*/
+  overflow: hidden !important;
+}
+    
+p {
+    color: rgb(89, 89, 89);
 }
 
+.win-splitview-content {
+    overflow: scroll !important;
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+.win-splitviewcommand-icon, .win-pivot-navbutton {
+    font-family: 'Segoe UI' !important;
+}
+
+.win-pivot-item-content {
+    padding: 0px !important;
+}
+
+/* UI Elements
+-------------------------------------------------- */
+.display p {
+    margin-left: 15px;
+}
+
+hr {
+    margin: 20px 0 20px 0 !important;
+}
+
+.page-padding {
+    padding: 12px 24px 12px 24px;
+}
+
+.header-bar {
+    display:inline;
+    position:fixed;
+    width:100%;
+    background-color: #F2F2F2;
+    height: 38px;
+}
+
+.header-bar h4 {
+    margin-top: 0px;
+    padding: 10px;
+    font-weight: 600;
+}
+
+.header-pivot .win-pivot-header-area {
+    background-color: #F2F2F2;
+    position:fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header-pivot .win-pivot-headers {
+    margin-left: 0 !important;
+}
+
+.header-pivot .win-pivot-header {
+    font-size: 14px !important;
+}
+
+.header-pivot .win-pivot-header {
+    font-size: 14px !important;
+}
+
+.header-pivot .win-pivot-header-selected {
+    font-weight: bold !important;
+}
+
+.outer-box {
+    width: 100%;
+    padding: 5%;
+}
+
+.inner-box {
+    margin: 5px;
+    background-color: #3498db;
+    color: white;
+    padding: 5%;
+    transition: left 0.5s;
+}
+
+.inner-box p {
+    color: white;
+}
+
+@media (max-width: 850px) {
+    .inner-box {
+        margin: 0px !important;
+    }
+    
+    .outer-box {
+        padding: 0px !important;
+    }
+}
 
 /* NAVBAR
 -------------------------------------------------- */
@@ -77,6 +200,18 @@ body {
 
 .neg {
   color: red;
+}
+
+thead {
+    background-color: #D2D2D2;
+    color: #4A4A4A;
+}
+
+th {
+    border: 2px solid #fff;
+    font-weight: 100;
+    font-size: 14px;
+    border-bottom: 0px !important;
 }
 
 /* Button Filters
@@ -224,4 +359,31 @@ to prevent collapsing during animation*/
   .featurette-heading {
     margin-top: 120px;
   }
+}
+
+@media (min-width: 500px) {
+    .size-matters {
+        display:none;
+    }
+}
+
+@media (max-width: 500px) {
+    .jumbotron {
+        padding: 10px 5% 10px 5%;
+    }
+    
+    .optional {
+        display:none;
+    }
+    
+    p {
+        font-size: 18.5px !important;
+        padding: 5%;
+    }
+}
+
+@media (max-width: 280px) {
+    p {
+        font-size: 7vw !important;
+    }
 }

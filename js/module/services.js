@@ -5,8 +5,10 @@ angular.module('main.services', [])
 	return {
 		getPortfolio: function(filename) {
 			var deferred = $q.defer();
+            // var url = 'https://cdn.rawgit.com/adeng/albertdeng/master/data/' + filename + '.json';
+            var url = '/data/' + filename + '.json'
 			
-			$http.get('https://cdn.rawgit.com/adeng/albertdeng/master/data/' + filename + '.json').success( function(data, status, headers, config) {
+			$http.get(url).success( function(data, status, headers, config) {
 				deferred.resolve(data);
 			}).error( function(data, status, headers, config) {
                 $http.get('/data/' + filename + '.json').success( function(data, status, headers, config) { 
@@ -53,6 +55,21 @@ angular.module('main.services', [])
 			var deferred = $q.defer();
 			
 			$http.get('https://cdn.rawgit.com/adeng/albertdeng/master/data/about/' + filename + '.json').success( function(data, status, headers, config) {
+				deferred.resolve(data);
+			});
+			
+			return deferred.promise;
+		}
+	}
+})
+
+.factory('General', function($q, $http) {
+	
+	return {
+		getIcons: function() {
+			var deferred = $q.defer();
+			
+			$http.get('/data/icons.json').success( function(data, status, headers, config) {
 				deferred.resolve(data);
 			});
 			

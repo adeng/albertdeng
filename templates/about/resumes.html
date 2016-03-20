@@ -1,20 +1,68 @@
+<style>
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .item {
+        flex-grow: 1;
+        flex-basis: 225px;
+        
+        padding: 20px;
+    }
+    
+    .image {
+        text-align: center;
+    }
+    
+    .image img {
+        width: 50%;
+        max-width: 96px;
+    }
+    
+    .header {
+        margin-left: 5%;
+    }
+    
+    @media (max-width: 500px) {
+        .header {
+            margin: 0;
+            text-align: center;
+        }
+    }
+    
+</style>
+
 <div>
-<!-- Example row of columns -->
-	<div class="row">
-		<div class="col-md-4">
-			<h2>Tech Resume</h2>
+    <h1 class="header">Resumes</h1>
+	<div class="container">
+		<div class="item">
+            <div class="image">
+                <a href="/tech.pdf" >
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACIklEQVR4Xu2awU4CMRCGZ8IePXAywZO+Adw0bKJHE9bIG/gK8CT6CL4BmqDxJiZoPPoGeIJ4Qk5eCjU1iqGs1HW6ZW1njyxtd77+/7SdXYTALww8fmAArIDACbAFAhcAJ0G2AFsgcAJsAV0AoySW/0kUlW6fNIlLjRkAK4AtsJADqB6znU90i1Kfz5gDqAMwAMsEWAFakqYqlC1g2ghRCVt2ALAF2AKL+xSqQteSA0aHu9syik4B4AAByrZtsqo/CfAKAD0Uol25eXx2DkAFD1E0cBl02lgKBApRcw5g2KhfIOLxugGo8aWUl+4BJPHYtex/gv2hAtfLoO1lLKuS9PEZACtAI5C3RPPu32QJtoC2k+QcwDmAc8AigbyTVN79cxI0EMi8CpiIUu9Tj7NZx18JYB0ntWIBSOJbdUbPSpXy/8IAGDbqLURURQqnVyEAjJvV8pvYGGjH1LtKt29dDX9dBUwvbX8LMjUHDJO4gwDN+dRLmMBUVFXJyLYcCgdglMRqlpX3v+OXsr11dX9mO3jVX+EApJSocpH+F8ziAdBLVELs5CF9KgBbalzKAfoPpdmstnn98GRrQNeHLdNzpwHoAcC+qaGX9yVM8OVorzmTpY6XARqCmpfFR436OSCeBAXhc6mfV4Q+ldDy3g4SJhJkD6fTVuqrsaBUAMBfi5O+svRBLQzAh1mkxMAKoNDzoS0rwIdZpMTACqDQ86Ft8Ap4B8umgOlCYce+AAAAAElFTkSuQmCC">
+                </a>
+            </div>
+			<h2>Tech</h2>
 			<p>Interested in seeing my experience and skills in technology and project management? This resume's for you!</p>
-			<p><a class="btn btn-default" href="/tech.pdf" role="button">View Resume &raquo;</a></p>
 		</div>
-		<div class="col-md-4">
-			<h2>Finance Resume</h2>
+		<div class="item">
+            <div class="image">
+                <a href="/finance.pdf" >
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAD+0lEQVR4Xu1abVIaQRDtHpCKUVg8gd4g+DMlluQEMSdQT6BH8Ah6AvEG5gTBEis/xRvgCdwFSVIK06kdRZdxZWZgZz+KpYofFLOz02/edL/uHoQF/+CC2w85ADkDFhyB/AgsOAFyJ5iqI/D396eNp9HSDgHW/C8Q1BChGmQpEbiA0EEg8V0qPF0uf/3XnZXJiQNAN1DtD8rfObBjBNiYxRAC6DLgx+WV/k/cBNdkjkQB6LXLe5zYibzLJgbI7GDIjyr1/rnuHIkB4LUrZwC4r7tQs3HUdOq9A51nEgFgmvEEcItEF1igDiPeXd0adIKGPFyv1DiyDRphjRB3EeBLuKF6IMQOQP9qtcGx8OvdopFOS+zxxNSh+Y7zkZeOgPBQnpPR6Ft5+6E1jQmxA+BeOS1E2Bkvyt/xIg735Z3Woa/MjCEVm0FGEMFlddtrpA2A+6DTK+Bwc17jxwb6x2NExZtXcAnc6ra3lioAvLZDwQXZBMB/j1P3prI89iMgA0AAnSIOD+Zlgb/7QyqeIUAtCHDqAXhbLJ2UCo+nMznBUekQAI/CqJ4hAJ6X7zMCkS58mcuA34WGQWDrQi6TCIMTOy6DkDkATL2/anzqASAA30s5KkN0/g+bK/UAVFa8tf6f8i4nkQyt6xgqjyGAO4b8uPy5f9EbOPeZcoLBHRLpMF9qiPPNsQYINZkdvrFA0EX2kg6zp1bQccpRxioDtPJ3ACFFx/k7AWtmWgdEkb8HAciUDog6f588yynXAXbz94AcSqMOiCd/n8X/q5+Z2wnGmb+rzZk+wooOiDN/nxUAqzrAvXJiy99FuER+8KoDxO+34slLrhCvDkhb/j6NJXJBJJJ6QNry948AsFYPkAFIOn+XARBFUZv1gI8BsJO/i3oAUAtRfN0iDu+CWl+UxeOsB6gAmNVzx/Xc3DogxAdYzd/nAcaKDpABsJ2/zwKAVR0wLb+2kb8j4z9E2wtQNDRyHWBAiXeNEQCvWvcm7hfI0yn7AlnWAZG0xrKsAyJpjqrCYNR1fAJ41gD+FRgkd3X54TZ460NfB9C5U+8p7x8YHwGDI5ngUD3jn2uVik/WdIC4IrPVnyi8TjPRGIC064DIL0nFrQN8x8WBNfyeABFW5d6Aqi+gYrRxGHTbjhtsTtjs5/tSVhW3TQ1UjVcegZCSmLV+vk7cVhlk+r8SgA+LohB9HV8nbpsaqBqvBMCfwGtXmgC4FzZZdDpAP3SpjDL5XwsAFQgmLwwfm4zxWjoguODedXlfXG2NsJ9vGrfnB3tyBm0GjB8TzdEI+/mmcTtxAIILiKIeELVBpvMZM8D0BWkfnwOQ9h2yvb6cAbYRTvv8OQPSvkO217fwDPgP3LeEbl246yAAAAAASUVORK5CYII=">
+                </a>
+            </div>
+			<h2>Finance</h2>
 			<p>Here's a targeted resume detailing my education and experience in accounting and finance.</p>
-			<p><a class="btn btn-default" href="/finance.pdf" role="button">View Resume &raquo;</a></p>
 		</div>
-		<div class="col-md-4">
-			<h2>General Resume</h2>
+		<div class="item">
+            <div class="image">
+                <a href="/general.pdf" >
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACm0lEQVR4Xu2aQW7TUBBAZ2pDWMIJaKSmW1Kl++YI7RFYYVYNN3FXDSuOQLlB2MfCbGmlhBuwpGB3qi9qcH4TjS1nBjmeLPO/7Zn334y/nSB0/IMdzx8MgBnQcQJWAh0XwJqgegkMLxf7IWbnADQGwOEfAykFwFlG4UX6tr/UtFIVwGh6EyPQOZNgPI8G77QgqAEYTb+lCPiqSmIEcJVEg7Mqc5vOUQFQceVXciHAiyQ6mDRNkDteHMBDzS/KgRDBd9jDSf40mLnvg1/5GO4oRoSX5XkZhX3pniAOwF99l3z+LBymr/s/yskOPyyeBz+ztAxBwwIFAKu1T4hnyZuDq3Vqjt7fnCLRx39jlM6jwyNO4ybj4gCOp9e0onUvfOGvfjG+rlzm0UA0RtGTu8Q6D8C//dUpAQL6mkSHD5ulJqJvPlbcgEdNEGiZ954crW2Ct7+/IOB+Ee5ONMG1t0GgJQJOsl742SUb3mYnBBSXk3ff78Rt0CXS6Y1QofPx5fUMEE6qVDIBfEqiwWmVuU3niPeAcoBVTNCo+3JMqgDchV1PCDCfANyNi4cj1+0B9mY5BbH01tc3Rh1AU2W3fbwB2DbRv03P2wLXvY70FriIR8wAfwtsAGoSMAOEnwLVS4BbUb9kuPk1hdo4Xa0HcAntPAB/CXwgBsC7bXLGtK4EzACPwM6XgL/iXI1z49tS/r89DHEJcuMGQIiA2D7ASsAjwCnOjQsJoPcPES5BbtwACBGwHiAE9tFpOcW5cak4zQApstwrMW4rzD07bCtuMQMMAPNW2Azw3vnVNaZ1JVD3BYfWXUGtB3QeQFNl6wKsej01A6oGtGmeARD6ocQMaKpm248XM6AtYAxAW1ZKKk4zQIpsW85rBrRlpaTivAfb6YtQiAxwPwAAAABJRU5ErkJggg==">
+                </a>
+            </div>
+			<h2>General</h2>
 			<p>For everyone else; this resume contains a general listing of my leadership experiences and valuable skills relevant across multiple industries.</p>
-			<p><a class="btn btn-default" href="/finance.pdf" role="button">View Resume &raquo;</a></p>
 		</div>
 	</div>
 </div>

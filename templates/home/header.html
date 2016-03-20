@@ -1,0 +1,85 @@
+<style>
+    .img-container {
+        width: 100%;
+        max-height: 45vh;
+        overflow:hidden;
+    }
+    
+    .img-header {
+        text-align: center;
+    }
+    
+    h1 {
+        color: rgb(5, 47, 97);
+    }
+    
+    .img-container img {
+        width: 100%;
+    }
+    
+    #down {
+        display: none;
+    }
+    
+    @media (max-width: 500px), handheld and (orientation: landscape) {
+        .img-container {
+            /*background: linear-gradient(rgba(255,255,255,0), black);*/
+            height: 100vh;
+            max-height: 100vh !important;
+            width: auto;
+            background-image: url("https://c1.staticflickr.com/5/4097/4750767899_4f81dd88d4_b.jpg");
+            background-size: cover; 
+        }
+        
+        .img-container img {
+            display:none;
+        }
+        
+        #down {
+            display: inline;
+            position: absolute;
+            bottom: 50px;
+            width: 44px;
+            left: 43vw;
+        }
+        
+        .overlay {
+            background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.9));
+            height: 50vh;
+            width: 100%;
+            position: absolute;
+            bottom: -45px;
+        }
+        
+        .img-header {
+            position: absolute;
+            top: 45%;
+            width: 100%;
+        }
+        
+        .img-header h1 {
+            color: white !important;
+            font-size: 10vw;
+        }
+    }
+</style>
+
+<!-- Indicators -->
+<div>
+    <div class="img-container">
+        <div class="overlay"></div>
+        <img src="https://c1.staticflickr.com/5/4097/4750767899_4f81dd88d4_b.jpg" />
+        <img id="down" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABq0lEQVR4Xu2Z4XHDMAiFYZOO0mySTNaM0k2STejpLr6qPdUGJIGvevntCN4nkHg20+I/Xlw/AQAqYHECaIHFCwCHYFoLiIjU1cfMKbmkBC3CAQAVgBbAGYBDsCKAWwDXIOaAlJkkJSgGIUyCGIXhBWCGYIZghmCGYIZghr4JwA3CDcINphizlKBwg//JDYrIGzM/rd8YR3gBEXln5k9r7B/zR8+fReRKRB9EdGPmu2WtXgBV7Dsz3yyxhwCoEtjWM0HoAdCI7YbgOgRL2RPRo0FdDcELoCF+S+PiaQcXgNcpvpX/bw4qCB4AO+JVMVtt4gbQC8EKYIb4oqELQA8EC4BZ4ocA8ELQApgpfhgADwQNgNnihwKwQjgCECF+OAALhD0AUeKnANBC+AtApPhpADQQWgCixU8FcATh5SHq2aTM88VXuAarcC+gDbizq5ol3BOeZvHpFbAl4YQwXXwYgIN2aG1WiPhQAAYIYeLDASgghIpPAbADIVx8GoAGhBTxqQAqCGR9n6i94jTPdb8P0AQ58zMAcObdicgNFRBB+cwxUAFn3p2I3JavgC907UpQ0qStQQAAAABJRU5ErkJggg==" />
+    </div>
+    <div class="img-header">
+        <h1>Hello there!</h1>
+    </div>
+</div>
+
+<div class="page-padding">
+    <br class="size-matters" />
+    <p>My name's Albert Deng and this is my website! Although, given the address, you've probably already figured that out by now.</p>
+    <p>This website is a place for me to share my interests with like-minded people and keep track of my work. I will also regularly update my professional profile on this site.</p>
+    <p>Feel free to browse around or use the links below to quickly get where you want!</p>
+    <br />
+</div>

@@ -33,17 +33,17 @@
 			<tr>
 				<th>Class Symbol</th>
 				<th>Course Name</th>
-				<th>Professor</th>
-				<th>Units</th>
+				<th class="optional">Professor</th>
+				<th class="optional">Units</th>
 				<th>Grade</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr ng-repeat="class in classes">
-				<td>{{class.no}}</td>
+				<td><b>{{class.no}}</b></td>
 				<td>{{class.name}}</td>
-				<td>{{class.professor}}</td>
-				<td>{{class.units}}</td>
+				<td class="optional">{{class.professor}}</td>
+				<td class="optional">{{class.units}}</td>
 				<td>{{class.grade}}</td>
 			</tr>
 		</tbody>
