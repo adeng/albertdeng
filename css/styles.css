@@ -32,6 +32,10 @@ body {
   /*background-color: #E6E6E6 !important;*/
   overflow: hidden !important;
 }
+    
+p {
+    color: rgb(89, 89, 89);
+}
 
 .win-splitview-content {
     overflow: scroll !important;
@@ -43,6 +47,10 @@ body {
 
 .win-splitviewcommand-icon, .win-pivot-navbutton {
     font-family: 'Segoe UI' !important;
+}
+
+.win-pivot-item-content {
+    padding: 0px !important;
 }
 
 /* UI Elements
@@ -94,6 +102,33 @@ hr {
 
 .header-pivot .win-pivot-header-selected {
     font-weight: bold !important;
+}
+
+.outer-box {
+    width: 100%;
+    padding: 5%;
+}
+
+.inner-box {
+    margin: 5px;
+    background-color: #3498db;
+    color: white;
+    padding: 5%;
+    transition: left 0.5s;
+}
+
+.inner-box p {
+    color: white;
+}
+
+@media (max-width: 850px) {
+    .inner-box {
+        margin: 0px !important;
+    }
+    
+    .outer-box {
+        padding: 0px !important;
+    }
 }
 
 /* NAVBAR
@@ -337,11 +372,18 @@ to prevent collapsing during animation*/
         padding: 10px 5% 10px 5%;
     }
     
-    .jumbotron p {
-        font-size: 18.5px !important;
-    }
-    
     .optional {
         display:none;
+    }
+    
+    p {
+        font-size: 18.5px !important;
+        padding: 5%;
+    }
+}
+
+@media (max-width: 280px) {
+    p {
+        font-size: 7vw !important;
     }
 }
