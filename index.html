@@ -30,7 +30,7 @@
     <script src="js/module/controllers.js"></script>
     <script src="js/module/services.js"></script>
   </head>
-  <body ng-app="main" ng-controller="MainCtrl">
+  <body ng-app="main" ng-controller="GlobalCtrl">
     <!--<nav class="navbar navbar-default navbar-fixed-top" ng-include="'templates/interface/navbar.html'">
     </nav>
     
@@ -39,7 +39,7 @@
     <div>
         <win-split-view-pane-toggle split-view="splitViewElement"></win-split-view-pane-toggle>
         <div class="header-bar">
-            <h4>Header</h4>
+            <h4>{{title}}</h4>
         </div>
     </div> 
 
@@ -54,7 +54,6 @@
             </div>
         </win-split-view-content>
     </win-split-view>
-
     
   </body>
 </html>

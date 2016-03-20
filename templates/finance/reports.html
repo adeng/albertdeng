@@ -1,5 +1,30 @@
-<h3>Reports</h3>
-<table class="table table-hover">
+<style>
+    .report-card {
+        padding: 15px;
+        border: 2px solid #D2D2D2;
+    }
+    
+    .report-card p {
+        padding-left: 5px;
+    }
+    
+    .report-list {
+        display: block;
+        height: 100%;
+    }
+    
+    .report-card h3 {
+        position: absolute;
+        display: inline;
+        right: 25px;
+        top: 25%;
+    }
+    
+    .report-card:hover {
+        border: 0px;
+    }
+</style>
+<!--<table class="table table-hover">
 	<thead>
 		<tr>
 			<th>Stock Ticker</th>
@@ -18,4 +43,61 @@
             <td>{{report.rating}}</td>
 		</tr>
 	</tbody>
-</table>
+</table>-->
+
+<win-list-view class="report-list" item-data-source="buys" selection="selection">
+    <win-list-view-header>
+        <h1>Buys</h1>
+    </win-list-view-header>
+    <win-item-template>
+        <div class="report-card">
+            <h2 class="optional">{{item.data.name}}</h2>
+            <h2 class="size-matters">{{item.data.ticker}}</h2>
+            <p>
+                <img ng-src="{{item.data.icon}}" width="20px" height="20px" />
+                <span class="optional">{{item.data.sector}} &#183;</span> 
+                <span style="color: #777">{{item.data.industry}}</span>
+            </p>
+            <h3 style="color: rgb(106,158,31)">{{item.data.rating}}</h3>
+        </div>
+    </win-item-template>
+    <win-list-layout></win-list-layout>
+</win-list-view>
+
+<win-list-view class="report-list" item-data-source="holds" selection="selection">
+    <win-list-view-header>
+        <h1>Holds</h1>
+    </win-list-view-header>
+    <win-item-template>
+        <div class="report-card">
+            <h2 class="optional">{{item.data.name}}</h2>
+            <h2 class="size-matters">{{item.data.ticker}}</h2>
+            <p>
+                <img ng-src="{{item.data.icon}}" width="20px" height="20px" />
+                <span class="optional">{{item.data.sector}} &#183;</span> 
+                <span style="color: #777">{{item.data.industry}}</span>
+            </p>
+            <h3 style="color: rgb(89,89,89)">{{item.data.rating}}</h3>
+        </div>
+    </win-item-template>
+    <win-list-layout></win-list-layout>
+</win-list-view>
+
+<win-list-view class="reports-list" item-data-source="sells" selection="selection">
+    <win-list-view-header>
+        <h1>Sells</h1>
+    </win-list-view-header>
+    <win-item-template>
+        <div class="report-card">
+            <h2 class="optional">{{item.data.name}}</h2>
+            <h2 class="size-matters">{{item.data.ticker}}</h2>
+            <p>
+                <img ng-src="{{item.data.icon}}" width="20px" height="20px" />
+                <span class="optional">{{item.data.sector}} &#183;</span> 
+                <span style="color: #777">{{item.data.industry}}</span>
+            </p>
+            <h3 style="color: rgb(198,35,36)">{{item.data.rating}}</h3>
+        </div>
+    </win-item-template>
+    <win-list-layout></win-list-layout>
+</win-list-view>

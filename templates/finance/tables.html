@@ -38,14 +38,16 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr class="clickable" ng-repeat="long in longs" ng-click="open(long)" href>
-			<td>{{long.ticker}}</td>
-			<td class="optional">{{long.name}}</td>
-			<td class="optional">{{long.purchdate}}</td>
-			<td class="optional">{{long.cost}}</td>
-			<td>{{long.price}}</td>
-			<td><span ng-bind-html="long.diff"></span></td>
-		</tr>
+        <win-item-container>
+            <tr class="clickable" ng-repeat="long in longs" ng-click="open(long)" href>
+                <td>{{long.ticker}}</td>
+                <td class="optional">{{long.name}}</td>
+                <td class="optional">{{long.purchdate}}</td>
+                <td class="optional">{{long.cost}}</td>
+                <td>{{long.price}}</td>
+                <td><span ng-bind-html="long.diff"></span></td>
+            </tr>
+        </win-item-container>
 	</tbody>
 </table>
 <br />

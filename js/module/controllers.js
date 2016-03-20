@@ -1,10 +1,19 @@
 angular.module('main.controllers', [])
 
-.controller('MainCtrl', function($scope, $rootScope) {
+.controller('GlobalCtrl', function($scope, $rootScope, General) {
 	$scope.splitViewElement = document.getElementById("splitView");
+    
+    General.getIcons().then( function(val) {
+        $rootScope.icons = val;
+    });
 })
 
-.controller('FinanceCtrl', function($scope) {
+.controller('MainCtrl', function($scope, $rootScope) {
+    $rootScope.title = "Home"
+})
+
+.controller('FinanceCtrl', function($scope, $rootScope) {
+    $rootScope.title = "Finance"
 	$scope.selected = 0;
     
     $scope.set = function( input ) {
@@ -16,6 +25,7 @@ angular.module('main.controllers', [])
 	$scope.selected;
 	$scope.radioModel = 0;
 	$scope.classModel = 0;
+    $rootScope.title = "About";
 
 	$scope.set = function( curr ) {
 		switch(curr) {
@@ -94,9 +104,23 @@ angular.module('main.controllers', [])
 	}
 })
 
-.controller('ReportsCtrl', function($scope, Stocks) {
+.controller('ReportsCtrl', function($scope, $rootScope, Stocks) {
+    $scope.buys = [];
+    $scope.holds = [];
+    $scope.sells = [];
+    
     Stocks.getPortfolio("reports").then( function( val ) {
-        $scope.reports = val;
+        for(var i = 0; i < val.length; i++) {
+            var temp = val[i];
+            temp.icon = $rootScope.icons[val[i]['industry'].toLowerCase()];
+            temp.icon = temp.icon == undefined ? $rootScope.icons['default'] : temp.icon;
+            if( val[i].rating == 'Buy' )
+                $scope.buys.push(temp);
+            else if ( val[i].rating == 'Hold' )
+                $scope.holds.push(temp);
+            else
+                $scope.sells.push(temp);
+        }
     });
     
     $scope.open = function( url ) {

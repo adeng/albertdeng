@@ -27,10 +27,10 @@
 </table>-->
 
 <win-list-view item-data-source="ratings" selection="selection">
-    <win-list-view-header>This is a ListView header</win-list-view-header>
-    <win-item-template>This list view item's rating is: {{item.data.rating}}</win-item-template>
+    <win-item-template>
+        <p>This list view item's rating is: {{item.data.rating}}</p>
+    </win-item-template>
     <win-list-layout></win-list-layout>
-    <win-list-view-footer>This is a ListView footer</win-list-view-footer>
 </win-list-view>
 
 <!-- <hr class="featurette-divider">

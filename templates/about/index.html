@@ -1,7 +1,33 @@
-<div class="page-padding">
-    <div ng-include="'../templates/about/jumbotron.html'">
-    </div>
+<style>
+    .outer-box {
+        width: 100%;
+        padding: 20px;
+    }
+    
+    .inner-box {
+        margin: 5px;
+        background-color: rgb(177,211,251);
+        padding: 20px;
+        transition: left 0.5s;
+    }
+    
+    @media (max-width: 500px) {
+        .inner-box {
+            margin: 0px !important;
+        }
+        
+        .outer-box {
+            padding: 0px !important;
+        }
+    }
+</style>
 
+<div class="outer-box">
+    <div class="inner-box" ng-include="'../templates/about/jumbotron.html'">
+    </div>
+</div>
+
+<div class="page-padding">
     <div ng-include="'../templates/about/resumes.html'">
     </div>
 

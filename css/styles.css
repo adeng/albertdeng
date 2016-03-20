@@ -29,7 +29,7 @@ h1 {
 body {
   padding-bottom: 40px;
   color: #5a5a5a;
-  background-color: #E6E6E6 !important;
+  /*background-color: #E6E6E6 !important;*/
   overflow: hidden !important;
 }
 
@@ -45,15 +45,14 @@ body {
     font-family: 'Segoe UI' !important;
 }
 
-
 /* UI Elements
 -------------------------------------------------- */
 .display p {
-    margin-left: 5%;
+    margin-left: 15px;
 }
 
 hr {
-    margin: 5% 0 5% 0 !important;
+    margin: 20px 0 20px 0 !important;
 }
 
 .page-padding {
@@ -76,6 +75,9 @@ hr {
 
 .header-pivot .win-pivot-header-area {
     background-color: #F2F2F2;
+    position:fixed;
+    width: 100%;
+    z-index: 1000;
 }
 
 .header-pivot .win-pivot-headers {
@@ -324,7 +326,13 @@ to prevent collapsing during animation*/
   }
 }
 
-@media (max-width: 580px) {
+@media (min-width: 500px) {
+    .size-matters {
+        display:none;
+    }
+}
+
+@media (max-width: 500px) {
     .jumbotron {
         padding: 10px 5% 10px 5%;
     }

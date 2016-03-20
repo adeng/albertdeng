@@ -1,10 +1,18 @@
 [
     {
         "ticker": "MSFT",
-        "name": "Microsoft Corp",
+        "name": "Microsoft Corporation",
         "sector": "Information Technology",
         "industry": "Software",
         "rating": "Buy",
+        "url": null
+    },
+    {
+        "ticker": "F",
+        "name": "Ford Motor Co",
+        "sector": "Consumer Discretionary",
+        "industry": "Automobiles",
+        "rating": "Hold",
         "url": null
     }
 ]
