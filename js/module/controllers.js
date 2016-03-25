@@ -120,26 +120,38 @@ angular.module('main.controllers', [])
 })
 
 .controller('ReportsCtrl', function($scope, $rootScope, Stocks) {
-    $scope.buys = [];
-    $scope.holds = [];
-    $scope.sells = [];
+    $scope.fundBuys = [];
+    $scope.fundHolds = [];
+    $scope.fundSells = [];
+    $scope.techBuys = [];
+    $scope.techSells = [];
+    $scope.selected = 0;
     
     Stocks.getPortfolio("reports").then( function( val ) {
         for(var i = 0; i < val.length; i++) {
             var temp = val[i];
             temp.icon = $rootScope.icons[val[i]['industry'].toLowerCase()];
             temp.icon = temp.icon == undefined ? $rootScope.icons['default'] : temp.icon;
-            if( val[i].rating == 'Buy' )
-                $scope.buys.push(temp);
-            else if ( val[i].rating == 'Hold' )
-                $scope.holds.push(temp);
-            else
-                $scope.sells.push(temp);
+            
+            if( val[i].type == "fundamental") {
+                if( val[i].rating == 'Buy' )
+                    $scope.fundBuys.push(temp);
+                else if ( val[i].rating == 'Hold' )
+                    $scope.fundHolds.push(temp);
+                else
+                    $scope.fundSells.push(temp);
+            }
+            else {
+                if( val[i].rating == 'Buy' )
+                    $scope.techBuys.push(temp);
+                else
+                    $scope.techSells.push(temp);
+            }
         }
     });
     
-    $scope.open = function( url ) {
-        
+    $scope.select = function(chosen) {
+        $scope.selected = parseInt(chosen);
     }
 })
 

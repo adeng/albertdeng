@@ -5,6 +5,7 @@
         "sector": "Information Technology",
         "industry": "Software",
         "rating": "Buy",
+        "type": "fundamental",
         "url": null
     },
     {
@@ -12,7 +13,8 @@
         "name": "Ford Motor Co",
         "sector": "Consumer Discretionary",
         "industry": "Automobiles",
-        "rating": "Hold",
+        "rating": "Sell",
+        "type": "technical",
         "url": null
     }
 ]

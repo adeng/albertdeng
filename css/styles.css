@@ -67,6 +67,10 @@ hr {
     padding: 12px 24px 12px 24px;
 }
 
+.win-pivot-item {
+    position: static !important;
+}
+
 .header-bar {
     display:inline;
     position:fixed;
@@ -89,11 +93,7 @@ hr {
 }
 
 .header-pivot .win-pivot-headers {
-    margin-left: 0 !important;
-}
-
-.header-pivot .win-pivot-header {
-    font-size: 14px !important;
+    margin-left: 0;
 }
 
 .header-pivot .win-pivot-header {

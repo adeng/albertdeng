@@ -1,5 +1,5 @@
 <style>
-    .win-container {
+    .report-card {
         border: 2px solid #D2D2D2;
     }
     
@@ -9,98 +9,166 @@
     
     .report-card p {
         padding-left: 5px;
+        display: inline;
     }
     
     .report-list {
         display: block;
         height: 100%;
+        margin: 5%;
     }
     
     .report-card h3 {
-        position: absolute;
-        display: inline;
-        right: 25px;
-        top: 25%;
+        float: right;
+        position: relative;
+        top: -20px;
+    }
+    
+    .report-card:hover {
+        margin: 10px;
+        border: 2px solid black;
+        transition: margin 0.2s;
     }
     
     .win-container:hover {
         border: 0px;
     }
+    
+    .selector-hidden {
+        display: none;
+    }
+    
+    .selector h3 {
+        display: inline;
+        color: #A2A2A2;
+    }
+    
+    .selector h3:nth-child(2) {
+        float: right;
+        margin: 0px;
+    }
+    
+    .selector .optional {
+        display: inline;
+    }
+    
+    .selector-active {
+        color: rgb(7,47,97) !important;
+    }
+    
+    @media (max-width: 500px) {
+        .report-list {
+            margin: 15px !important;
+        }
+        
+        .selector .optional {
+            display: none !important;
+        }
+    }
+    
+    @media (min-width: 850px) {
+        .selector h3 {
+            margin: 0px 30px 0px 30px !important;
+        }
+    }
+    
+    @media (max-width: 280px) {
+        .selector {
+            text-align: center;
+        }
+        
+        .selector h3 {
+            margin: 0 auto !important;
+            display: block !important;
+            float: initial !important;
+        }
+    }
 </style>
-<!--<table class="table table-hover">
-	<thead>
-		<tr>
-			<th>Stock Ticker</th>
-			<th>Company Name</th>
-            <th>Sector</th>
-            <th>Industry</th>
-            <th>Rating</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr class="clickable" ng-repeat="report in reports" ng-click="open(report.url)" href>
-			<td>{{report.ticker}}</td>
-			<td>{{report.name}}</td>
-            <td>{{report.sector}}</td>
-            <td>{{report.industry}}</td>
-            <td>{{report.rating}}</td>
-		</tr>
-	</tbody>
-</table>-->
 
-<win-list-view class="report-list" item-data-source="buys" selection="selection">
-    <win-list-view-header>
-        <h1>Buys</h1>
-    </win-list-view-header>
-    <win-item-template>
-        <div class="report-card">
-            <h2 class="optional">{{item.data.name}}</h2>
-            <h2 class="size-matters">{{item.data.ticker}}</h2>
-            <p>
-                <img ng-src="{{item.data.icon}}" width="20px" height="20px" />
-                <span class="optional">{{item.data.sector}} &#183;</span> 
-                <span style="color: #777">{{item.data.industry}}</span>
-            </p>
-            <h3 style="color: rgb(106,158,31)">{{item.data.rating}}</h3>
-        </div>
-    </win-item-template>
-    <win-list-layout></win-list-layout>
-</win-list-view>
+<div class="selector">
+    <h3 class="clickable" ng-class="{'selector-active': selected == 0}" ng-click="select(0)">Fundamental<span class="optional"> Analysis</span></h3>
+    <h3 class="clickable" ng-class="{'selector-active': selected == 1}" ng-click="select(1)">Technical<span class="optional"> Analysis</span></h3>
+</div>
 
-<win-list-view class="report-list" item-data-source="holds" selection="selection">
-    <win-list-view-header>
-        <h1>Holds</h1>
-    </win-list-view-header>
-    <win-item-template>
+<hr />
+    
+<!-- Fundamental Analysis Reports -->
+<div ng-class="{'selector-hidden': selected == 1}">
+    <div class="report-list" ng-repeat="buy in fundBuys">
+        <h2>Buys</h2>
         <div class="report-card">
-            <h2 class="optional">{{item.data.name}}</h2>
-            <h2 class="size-matters">{{item.data.ticker}}</h2>
+            <h2 class="optional">{{buy.name}}</h2>
+            <h2 class="size-matters">{{buy.ticker}}</h2>
+            <h3 style="color: rgb(106,158,31)">{{buy.rating}}</h3>
+            <br />
             <p>
-                <img ng-src="{{item.data.icon}}" width="20px" height="20px" />
-                <span class="optional">{{item.data.sector}} &#183;</span> 
-                <span style="color: #777">{{item.data.industry}}</span>
+                <img ng-src="{{buy.icon}}" width="20px" height="20px" />
+                <span class="optional">{{buy.sector}} <b style="color: black">&#183;</b></span> 
+                <span style="color: #777"> {{buy.industry}}</span>
             </p>
-            <h3 style="color: rgb(89,89,89)">{{item.data.rating}}</h3>
         </div>
-    </win-item-template>
-    <win-list-layout></win-list-layout>
-</win-list-view>
+    </div>
 
-<win-list-view class="reports-list" item-data-source="sells" selection="selection">
-    <win-list-view-header>
-        <h1>Sells</h1>
-    </win-list-view-header>
-    <win-item-template>
+    <div class="report-list" ng-repeat="hold in fundHolds">
+        <h2>Holds</h2>
         <div class="report-card">
-            <h2 class="optional">{{item.data.name}}</h2>
-            <h2 class="size-matters">{{item.data.ticker}}</h2>
+            <h2 class="optional">{{hold.name}}</h2>
+            <h2 class="size-matters">{{hold.ticker}}</h2>
+            <h3 style="color: rgb(89,89,89)">{{hold.rating}}</h3>
+            <br />
             <p>
-                <img ng-src="{{item.data.icon}}" width="20px" height="20px" />
-                <span class="optional">{{item.data.sector}} &#183;</span> 
-                <span style="color: #777">{{item.data.industry}}</span>
+                <img ng-src="{{hold.icon}}" width="20px" height="20px" />
+                <span class="optional">{{hold.sector}} <b style="color: black">&#183;</b></span> 
+                <span style="color: #777"> {{hold.industry}}</span>
             </p>
-            <h3 style="color: rgb(198,35,36)">{{item.data.rating}}</h3>
         </div>
-    </win-item-template>
-    <win-list-layout></win-list-layout>
-</win-list-view>
+    </div>
+
+    <div class="report-list" ng-repeat="sell in fundSells">
+        <h2>Sells</h2>
+        <div class="report-card">
+            <h2 class="optional">{{sell.name}}</h2>
+            <h2 class="size-matters">{{sell.ticker}}</h2>
+            <h3 style="color: rgb(198,35,36)">{{sell.rating}}</h3>
+            <br />
+            <p>
+                <img ng-src="{{sell.icon}}" width="20px" height="20px" />
+                <span class="optional">{{sell.sector}} <b style="color: black">&#183;</b></span> 
+                <span style="color: #777"> {{sell.industry}}</span>
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Technical Analysis Reports -->
+<div ng-class="{'selector-hidden': selected == 0}">
+    <div class="report-list" ng-repeat="buy in techBuys">
+        <h2>Bullish</h2>
+        <div class="report-card">
+            <h2 class="optional">{{buy.name}}</h2>
+            <h2 class="size-matters">{{buy.ticker}}</h2>
+            <h3 style="color: rgb(106,158,31)"> {{buy.rating}}</h3>
+            <br />
+            <p>
+                <img ng-src="{{buy.icon}}" width="20px" height="20px" />
+                <span class="optional">{{buy.sector}} <b style="color: black">&#183;</b></span> 
+                <span style="color: #777"> {{buy.industry}}</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="report-list" ng-repeat="sell in techSells">
+        <h2>Bearish</h2>
+        <div class="report-card">
+            <h2 class="optional">{{sell.name}}</h2>
+            <h2 class="size-matters">{{sell.ticker}}</h2>
+            <h3 style="color: rgb(198,35,36)">{{sell.rating}}</h3>
+            <br />
+            <p>
+                <img ng-src="{{sell.icon}}" width="20px" height="20px" />
+                <span class="optional">{{sell.sector}} <b style="color: black">&#183;</b></span> 
+                <span style="color: #777"> {{sell.industry}}</span>
+            </p>
+        </div>
+    </div>
+</div>
