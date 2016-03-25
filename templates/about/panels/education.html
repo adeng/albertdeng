@@ -1,32 +1,120 @@
-<div class="well">
-	<h3>Quick Reference</h3>
-	<ul>
-		<li>Business Economics, B.A.</li>
-		<li>Specializing in Computing</li>
-		<li>Accounting Minor</li>
-	</ul>
+<style>
+    .gpa-box {
+        width: 100%;
+        margin: 20px 0px 20px 0px;
+        text-align: center;
+    }
+    
+    .gpa-box h1 {
+        display:block;
+    }
+    
+    .gpa-box hr {
+        margin-top: 0px !important;
+    }
+    
+    .gpa-box input {
+        font-size: x-large;
+        text-align: center;
+        background-color: #E2E2E2;
+        border: 2px solid white;
+    }
+    
+    .gpa-box input:hover {
+        color: rgb(20, 150, 124) !important;
+        border: 2px solid #A2A2A2;
+    }
+    
+    .win-dropdown {
+        width: 100%;
+        font-size: x-large;
+        text-align: center;
+        background-color: #E2E2E2 !important;
+        font-size: large;
+    }
+    
+    .selector {
+        text-align: center;
+        line-height: 250%;
+    }
+    
+    .selector-hidden {
+        display: none;
+    }
+    
+    .selector h3 {
+        display: inline;
+        color: #A2A2A2;
+        margin: 20px 20px 40px 20px;
+    }
+    
+    .selector h3:hover {
+        color: rgba(106,158,31,0.4);
+    }
+    
+    .selector .optional {
+        display: inline;
+    }
+    
+    .selector-active {
+        color: rgb(106,158,31) !important;
+        font-weight: bold;
+        border-bottom: 2px solid rgb(106,158,31);
+    }
+    
+    @media (max-width: 650px) {
+        .selector {
+            display: none;
+        }
+        
+        .selector-hidden {
+            display: block;
+        }
+    }
+</style>
+
+<div class="outer-box">
+    <div class="inner-box">
+        <h3>Quick Reference</h3>
+        <ul>
+            <li>Business Economics, B.A.</li>
+            <li>Specializing in Computing</li>
+            <li>Accounting Minor</li>
+        </ul>
+    </div>
 </div>
 
-<div>
+<div class="page-padding">
 	<div class="filter-btns">
-		<p>Select relevant classes</p>
-		<div class="btn-group btn-group-justified">
-			<label class="btn btn-success" ng-model="classModel" ng-change="filterClasses(classModel)" btn-radio="0">All</label>
-			<label class="btn btn-primary" ng-model="classModel" ng-change="filterClasses(classModel)" btn-radio="1">General Ed</label>
-			<label class="btn btn-primary" ng-model="classModel" ng-change="filterClasses(classModel)" btn-radio="2">Major Classes</label>
-			<label class="btn btn-primary" ng-model="classModel" ng-change="filterClasses(classModel)" btn-radio="3">Upper Div</label>
-			<label class="btn btn-primary" ng-model="classModel" ng-change="filterClasses(classModel)" btn-radio="4">Computing</label>
-			<label class="btn btn-primary" ng-model="classModel" ng-change="filterClasses(classModel)" btn-radio="5">Accounting</label>
-			<label class="btn btn-primary" ng-model="classModel" ng-change="filterClasses(classModel)" btn-radio="6">Tech</label>
-			<label class="btn btn-primary" ng-model="classModel" ng-change="filterClasses(classModel)" btn-radio="7">Business</label>
-		</div>
+		<p style="text-align: center">Filter classes</p>
+        <div class="selector">
+            <h3 class="clickable" ng-class="{'selector-active': selectBox == 0}" ng-click="filterClasses(0)">All</h3>
+            <h3 class="clickable" ng-class="{'selector-active': selectBox == 1}" ng-click="filterClasses(1)">General Ed</h3>
+            <h3 class="clickable" ng-class="{'selector-active': selectBox == 2}" ng-click="filterClasses(2)">Major Classes</h3>
+            <h3 class="clickable" ng-class="{'selector-active': selectBox == 3}" ng-click="filterClasses(3)">Upper Div</h3>
+            <h3 class="clickable" ng-class="{'selector-active': selectBox == 4}" ng-click="filterClasses(4)">Computing</h3>
+            <h3 class="clickable" ng-class="{'selector-active': selectBox == 5}" ng-click="filterClasses(5)">Accounting</h3>
+            <h3 class="clickable" ng-class="{'selector-active': selectBox == 6}" ng-click="filterClasses(6)">Tech</h3>
+            <h3 class="clickable" ng-class="{'selector-active': selectBox == 7}" ng-click="filterClasses(7)">Business</h3>
+        </div>
+        <select class="win-dropdown selector-hidden" ng-model="classModel" ng-change="filterClasses(classModel)">
+			<option value="0" selected="selected">All</option>
+			<option value="1">General Ed</option>
+            <option value="2">Major Classes</option>
+            <option value="3">Upper Div</option>
+            <option value="4">Computing</option>
+            <option value="5">Accounting</option>
+            <option value="6">Tech</option>
+            <option value="7">Business</option>
+		</select>
 	</div>
 	
-	<div class="input-group input-group-lg">
-		<span class="input-group-addon" id="sizing-addon1">GPA</span>
-		<input type="text" class="form-control" ng-model="gpa" disabled="disabled">
-	</div>
-	
+    <div class="gpa-box">
+        <h1>GPA</h1>
+        <hr />
+		<input type="text" class="win-textbox" ng-model="gpa" disabled="disabled">
+    </div>
+    
 	<br />
 	<table class="table table-hover">
 		<thead>

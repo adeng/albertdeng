@@ -38,6 +38,7 @@ angular.module('main.controllers', [])
 
 .controller('AboutCtrl', function($scope, $rootScope, About) {
 	$scope.selected;
+    $scope.selectBox = 0;
 	$scope.radioModel = 0;
 	$scope.classModel = 0;
     $rootScope.title = "About";
@@ -76,10 +77,12 @@ angular.module('main.controllers', [])
 	}
 	
 	$scope.filterClasses = function( param ) {
+        $scope.selectBox = parseInt(param);
+        
 		About.loadItems('education').then( function(val) {
 			var arr = new Array();
 			for( var a in val ) {
-				if( val[a].tags.indexOf( param ) != -1 )
+				if( val[a].tags.indexOf( parseInt(param) ) != -1 )
 					arr.push( val[a] );
 			}
 			
