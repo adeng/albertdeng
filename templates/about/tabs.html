@@ -1,6 +1,33 @@
-<tabset class="nav-justified">
-	<tab heading="Education" select="set(2)"></tab>
-	<tab heading="Experience" select="set(0)"></tab>
-	<tab heading="Extracurriculars" select="set(1)"></tab>
-	<tab heading="Bio and Skills" select="set(3)"></tab>
-</tabset>
+<win-pivot class="header-pivot">
+    <win-pivot-item header="'About'">
+        <div style="height:50px"></div>
+        
+        <div class="outer-box">
+            <div class="inner-box" ng-include="'../templates/about/jumbotron.html'">
+            </div>
+        </div>
+        
+        <div class="page-padding" ng-include="'../templates/about/resumes.html'">
+        </div>
+    </win-pivot-item>
+    <win-pivot-item header="'Education'">
+        <div style="height:50px"></div>
+      <div class="regular-pivot" ng-include="'../templates/about/views/education.html'">
+      </div>
+    </win-pivot-item>
+    <win-pivot-item header="'Experience'">
+        <div style="height:50px"></div>
+      <div class="regular-pivot" ng-include="'../templates/about/views/experience.html'">
+      </div>
+    </win-pivot-item>
+    <win-pivot-item header="'Extracurriculars'">
+        <div style="height:50px"></div>
+        <div class="regular-pivot" ng-include="'../templates/about/views/extracurriculars.html'">
+        </div>
+    </win-pivot-item>
+    <win-pivot-item header="'Bio and Skills'">
+        <div style="height:50px"></div>
+        <div class="regular-pivot" ng-include="'../templates/about/views/bio.html'">
+        </div>
+    </win-pivot-item>
+</win-pivot>

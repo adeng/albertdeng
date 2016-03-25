@@ -26,6 +26,7 @@
     }
     
     .win-dropdown {
+        margin: 0 auto !important;
         width: 100%;
         font-size: x-large;
         text-align: center;
@@ -70,16 +71,38 @@
         .selector-hidden {
             display: block;
         }
+        
+        .gpa-box input {
+            width: 100%;
+        }
+    }
+    
+    @media (max-width: 500px) {
+        h4 {
+            margin-top: 35px;
+        }
+    }
+    
+    @media (max-width: 280px) {
+        .reduce {
+            display: none;
+        }
     }
 </style>
 
 <div class="outer-box">
     <div class="inner-box">
-        <h3>Quick Reference</h3>
+        <h1>Quick Reference</h1>
+        <h4><b>High School:</b> Lynbrook High School</h4>
         <ul>
-            <li>Business Economics, B.A.</li>
-            <li>Specializing in Computing</li>
-            <li>Accounting Minor</li>
+            <li>SAT: 780R, 790M, 710W</li>
+            <li>AP: 5 in Comp Sci, Calc BC, US History, English Language, Psych, US Gov, Statistics, Macro and Micro Econ</li>
+        </ul>
+        <h4><b>Undergrad:</b> University of California, Los Angeles</h4>
+        <ul>
+            <li>Degree: Business Economics, B.A.</li>
+            <li>Minor: Accounting</li>
+            <li>Concentration: Computing</li>
         </ul>
     </div>
 </div>
@@ -120,7 +143,7 @@
 		<thead>
 			<tr>
 				<th>Class Symbol</th>
-				<th>Course Name</th>
+				<th class="reduce">Course Name</th>
 				<th class="optional">Professor</th>
 				<th class="optional">Units</th>
 				<th>Grade</th>
@@ -129,7 +152,7 @@
 		<tbody>
 			<tr ng-repeat="class in classes">
 				<td><b>{{class.no}}</b></td>
-				<td>{{class.name}}</td>
+				<td class="reduce">{{class.name}}</td>
 				<td class="optional">{{class.professor}}</td>
 				<td class="optional">{{class.units}}</td>
 				<td>{{class.grade}}</td>
