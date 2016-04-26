@@ -273,12 +273,14 @@ th {
   list-style-type: none;
   width: 100%;
   display: table;
+  margin: 25px 0 25px 0;
 }
 
 .timeline > li > .thumbnail {
   width: 80%;
   border-radius: 0px;
   border: 2px solid #D2D2D2;
+  padding: 20px;
 }
 
 .timeline > li > .thumbnail:hover {
@@ -286,7 +288,7 @@ th {
     transition: border 0.2s;
 }
 
-.timeline > li:nth-child(1) {
+.timeline > li:first-child {
   padding-top: 40px;
 }
 
@@ -310,12 +312,68 @@ th {
 
 .thumbnail > .badge {
   margin: 10px 0px 0px 10px;
+  font-size: 80%;
+  display: inline;
+  padding: 5px;
+}
+
+.alert-success {
+    color: rgb(106,158,51);
+}
+
+.alert-warning {
+    color: rgb(232, 125, 55);
+}
+
+.thumbnail > .badge:first-child {
+    margin: 0px;
 }
 
 .thumbnail > .caption {
   padding-top: 0px;
 } 
 
+/* Selector
+-------------------------------------------------- */
+
+.selector {
+    text-align: center;
+    line-height: 250%;
+}
+
+.selector-hidden {
+    display: none;
+}
+
+.selector h3 {
+    display: inline;
+    color: #A2A2A2;
+    margin: 20px 20px 40px 20px;
+}
+
+.selector h3:hover {
+    color: rgba(53,106,149,0.4);
+}
+
+.selector .optional {
+    display: inline;
+}
+
+.selector-active {
+    color: rgb(53,106,149) !important;
+    font-weight: bold;
+    border-bottom: 2px solid rgb(53,106,149);
+}
+
+@media (max-width: 650px) {
+    .selector {
+        display: none;
+    }
+    
+    .selector-hidden {
+        display: block;
+    }
+}
 
 /* Animations for UI View
 -------------------------------------------------- */
