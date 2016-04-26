@@ -334,7 +334,7 @@
 		"name": "Investments",
 		"professor": "Weill",
 		"units": 5,
-		"grade": "IP",
+		"grade": "A",
 		"tags": [
 			0, 2, 3, 7
 		]
@@ -379,6 +379,16 @@
 			0, 2, 3, 7
 		]
 	},
+    {
+		"no": "LING 1",
+		"name": "Introduction to Ethical Theory",
+		"professor": "Cross",
+		"units": 4,
+		"grade": "IP",
+		"tags": [
+			0, 1
+		]
+	},
 	{
 		"no": "MGMT 123",
 		"name": "Auditing",
@@ -387,26 +397,6 @@
 		"grade": "IP",
 		"tags": [
 			0, 2, 3, 5, 7
-		]
-	},
-	{
-		"no": "MGMT 128",
-		"name": "Fraud Examination",
-		"professor": "Gardner",
-		"units": 4,
-		"grade": "IP",
-		"tags": [
-			0, 2, 3, 5, 7
-		]
-	},
-	{
-		"no": "PHILOS 22",
-		"name": "Introduction to Ethical Theory",
-		"professor": "Cross",
-		"units": 4,
-		"grade": "IP",
-		"tags": [
-			0, 1
 		]
 	}
 ]

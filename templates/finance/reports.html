@@ -34,31 +34,32 @@
         border: 0px;
     }
     
-    .selector-hidden {
+    .selector-reports-hidden {
         display: none;
     }
     
-    .selector h3 {
+    .selector-reports h3 {
         display: inline;
         color: #A2A2A2;
     }
     
-    .selector h3:hover {
-        color: rgba(7,47,97,0.4);
+    .selector-reports h3:hover {
+        color: rgba(53,106,149,0.4);
         transition: color 0.2s;
     }
     
-    .selector h3:nth-child(2) {
+    .selector-reports h3:nth-child(2) {
         float: right;
         margin: 0px;
     }
     
-    .selector .optional {
+    .selector-reports .optional {
         display: inline;
     }
     
-    .selector-active {
-        color: rgb(7,47,97) !important;
+    .selector-reports-active {
+        color: rgb(53,106,149) !important;
+        border-bottom: 2px solid rgb(53,106,149);
     }
     
     @media (max-width: 500px) {
@@ -66,23 +67,23 @@
             margin: 15px !important;
         }
         
-        .selector .optional {
+        .selector-reports .optional {
             display: none !important;
         }
     }
     
     @media (min-width: 850px) {
-        .selector h3 {
+        .selector-reports h3 {
             margin: 0px 30px 0px 30px !important;
         }
     }
     
     @media (max-width: 280px) {
-        .selector {
+        .selector-reports {
             text-align: center;
         }
         
-        .selector h3 {
+        .selector-reports h3 {
             margin: 0 auto !important;
             display: block !important;
             float: initial !important;
@@ -90,15 +91,15 @@
     }
 </style>
 
-<div class="selector">
-    <h3 class="clickable" ng-class="{'selector-active': selected == 0}" ng-click="select(0)">Fundamental<span class="optional"> Analysis</span></h3>
-    <h3 class="clickable" ng-class="{'selector-active': selected == 1}" ng-click="select(1)">Technical<span class="optional"> Analysis</span></h3>
+<div class="selector-reports">
+    <h3 class="clickable" ng-class="{'selector-reports-active': selected == 0}" ng-click="select(0)">Fundamental<span class="optional"> Analysis</span></h3>
+    <h3 class="clickable" ng-class="{'selector-reports-active': selected == 1}" ng-click="select(1)">Technical<span class="optional"> Analysis</span></h3>
 </div>
 
 <hr />
     
 <!-- Fundamental Analysis Reports -->
-<div ng-class="{'selector-hidden': selected == 1}">
+<div ng-class="{'selector-reports-hidden': selected == 1}">
     <div class="report-list" ng-repeat="buy in fundBuys">
         <h2>Buys</h2>
         <div class="report-card">
@@ -146,7 +147,7 @@
 </div>
 
 <!-- Technical Analysis Reports -->
-<div ng-class="{'selector-hidden': selected == 0}">
+<div ng-class="{'selector-reports-hidden': selected == 0}">
     <div class="report-list" ng-repeat="buy in techBuys">
         <h2>Bullish</h2>
         <div class="report-card">
