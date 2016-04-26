@@ -55,6 +55,11 @@ p {
 
 /* UI Elements
 -------------------------------------------------- */
+.table-hover tr:hover {
+    box-shadow: 0px 0px 0px 2px #D2D2D2;
+    transition: box-shadow 0.1s;
+}
+
 .display p {
     margin-left: 15px;
 }

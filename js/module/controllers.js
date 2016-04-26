@@ -31,6 +31,8 @@ angular.module('main.controllers', [])
     $rootScope.title = "Finance";
 	$scope.selected = 0;
     
+    console.log("loaded");
+    
     $scope.set = function( input ) {
         $scope.selected = input;
     }
@@ -191,20 +193,6 @@ angular.module('main.controllers', [])
 			}
 		});
 	});
-	
-	$scope.open = function ( stockobj ) {
-		$modal.open({
-			animation: $scope.animationsEnabled,
-			templateUrl: '/templates/interface/modal.html',
-			controller: 'ModalInstanceCtrl',
-			size: 'lg',
-			resolve: {
-				name: function() { return stockobj.name },
-				ticker: function() { return stockobj.ticker },
-				template: function() { return '/data/stocks/' + stockobj.ticker + '.html'}
-			}
-    	});
-  	}
 	
 	$scope.formatMoney = function( money ) {
 		return parseFloat(money).toFixed(2);

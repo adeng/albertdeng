@@ -15,6 +15,12 @@
 			templateUrl: 'templates/finance/index.html',
 			controller: 'FinanceCtrl'
 		})
+        
+        .state('report', {
+            url: '/report/:ticker',
+            templateUrl: 'templates/report/index.html',
+            controller: 'ReportCtrl'
+        })
 		
 		.state('about', {
 			url: '/about',

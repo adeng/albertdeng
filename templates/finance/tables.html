@@ -11,7 +11,7 @@
 		</tr>
 	</thead>
 	<tbody>
-        <tr ng-repeat="short in shorts" ng-click="open(short)" href>
+        <tr ng-repeat="short in shorts" href>
             <td><b>{{short.ticker}}</b></td>
             <td class="optional">{{short.name}}</td>
             <td class="optional">{{short.purchdate}}</td>
@@ -36,7 +36,7 @@
 		</tr>
 	</thead>
 	<tbody>
-        <tr class="clickable" ng-repeat="long in longs" ng-click="open(long)" href>
+        <tr class="clickable" ng-repeat="long in longs" href>
             <td><b>{{long.ticker}}</b></td>
             <td class="optional">{{long.name}}</td>
             <td class="optional">{{long.purchdate}}</td>
@@ -62,7 +62,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr class="clickable" ng-repeat="closed in closeds" ng-click="open(closed)" href>
+		<tr class="clickable" ng-repeat="closed in closeds" href>
 			<td><b>{{closed.ticker}}</b></td>
 			<td class="optional">{{closed.name}}</td>
 			<td class="optional">{{closed.purchdate}}</td>
