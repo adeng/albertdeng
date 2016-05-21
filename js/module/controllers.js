@@ -27,6 +27,27 @@ angular.module('main.controllers', [])
     
 })
 
+.controller('ProjectsCtrl', function($scope, $rootScope) {
+	$rootScope.title = "Projects";
+	$scope.game = "blackjack";
+	$scope.template = "../templates/fun/views/cards/" + $scope.game + ".html";
+	
+	$scope.setGame = function( index ) {
+		switch(index) {
+			case 0: 
+				$scope.game = "blackjack";
+				break;
+			case 1:
+				$scope.game = "bspoker";
+				break;
+			case 2:
+				$scope.game = "hearts";
+				break;
+		}
+		$scope.template = "../templates/fun/views/cards/" + $scope.game + ".html";
+	}
+})
+
 .controller('FinanceCtrl', function($scope, $rootScope) {
     $rootScope.title = "Finance";
 	$scope.selected = 0;

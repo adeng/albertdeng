@@ -10,6 +10,12 @@
 			controller: 'MainCtrl'
 		})
 		
+		.state('fun', {
+			url: '/projects',
+			templateUrl: 'templates/fun/index.html',
+			controller: 'ProjectsCtrl'
+		})
+		
 		.state('finance', {
 			url: '/finance',
 			templateUrl: 'templates/finance/index.html',

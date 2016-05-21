@@ -1,0 +1,18 @@
+<div class="outer-box">
+    <div class="inner-box">
+        <h1>Card Games</h1>
+        <p>Decided to try to build some card games I used to play with friends back in the day and some AI for solo play. Will try to setup multiplayer via FireBase in the future.</p>
+    </div>
+</div>
+
+<div class="filter-btns">
+    <p style="text-align: center">Filter</p>
+    <div class="selector">
+        <h3 class="clickable" ng-class="{'selector-active': game == 'blackjack'}" ng-click="setGame(0)">Blackjack</h3>
+        <h3 class="clickable" ng-class="{'selector-active': game == 'bspoker'}" ng-click="setGame(1)">BS Poker</h3>
+        <h3 class="clickable" ng-class="{'selector-active': game == 'hearts'}" ng-click="setGame(2)">Hearts</h3>
+    </div>
+</div>
+
+<div class="page-padding" ng-include="template" ng-controller="StocksCtrl">
+</div>
