@@ -1,3 +1,4 @@
+// Libraries
 var suits = ["Clubs", "Diamonds", "Hearts", "Spades"];
 var ranks = ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"];
 
@@ -45,6 +46,10 @@ function Deck() {
     }
 }
 
+Deck.prototype.getCard = function(index) {
+    return index == undefined ? this.cards[0] : this.cards[index];
+}
+
 /**
  * Uses Fisher-Yates algorithm to do an in-place shuffle
  */
@@ -62,4 +67,31 @@ Deck.prototype.shuffle = function() {
         this.cards[m] = this.cards[i];
         this.cards[i] = t;
     }
+}
+
+Deck.prototype.deal = function() {
+    return this.cards.shift();
+}
+
+function Hand(cards) {
+    this.cards = (cards != undefined ? [].concat(cards) : []);
+}
+
+Hand.prototype.toString = function() {
+    for(var i = 0; i < this.cards.length; i++) {
+        this.cards[i].toString();
+    }
+}
+
+Hand.prototype.draw = function(deck, num) {
+    for(var i = 0; i < num; i++) {
+        this.cards.push(deck.deal());
+    }
+}
+
+function Player(rules) {
+    this.hand = new Hand();
+    this.score = 0;
+    
+    this.game = rules;    
 }

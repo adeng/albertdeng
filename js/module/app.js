@@ -1,5 +1,5 @@
 (function() {
-	var home = angular.module('main', ['winjs', 'ngSanitize', 'ui.router', 'ui.bootstrap', 'main.controllers', 'main.services'])
+	var home = angular.module('main', ['winjs', 'ngSanitize', 'ui.router', 'ui.bootstrap', 'main.controllers', 'main.services', 'main.directives'])
 	
 	.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 		$stateProvider

@@ -29,23 +29,28 @@ angular.module('main.controllers', [])
 
 .controller('ProjectsCtrl', function($scope, $rootScope) {
 	$rootScope.title = "Projects";
-	$scope.game = "blackjack";
-	$scope.template = "../templates/fun/views/cards/" + $scope.game + ".html";
+	$rootScope.game = "blackjack";
+	$scope.template = "../templates/fun/views/cards/" + $rootScope.game + ".html";
 	
 	$scope.setGame = function( index ) {
 		switch(index) {
 			case 0: 
-				$scope.game = "blackjack";
+				$rootScope.game = "blackjack";
 				break;
 			case 1:
-				$scope.game = "bspoker";
+				$rootScope.game = "bspoker";
 				break;
 			case 2:
-				$scope.game = "hearts";
+				$rootScope.game = "hearts";
 				break;
 		}
-		$scope.template = "../templates/fun/views/cards/" + $scope.game + ".html";
+		$scope.template = "../templates/fun/views/cards/" + $rootScope.game + ".html";
 	}
+})
+
+.controller('CardGameCtrl', function($scope, $rootScope) {
+	var c = new Deck();
+	console.log(c.getCard(1).toString());
 })
 
 .controller('FinanceCtrl', function($scope, $rootScope) {
