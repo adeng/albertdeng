@@ -190,16 +190,6 @@
 		]
 	},
 	{
-		"no": "MGMT 142",
-		"name": "Information Technology in Accounting",
-		"professor": "Ravetch",
-		"units": 4,
-		"grade": "P",
-		"tags": [
-			0, 3, 5, 6, 7
-		]
-	},
-	{
 		"no": "MATH 61",
 		"name": "Introduction to Discrete Structures",
 		"professor": "Unger",
@@ -374,15 +364,15 @@
 		"name": "Money and Banking",
 		"professor": "Miller",
 		"units": 4,
-		"grade": "IP",
+		"grade": "A",
 		"tags": [
 			0, 2, 3, 7
 		]
 	},
     {
 		"no": "LING 1",
-		"name": "Introduction to Ethical Theory",
-		"professor": "Cross",
+		"name": "Introduction to Study of Language",
+		"professor": "Torrence",
 		"units": 4,
 		"grade": "IP",
 		"tags": [
@@ -394,7 +384,7 @@
 		"name": "Auditing",
 		"professor": "Gardner",
 		"units": 4,
-		"grade": "IP",
+		"grade": "A",
 		"tags": [
 			0, 2, 3, 5, 7
 		]
