@@ -1,12 +1,12 @@
 [
     {
-        "ticker": "MSFT",
-        "name": "Microsoft Corporation",
-        "sector": "Information Technology",
-        "industry": "Software",
+        "ticker": "SWHC",
+        "name": "Smith and Wesson Holding Corp",
+        "sector": "Consumer Discretionary",
+        "industry": "Leisure Products",
         "rating": "Buy",
         "type": "fundamental",
-        "url": null
+        "id": "831756101"
     },
     {
         "ticker": "F",
@@ -15,6 +15,6 @@
         "industry": "Automobiles",
         "rating": "Sell",
         "type": "technical",
-        "url": null
+        "id": null
     }
 ]

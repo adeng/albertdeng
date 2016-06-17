@@ -22,15 +22,33 @@
     }
 
     #profile {
-        width: 25%;
+        width: 20%;
         position: absolute;
         display: inline;
-        bottom: 40vh;
         left: 5%;
         border: 3px solid white;
     }
+
     
-    @media (max-width: 500px), handheld and (orientation: landscape) {
+    @media (max-width: 650px) {
+        #profile {
+            width: 25%;
+        }
+    }
+
+    @media (orientation: landscape) {
+        #profile {
+            bottom: 40vh !important;
+        }
+    }
+
+    @media (orientation: portrait) {
+        #profile {
+            bottom: 45vh !important;
+        }
+    }
+    
+    @media (max-width: 500px), handheld {
         .img-container {
             /*background: linear-gradient(rgba(255,255,255,0), black);*/
             height: 100vh;

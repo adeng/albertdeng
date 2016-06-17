@@ -1,3 +1,38 @@
+<style>
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .item {
+        flex-grow: 1;
+        flex-basis: 350px;
+        
+        padding: 20px;
+    }
+    
+    .image {
+        text-align: center;
+    }
+    
+    .image img {
+        width: 50%;
+        max-width: 96px;
+    }
+    
+    .header {
+        margin-left: 5%;
+    }
+    
+    @media (max-width: 500px) {
+        .header {
+            margin: 0;
+            text-align: center;
+        }
+    }
+</style>
+
 <div class="outer-box">
     <div class="inner-box">
         <h1>Quick Reference</h1>
@@ -11,7 +46,38 @@
 
 <!-- Interests -->
 <div class="page-padding">
-    <p>
-        Born and raised in the capital of Silicon Valley, I've always been drawn towards technology. From an early age, I was inspired by 
-    </p>
+    <div class="container">
+		<div class="item">
+            <img class="icon icons8-Source-Code" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEFklEQVR4Xu2aQVLbMBSGn0KYdFd6A5hpsm3AHCCcoOEEhU0b77hB6Qk6XSV0Az0B9ATQfdym26QzoScAdmUwqGMTO0qwo/eepAyZmC2x/PTp/b9/aSRgyf/Eks8fCgBFByw5gUICS94AhQkWEigk8IwI1NvD9bIIh0lJUsLfwK+uuyzxWUlg62hwUJLwOQUA4kvQen3wbAHUj4drvf2Na1sFep3BmQB4mwIQYjf48Pps1vimNRh1gNfpHwsQ62GlvGsDhNcZXAmAtWTCYaX8Km/caOLl2/BUgrwMWrV97iKwAWy1+3slIY6jF0uAayFht+tXL7iFbLcHDRBwnj4v4UfXrzayxot+KwWcJrAepNz/6ddOOO9mAah/7ddXHsS5uloS5O+gVatzioie2W4PDkHARwXAp65fPcwaz+v0ewLEm7FXwPV9Se703td61PeTATy23t05gEgnKwFu7kuywSkgKXi70/+ljhmW5GbeeKMFuBAAL8cTlr2wsrpDlSIZwEj3eyppkxaMxhnp+UpZ0ZugVU29IGtVVQmOn5MnVD8gAch8qZTfAr82AYTaht7Rn6aQ8lQB8D1oVZu6cbx2/0QI8c5kMdAA8nR/X1ltUNtuemLTE8F2VNQ5K7d3FyZ+gALgSvcJCK/TH0af0/TzJ8sbPX/jUtcBsXweDZntBygALnSfTM5G/DXxAy0AV7pPANiKv1w/mAnApe7H7U+Pv1nS4PpBLgDXulcAoOOvzhM4fpALwKXu0/BDiL+6yaeSUiI6Jh9kAnCtewUAOv5iAUS/o/jBEwDz0D0n/lIAUPxgAsC8dM+NvyQIyHwwAWAeuk/Njxl/KRAw+SAFMC/dpwCmcjw2/lIAYPwgBjBP3duIvxQIOj9QAbDzNKWgGPgcT391vjZbAkDfX2Ng2Iq/mHfpfG3SBC3sr3FF2Ym/undhfO3JZ9B0f60rKjYmwukvZrzMvUHOueX0+UVeEHLmB5TTX/bkCeeW+ChsyQ8op79cADrdq+Pmb4Yc+QHl9JcDAKN7FADd95NTHOf0l/IeTp7BHIhY8wPu6S8Ggu57nzcG70iM6Qfc018MAIruURJQf0TZX88q1uT0d9a4VN2TAdjwA1fxl6N7MgBlw8T2Axfxl6t7FoDoIcz+Oq9VOZcfdNrn6p4NII6xzHxgO/6a6N4IAMcPbMdfU90bAZjlB91WbTOrbW3H3+k0aXI/QZsD8nQ4dUXmRkho5l2RsR1/R1dkogtV8QUJk+M0NoDUD6JLUi/KTc1lJtLlB535xV0Y7fj+hWfxJSmD+wlGADBX1FzG3wSEyf0EIwCYlXIZfzHv1/3GPQCDyw+64m383zkAG0W6HKMA4JLuIoxddMAirJLLGosOcEl3EcYuOmARVslljUvfAf8BJrvlbsNZ2FEAAAAASUVORK5CYII=">
+			<h2>Developer</h2>
+			<p>I suppose it was inevitable that I'd learn to code, given that I live in Silicon Valley :)</p>
+            <ul>
+                <li>HTML/CSS/Javascript</li>
+                <li>AngularJS/Angular 2</li>
+                <li>JQuery</li>
+
+                <li>C++</li>
+            </ul>
+		</div>
+		<div class="item">
+			<h2>Entrepreneur</h2>
+			<p>For everyone else; this resume contains a general listing of my leadership experiences and valuable skills relevant across multiple industries.</p>
+		</div>
+		<div class="item">
+			<h2>Investor</h2>
+			<p>Here's a targeted resume detailing my education and experience in accounting and finance.</p>
+		</div>
+		<div class="item">
+			<h2>Trader</h2>
+			<p>For everyone else; this resume contains a general listing of my leadership experiences and valuable skills relevant across multiple industries.</p>
+		</div>
+		<div class="item">
+			<h2>Economist</h2>
+			<p>For everyone else; this resume contains a general listing of my leadership experiences and valuable skills relevant across multiple industries.</p>
+		</div>
+		<div class="item">
+			<h2>3D Art</h2>
+			<p>For everyone else; this resume contains a general listing of my leadership experiences and valuable skills relevant across multiple industries.</p>
+		</div>
+	</div>
 </div>

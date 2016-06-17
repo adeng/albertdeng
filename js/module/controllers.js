@@ -204,7 +204,7 @@ angular.module('main.controllers', [])
 	}
 })
 
-.controller('ReportsCtrl', function($scope, $rootScope, Stocks) {
+.controller('ReportsCtrl', function($scope, $rootScope, $state, Stocks) {
     $scope.fundBuys = [];
     $scope.fundHolds = [];
     $scope.fundSells = [];
@@ -215,7 +215,7 @@ angular.module('main.controllers', [])
     Stocks.getPortfolio("reports").then( function( val ) {
         for(var i = 0; i < val.length; i++) {
             var temp = val[i];
-            temp.icon = $rootScope.icons[val[i]['industry'].toLowerCase()];
+            temp.icon = $rootScope.icons[val[i]['industry'].toLowerCase().replace(/\s/g, '')];
             temp.icon = temp.icon == undefined ? $rootScope.icons['default'] : temp.icon;
             
             if( val[i].type == "fundamental") {
@@ -234,6 +234,10 @@ angular.module('main.controllers', [])
             }
         }
     });
+
+	$scope.openReport = function(id) {
+
+	}
     
     $scope.select = function(chosen) {
         $scope.selected = parseInt(chosen);

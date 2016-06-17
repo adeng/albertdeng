@@ -19,12 +19,12 @@
 }
 
 * { 
-    font-family: 'Segoe UI Header' !important;
+    font-family: 'Segoe UI Header', Arial, Helvetica, sans-serif !important;
     box-sizing: border-box;
 }
 
 h1 { 
-    font-family: 'Segoe UI Header' !important;
+    font-family: 'Segoe UI Header', Arial, Helvetica, sans-serif !important;
 }
 
 body {
@@ -329,6 +329,16 @@ th {
 .thumbnail > .caption {
   padding-top: 0px;
 } 
+
+.caption h3 {
+    margin-bottom: 0px;
+}
+
+.caption h4 {
+    margin-top: 5px;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
 
 /* Selector
 -------------------------------------------------- */
