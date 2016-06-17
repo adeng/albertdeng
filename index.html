@@ -10,8 +10,8 @@
 
     <!-- Bootstrap -->
     <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
-    <link href="node_modules/winjs/css/ui-light.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet">
+    <link href="node_modules/winjs/css/ui-light.min.css" rel="stylesheet" />
     <style>
         .hidden {
             display:none;
@@ -21,6 +21,13 @@
             position:absolute;
             text-align: center;
             top: 50%;
+        }
+
+        .icon {
+            width: 24px;
+            position: absolute;
+            left: 12px;
+            top: 12px;
         }
     </style>
   </head>
@@ -43,17 +50,24 @@
 
     <win-split-view win-control="splitViewObject" id="splitView" closed-display-mode="'none'">
         <win-split-view-pane>
-            <win-split-view-command label="'Home'" icon="'home'" ui-sref="home"></win-split-view-command>
-            <win-split-view-command label="'Projects'" icon="'preview'" ui-sref="fun"></win-split-view-command>
-            <win-split-view-command label="'Finance'" icon="'world'" ui-sref="finance"></win-split-view-command>
-            <win-split-view-command label="'About'" icon="'contactinfo'" ui-sref="about"></win-split-view-command>
+            <win-split-view-command label="'Home'" icon="'empty'" ui-sref="home">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACH0lEQVR4Xu2Z61UEIQyFJ51sKdqJW5naiZ1oJ/GAM55ZdoAQkjCP+Fcg935JgGFhuvgfXNz/5AC8Ai5OYGgLIOJb4A8AH6PyMAzAbP59Nn4fBWEIgMT8kvwhEMwBZMwPg2AKoGJ+CAQzAETz5hBMABTM32fHy2a4PgxM9gR1ACXzy85PGaN1TKoCaDHWMlYShhoAjiHOnF4YKgB6jPTM5cAQByBhQGINKgxRAJLCJdcqwRADoCFYY80UhggATaGaa8cvUWqv5MZpCwxxNWN0AdAUlgLXisUGoCWoVJEaMVkANIRQW1E6djMAaQFU4+txkhqaAEgG5hjXgEAGsCfzCwgJTSQAEoF6M651DFcB7Nm8RCUUARTMh7f8KjytrG+ti4iYiVd8WcqaKJmPV8jjAAhysxA2AdTMHxBAFsITAES8TdP0XStfagUUSrMWIv5fOM4rAHytA1MrILzePrzcCgvLwuiIk2r+BID4W2QVQPIFFvsnzWSHMFLml0HcOGHeqpU3zccKq3x83ADgZwbysMtyhTW572iBRR8ivqRlT6qAVKhUBdTAWcX5rzBqRqyEWcVxADMB8m3OKjNWcbwCvAL+CHgL+ClAJGC1OVnF8U3QN0HfBP0U8GPQ7wF+EeLfBInXh6dhre8BWnG67wFawnofUVuf0tjfAg6ASeCwLcD0u/tp5BbYvROmQAfABHeaaV4Bp0kl04hXABPcaab9AkFDTl9/GYhbAAAAAElFTkSuQmCC" class="icon" />
+            </win-split-view-command>
+            <win-split-view-command label="'Projects'" icon="'empty'" ui-sref="fun">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABIElEQVR4Xu2ZSxICQQhDp+9/6LZcuHA2hC6oauC5NY4QEj66nuGvNTz/BwJQwHAGsMBwAdAEsQAWEBnYe28RegVsrSWpWwJ9M4IAFIAFXD1A9WBUw3hbVP3+tB6gBgABQQyggFeTVhWYZoGgwh4/BgJYhNgEJXtLoGMjFvggBBQoUmqIKECll3OYc5hz2HUOq9bKwrVbha2ErrsGoysLAcZxgwL4PeDfdJZlfmh5E2QRYhEavghFj7Vbnif3gFsCjo4DAqIZrfY8WQGMQcbg8DGIBZIsoO7sVnMtew1CgPgnJgowGChrAauyp++r1mIRUhlmDCaNQbUAXly4BbwBVMHLPaBKQt44IcDLWDc8CuhWUW8+KMDLWDc8CuhWUW8+H/7NwEGNBPR3AAAAAElFTkSuQmCC" class="icon" />
+            </win-split-view-command>
+            <win-split-view-command label="'Finance'" icon="'empty'" ui-sref="finance">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAADTUlEQVR4Xu1YgXETMRDc64AOSAeECggdhAoIFQAVABVAKiCpAFJBSAVAB0kFkAqOWefkkT/S39t6+f+xbsbjSaTXa/d27yQLDjzkwPGjEdAUcOAMNAscuABaEVykBVT1A4BfAO5EhN87x+IIUNUnAP50EJOEWyPlhxHDv91YIgEnAK5dZA8TSMa5iHzPzV8iAe8AfB5IAKc977PJEgmgAsLnCMDTHjLuRYSWycbiCIiRqOqpqYFEpOJKRDjn/yJAVQmYNugFB+C9iHxZDAGqSml/BfAq51tVfQvgI4BeaRvoXv9zzmwsYL2dwBh/AbyMSVDVYyOH36m4BPA6HhARF587YYtqu9NU6+vfrLDFa6xIsP4esp56xw0AdoZAUJhzIyJUVG9MSoBJnuBzciYJ/KSK3D2tEDyuqvQ6iQrxSUSCouZXBFWVRYyZ2yWuAJyJCMlZhar+NBWEf9FCPAjtXwHm19t4g9FGmU1mPeVlAiOoDS9HCO4M+CNgqsqj7/pMMMT/XHd0C6jqmbUobohZiLPEtsUqn5L8umWp6kWChHOT/Hq9bmqtPdL3R0PkPzoBnUrO9XlJYSFj8AaXkjyzetpte6rKZ58B+G1ZL7r15XwwigKskjOzqYNJ2HhO8htejqxClZAYqqFaFBMwoD/nNu+e0kpQq6rGz+dqQhEBdhbPeTq3/6TkS8Cmnq1OQMLvYR/0LAsR+3K3mj9qX2MDjyxURwGO3y9FhF1gFZ1qXlXyiY4wPgGO39+kCpad0C5Kf7vbFuDoFujxO4+kJ2MD9KzhAfTGw/qDiqDn99SJzwNQOu4B9MYHEbCN30sBbfu8B9AbdwnYxe/bguib7wEoHe8lwMDzp+fumX1vfi8F6D0/RAG8cb2IsrTq7/vyuwegdHwIAcw+z/G8Ym709zGlnlurFKD3vEuAHWR4gTmucSHxNlh7fBABNTNdG6C3fiPAGBh0EKqhBC9DtcerK6A2gNL1GwG1LVCaodrPNwWUKqB2hmqvX6yA2husvX4joFnggYHsQai2BKde37XA1Bus/f5GgFcDamdg6vVdBdS4AM1xzclug3MhoxEwl0xMtY+mgKmYn8t7mwLmkomp9tEUMBXzc3lvU8BcMjHVPv4BLH6xX/KsaK8AAAAASUVORK5CYII=" class="icon" />
+            </win-split-view-command>
+            <win-split-view-command label="'About'" icon="'empty'" ui-sref="about">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEmUlEQVR4Xu1bjVEVQQxOKtAO1AqECoQKlAqECoQKxArECoQKhAqECoQKhA6ggjif5pwYb3/uNns8fS8zN28e3O1tviRfspt9TGsuvOb60waAjQesOQKbEFjCAUTkORG9IqItvfAdl5VbIsJ1rdcVM+N7V+nmASICZd8S0ZsRZWuVAgDnRHTGzAAmXMIBEJEdInpPRPiMlEsi+sDM+AyTMADU4h87KO6VBQBHUR4RAoCIQPHDjFkeiAgThxvj894roAA+VQARPq8LZj5h5qNWV2gCQMntixLb2FwuiOiUmRHHk0VE9pVDUmAA0L0WspwNgFrsKxHBal6g+GHLxOyACvRJwivuiWh3bkjMAkCJDpb3yt8R0X40UQ1g6HtPieiZQ3w2CJMByFj+TK2OyXQTEQHo8AakWCuzQJgEgLritxHLHzAzLLOYiAhIF+TrQdieEnpTAYDyYGgriytvQgIk+dnN55qZt2stUQ2AiMDt3q2K8gaEMU/4xMy5tPxbjSoANO5hfSsoT2GBRxcRQfh5TkAoFMvnWgCQ7mxpC7bfYuauhFeLrBIjlLXZ4ZKZd0tjFAHQ1AMArCDvNtXkIiJ2QGYuziWnzNx5Fl8qIt76Ia4fDQDAERFUnLZqLHpBFoBE7L+YkmZSVusEAPYYvrt3ZrmgBIBn/gtmxvq+WXoAkPCCbEYoAQA07c4NFh6zFjbNiFUOoAsoWxvcMvOL1ONJALTqs+70wMxjC5/KqS13m/cuIkqGbQ4AX2WFuX9vKEQEGQp7kIMkq9UcAD7+sR113HvyEeOLCOaJbblBkjyQA8Cj2Jz7rXK9SFCJEEWbrV2wwzy6R5kDwBNgVWlZa8HOAGDBZkv3JBHmAAit1DwwPQFQL6ia/waAJSu1pThg4wG/1gXNIYC2lF1e/sskeMfMvhf50yE3aTDDAV0LoVoXrU2rjl9CCqGupXBnAEJK4b/W1q27NktlgZDFkKYST4RhW+C9PGBkOZwkwCwJKgBrvyHia2rgsj5bYuoFnlDOmXlvDjv35gARQcPWbtklV4HDXGp2hf3SEs82L42jOaDbtnjCC0COqAxXqTGC5a+t9orWL5Lg4CaJ7XGc/DhoDYWI50UEm6C+TVdVuhdDwIAw1hzFYSX8/dEk0SaPbY4aENB/e+m0DasNpqI4kvMxxA0z+xZ+cuhqD1AuQIwBhCePDYKIoFXvvQ+n0dC0rT5hOgkABQHoIjV6ENCiRkh0JUbtBONkiI95KL9T0xK3xpsMQAEEII+QaOocp/xVUx0Iz6/tZylfnQXGJqSZYcwTcDvaZ/CGalfMxb92qWD1sb7kbOWbADCcAGU9MQ764H+oHHGCbLKIyHDYOtWQvQEoLUDPCgGvSeL8kL8NYAxHZdFn/OP4inoUeAWV53DlQKtOdblBQgAwvABWtj25yVaveOBKzyMWz/9UjBX/oyklKmxJRQMBxY+jCTbMA0bCAulyOOzsj7bWGAf34DAWQgdld4jF/Yu7AWBfpCyOuLY/mfGgQFn7kxmc7wnJIotwQK1JV+2+RTxg1ZRurgRXWaGpc9t4wFTE/rf7194DfgBfdlJfRZMO/QAAAABJRU5ErkJggg==" class="icon"/>
+            </win-split-view-command>
         </win-split-view-pane>
         <win-split-view-content>
             <div ui-view>
             </div>
         </win-split-view-content>
-    </win-split-view>
-    
+    </win-split-view>    
     
     <!-- Angular -->
     <script src="js/core/angular.min.js"></script>
