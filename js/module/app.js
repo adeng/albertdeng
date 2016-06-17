@@ -23,7 +23,7 @@
 		})
         
         .state('report', {
-            url: '/report/:ticker',
+            url: '/report/:title/:ticker',
             templateUrl: 'templates/report/index.html',
             controller: 'ReportCtrl'
         })

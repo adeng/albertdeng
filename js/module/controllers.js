@@ -203,7 +203,6 @@ angular.module('main.controllers', [])
 		return (sum/units).toFixed(3);
 	}
 })
-
 .controller('ReportsCtrl', function($scope, $rootScope, $state, Stocks) {
     $scope.fundBuys = [];
     $scope.fundHolds = [];
@@ -235,13 +234,18 @@ angular.module('main.controllers', [])
         }
     });
 
-	$scope.openReport = function(id) {
-
+	$scope.openReport = function(id, name) {
+		$state.go('report', {"ticker": id, "title": name});
 	}
     
     $scope.select = function(chosen) {
         $scope.selected = parseInt(chosen);
     }
+})
+
+.controller('ReportCtrl', function($scope, $rootScope, $stateParams) {
+    $rootScope.title = $stateParams.title;
+	console.log("Loaded new page", $stateParams);
 })
 
 .controller('StocksCtrl', function($q, $scope, $modal, $sce, Stocks) {
