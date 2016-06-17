@@ -1,13 +1,44 @@
 <style>
+    .side {
+        width: 45%;
+        display: inline-block;
+    }
+
+    .side h3 {
+        text-align: center;
+    }
 </style>
 <h1>Blackjack</h1>
 
-<h3>Dealer's Cards</h3>
+<input type="button" value="Start" ng-if="!started" ng-click="startBlackjack()">
+<div ng-if="started">
 
-<h3>Your Cards</h3>
+<label for="bMoney">Starting Money</label>
+<input type="number" id="bMoney" value="500" disabled />
+
+<div>
+    <div class="side">
+        <h3>Dealer's Cards</h3>
+        <label for="bdScore">Count</label>
+        <input type="number" id="bdScore" disabled />
+        <div>
+            <p ng-repeat="card in dealer.getCards()">{{card.toString()}}</p>
+        </div>
+    </div>
+
+    <div class="side">
+        <h3>Your Cards</h3>
+        <label for="bpScore">Count</label>
+        <input type="number" id="bpScore" disabled />
+        <div>
+            <p ng-repeat="card in player.getCards()">{{card.toString()}}</p>
+        </div>
+    </div>
+</div>
 
 <br />
-<input type="button" value="Hit">
-<input type="button" value="Stand">
-<input type="button" value="Double Down">
-<input type="button" value="Split">
+    <input type="button" value="Hit">
+    <input type="button" value="Stand">
+    <input type="button" value="Double Down">
+    <input type="button" value="Split">
+</div>

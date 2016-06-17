@@ -49,8 +49,24 @@ angular.module('main.controllers', [])
 })
 
 .controller('CardGameCtrl', function($scope, $rootScope) {
+	$scope.started = false;
 	var c = new Deck();
-	console.log(c.getCard(1).toString());
+	$scope.dealer = new Hand(false);
+	$scope.player = new Hand(true);
+
+	$scope.startBlackjack = function() {
+		$scope.started = true;
+		$scope.deal();
+	}
+
+	$scope.deal = function() {
+		c.shuffle();
+		
+		$scope.dealer.draw(c, 2);
+		$scope.player.draw(c, 2);
+
+		$scope.dealer.reveal(1);
+	}
 })
 
 .controller('FinanceCtrl', function($scope, $rootScope) {

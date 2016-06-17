@@ -7,6 +7,16 @@ function Card(suit, rank) {
     this.rank = rank;
 }
 
+Card.prototype.faceUp = true;
+
+Card.prototype.isFaceUp = function() {
+    return this.faceUp;
+}
+
+Card.prototype.flip = function() {
+    this.faceUp = !this.faceUp;
+}
+
 Card.prototype.getSuit = function() {
     return suits[this.suit];
 }
@@ -16,6 +26,8 @@ Card.prototype.getRank = function() {
 }
 
 Card.prototype.toString = function() {
+    if(!this.faceUp)
+        return "Face Down";
     return this.getRank() + " of " + this.getSuit();
 }
 
@@ -73,8 +85,13 @@ Deck.prototype.deal = function() {
     return this.cards.shift();
 }
 
-function Hand(cards) {
+function Hand(player, cards) {
+    this.player = player;
     this.cards = (cards != undefined ? [].concat(cards) : []);
+}
+
+Hand.prototype.getCards = function() {
+    return this.cards;
 }
 
 Hand.prototype.toString = function() {
@@ -85,7 +102,32 @@ Hand.prototype.toString = function() {
 
 Hand.prototype.draw = function(deck, num) {
     for(var i = 0; i < num; i++) {
-        this.cards.push(deck.deal());
+        var card = deck.deal();
+        if(!this.player)
+            card.flip();
+        this.cards.push(card);
+    }
+}
+
+Hand.prototype.reveal = function(num, index) {
+    var start = index == undefined ? 0 : index;
+    
+    var end = this.cards.length;
+    if(num > 0 && start + num < this.cards.length)
+        end = start + num;
+
+    if(num < 0) {
+        for(var i = 0; i < this.cards.length; i++) {
+            if(!this.cards[i].isFaceUp())
+                this.cards[i].flip();
+        }
+
+        return;
+    }
+
+    for(var i = start; i < end; i++) {
+        if(!this.cards[i].isFaceUp())
+            this.cards[i].flip();
     }
 }
 
