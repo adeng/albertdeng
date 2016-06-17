@@ -54,7 +54,7 @@ angular.module('main.services', [])
 		loadItems: function(filename) {
 			var deferred = $q.defer();
 			
-			$http.get('https://cdn.rawgit.com/adeng/albertdeng/master/data/about/' + filename + '.json').success( function(data, status, headers, config) {
+			$http.get('/data/about/' + filename + '.json').success( function(data, status, headers, config) {
 				deferred.resolve(data);
 			});
 			

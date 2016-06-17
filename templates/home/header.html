@@ -20,6 +20,15 @@
     #down {
         display: none;
     }
+
+    #profile {
+        width: 15%;
+        position: absolute;
+        display: inline;
+        bottom: 40vh;
+        left: 5%;
+        border: 3px solid white;
+    }
     
     @media (max-width: 500px), handheld and (orientation: landscape) {
         .img-container {
@@ -42,6 +51,12 @@
             width: 44px;
             left: 43vw;
         }
+
+        #profile {
+            width: 50%;
+            left: 25%;
+            top: 40px;
+        }
         
         .overlay {
             background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.9));
@@ -53,7 +68,7 @@
         
         .img-header {
             position: absolute;
-            top: 45%;
+            bottom: 85px;
             width: 100%;
         }
         
@@ -67,10 +82,12 @@
 <!-- Indicators -->
 <div>
     <div class="img-container">
+        <img id="profile" src="https://scontent-mia1-1.xx.fbcdn.net/t31.0-8/13411862_10154240102112498_4738623494540866942_o.jpg" />
         <div class="overlay"></div>
         <img src="/data/img/cover.jpg" />
         <img id="down" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABq0lEQVR4Xu2Z4XHDMAiFYZOO0mySTNaM0k2STejpLr6qPdUGJIGvevntCN4nkHg20+I/Xlw/AQAqYHECaIHFCwCHYFoLiIjU1cfMKbmkBC3CAQAVgBbAGYBDsCKAWwDXIOaAlJkkJSgGIUyCGIXhBWCGYIZghmCGYIZghr4JwA3CDcINphizlKBwg//JDYrIGzM/rd8YR3gBEXln5k9r7B/zR8+fReRKRB9EdGPmu2WtXgBV7Dsz3yyxhwCoEtjWM0HoAdCI7YbgOgRL2RPRo0FdDcELoCF+S+PiaQcXgNcpvpX/bw4qCB4AO+JVMVtt4gbQC8EKYIb4oqELQA8EC4BZ4ocA8ELQApgpfhgADwQNgNnihwKwQjgCECF+OAALhD0AUeKnANBC+AtApPhpADQQWgCixU8FcATh5SHq2aTM88VXuAarcC+gDbizq5ol3BOeZvHpFbAl4YQwXXwYgIN2aG1WiPhQAAYIYeLDASgghIpPAbADIVx8GoAGhBTxqQAqCGR9n6i94jTPdb8P0AQ58zMAcObdicgNFRBB+cwxUAFn3p2I3JavgC907UpQ0qStQQAAAABJRU5ErkJggg==" />
     </div>
+    
     <div class="img-header">
         <h1>Hello there!</h1>
     </div>
