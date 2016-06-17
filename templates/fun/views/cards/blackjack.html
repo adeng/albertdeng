@@ -20,24 +20,26 @@
     <div class="side">
         <h3>Dealer's Cards</h3>
         <label for="bdScore">Count</label>
-        <input type="number" id="bdScore" disabled />
+        <br />
+        <input type="number" id="bdScore" disabled ng-model="counts.dealer"/>
         <div>
-            <p ng-repeat="card in dealer.getCards()">{{card.toString()}}</p>
+            <span style="margin-right: 4px;" ng-repeat="card in dealer.getCards()">{{card.toString()}}</span>
         </div>
     </div>
 
     <div class="side">
         <h3>Your Cards</h3>
         <label for="bpScore">Count</label>
-        <input type="number" id="bpScore" disabled />
+        <br />
+        <input type="number" id="bpScore" disabled ng-model="counts.player" />
         <div>
-            <p ng-repeat="card in player.getCards()">{{card.toString()}}</p>
+            <span style="margin-right: 4px;" ng-repeat="card in player.getCards()">{{card.toString()}}</span>
         </div>
     </div>
 </div>
 
 <br />
-    <input type="button" value="Hit">
+    <input type="button" value="Hit" ng-click="hitBlackjack()">
     <input type="button" value="Stand">
     <input type="button" value="Double Down">
     <input type="button" value="Split">

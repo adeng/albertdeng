@@ -1,5 +1,7 @@
 // Libraries
 var suits = ["Clubs", "Diamonds", "Hearts", "Spades"];
+var suitIcons = ["♣", "♦", "♥", "♠"];
+var rankIcons = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
 var ranks = ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"];
 
 function Card(suit, rank) {
@@ -25,10 +27,17 @@ Card.prototype.getRank = function() {
     return ranks[this.rank];
 }
 
+Card.prototype.getValue = function() {
+    return this.rank;
+}
+
 Card.prototype.toString = function() {
-    if(!this.faceUp)
+    /* if(!this.faceUp)
         return "Face Down";
-    return this.getRank() + " of " + this.getSuit();
+    return this.getRank() + " of " + this.getSuit(); */
+    if(!this.faceUp)
+        return "UNK";
+    return rankIcons[this.rank] + suitIcons[this.suit];
 }
 
 /**

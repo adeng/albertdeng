@@ -53,19 +53,57 @@ angular.module('main.controllers', [])
 	var c = new Deck();
 	$scope.dealer = new Hand(false);
 	$scope.player = new Hand(true);
+	$scope.counts = {};
 
+	// Blackjack
 	$scope.startBlackjack = function() {
 		$scope.started = true;
-		$scope.deal();
+		dealBlackjack();
 	}
 
-	$scope.deal = function() {
+	$scope.hitBlackjack = function() {
+		$scope.player.draw(c, 1);
+		updateCountsBlackjack(false);
+	}
+
+	var dealBlackjack = function() {
 		c.shuffle();
 		
 		$scope.dealer.draw(c, 2);
 		$scope.player.draw(c, 2);
 
 		$scope.dealer.reveal(1);
+
+		updateCountsBlackjack(false);
+	}
+
+	var updateCountsBlackjack = function(final) {
+		$scope.counts.player = 0;
+		$scope.counts.dealer = 0;
+		var dealerCards = $scope.dealer.getCards();
+		var playerCards = $scope.player.getCards();
+
+		if(!final)
+			$scope.counts.dealer = getValueBlackjack(dealerCards[0].getValue());
+		else {
+			for(var a = 0; a < dealerCards.length; b++)
+				$scope.counts.dealer += getValueBlackjack(playerCards[a].getValue(), $scope.counts.dealer);
+		}
+
+		for(var b = 0; b < playerCards.length; b++)
+			$scope.counts.player += getValueBlackjack(playerCards[b].getValue(), $scope.counts.player);
+
+		//if($scope.counts.player > 21)
+			// player bust
+	}
+
+	var getValueBlackjack = function(rank, currScore) {
+		if(rank > 0 && rank < 11)
+			return rank + 1;
+		else if(rank >= 11)
+			return 10;
+		else if(rank == 0)
+			return (currScore + 11) > 21 ? 1 : 11;
 	}
 })
 
