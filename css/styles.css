@@ -135,6 +135,7 @@ hr {
 .outer-box {
     width: 100%;
     padding: 5%;
+    padding-bottom: 0%;
 }
 
 .inner-box {
@@ -246,7 +247,7 @@ th {
 -------------------------------------------------- */
 
 .filter-btns {
-  padding-bottom: 40px;
+  /*padding-bottom: 40px;*/
   width: 80%;
   margin: auto;
 }
@@ -286,10 +287,6 @@ th {
 .timeline > li > .thumbnail:hover {
     border: 2px solid black;
     transition: border 0.2s;
-}
-
-.timeline > li:first-child {
-  padding-top: 40px;
 }
 
 .timeline > li:nth-child(odd) > .thumbnail {
