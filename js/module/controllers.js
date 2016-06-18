@@ -123,6 +123,8 @@ angular.module('main.controllers', [])
     $scope.selectBox = 0;
 	$scope.radioModel = 0;
 	$scope.classModel = 0;
+	$scope.classModel1 = 0;
+	$scope.classModel2 = 0;
     $rootScope.title = "About";
 
 	$scope.set = function( curr ) {
@@ -145,19 +147,6 @@ angular.module('main.controllers', [])
 		}
 	}
 	
-	$scope.match = function( first, second ) {
-		switch( parseInt( $scope.radioModel )) {
-			case 0:
-				return first || second;
-				
-			case 1:
-				return first;
-			
-			case 2:
-				return second;
-		}
-	}
-	
 	$scope.filterClasses = function( param ) {
         $scope.selectBox = parseInt(param);
         
@@ -172,6 +161,35 @@ angular.module('main.controllers', [])
 			$scope.gpa = $scope.calculateGPA();
 		});
 	}
+
+	$scope.filterWork = function( param ) {
+        $scope.selectBox = parseInt(param);
+        
+		About.loadItems('experience').then( function(val) {
+			var arr = new Array();
+			for( var a in val ) {
+				if( param == 0 || (param == 1 && val[a].tech) || (param == 2 && val[a].biz))
+					arr.push( val[a] );
+			}
+			
+			$scope.experiences = arr;
+		});
+	}
+
+	$scope.filterClub = function( param ) {
+        $scope.selectBox = parseInt(param);
+        
+		About.loadItems('extracurriculars').then( function(val) {
+			var arr = new Array();
+			for( var a in val ) {
+				if( param == 0 || (param == 1 && val[a].tech) || (param == 2 && val[a].biz))
+					arr.push( val[a] );
+			}
+			
+			$scope.extracurriculars = arr;
+		});
+	}
+	
 	
 	About.loadItems('experience').then( function(val) {
 		$scope.experiences = val;

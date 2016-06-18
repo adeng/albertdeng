@@ -1,7 +1,10 @@
 <div class="outer-box">
     <div class="inner-box">
         <h1>Quick Reference</h1>
+        <h4>Awards</h4>
         <ul>
+        	<li>First Place - Bruin Value Investing Stock Pitch</li>
+			<li>Dean's Honor List</li>
         </ul>
     </div>
 </div>
@@ -9,10 +12,15 @@
 <div class="filter-btns">
     <p style="text-align: center">Filter</p>
     <div class="selector">
-        <h3 class="clickable" ng-class="{'selector-active': selectBox == 0}" ng-click="filterClasses(0)">All</h3>
-        <h3 class="clickable" ng-class="{'selector-active': selectBox == 1}" ng-click="filterClasses(1)">Technology</h3>
-        <h3 class="clickable" ng-class="{'selector-active': selectBox == 2}" ng-click="filterClasses(2)">Business</h3>
+        <h3 class="clickable" ng-class="{'selector-active': selectBox == 0}" ng-click="filterClub(0)">All</h3>
+        <h3 class="clickable" ng-class="{'selector-active': selectBox == 1}" ng-click="filterClub(1)">Technology</h3>
+        <h3 class="clickable" ng-class="{'selector-active': selectBox == 2}" ng-click="filterClub(2)">Business</h3>
     </div>
+	<select class="win-dropdown selector-hidden" ng-model="classModel1" ng-change="filterClub(classModel1)">
+		<option value="0" selected="selected">All</option>
+		<option value="1">Technology</option>
+		<option value="2">Business</option>
+	</select>
 </div>
 
 <div class="page-padding">
