@@ -4,27 +4,28 @@
 
 @font-face {
    font-family: 'Segoe UI';
-   src: url(/fonts/segmdl2.ttf);
+    src: url(/fonts/segoeui.ttf);
 }
 
 @font-face {
-   font-family: 'Segoe UI';
-   src: url(/fonts/seguisb.ttf);
-   font-weight: 'bold;'
-}
-
-@font-face {
-    font-family: 'Segoe UI Header';
+    font-family: 'Segoe UI Semilight';
     src: url(/fonts/segoeuisl.ttf);
 }
 
+@font-face {
+    font-family: 'Segoe UI Light';
+    src: url(/fonts/segoeuil.ttf);
+}
+
 * { 
-    font-family: 'Segoe UI Header', Arial, Helvetica, sans-serif !important;
+    font-family: 'Segoe UI Semilight', Arial, Helvetica, sans-serif !important;
     box-sizing: border-box;
+    font-weight: 500;
 }
 
 h1 { 
-    font-family: 'Segoe UI Header', Arial, Helvetica, sans-serif !important;
+    font-family: 'Segoe UI Light', Arial, Helvetica, sans-serif !important;
+    font-weight: 300;
 }
 
 body {
@@ -278,7 +279,7 @@ th {
 }
 
 .timeline > li > .thumbnail {
-  width: 80%;
+  width: 90%;
   border-radius: 0px;
   border: 2px solid #D2D2D2;
   padding: 20px;
