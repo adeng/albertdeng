@@ -103,7 +103,7 @@
 <div ng-class="{'selector-reports-hidden': selected == 1}">
     <div class="report-list" ng-repeat="buy in fundBuys">
         <h2>Buys</h2>
-        <div class="report-card" ng-click="openReport(buy.id, buy.name)">
+        <div class="report-card" ng-click="openReport(buy.url, buy.name)">
             <h2 class="optional">{{buy.name}}</h2>
             <h2 class="size-matters">{{buy.ticker}}</h2>
             <h3 style="color: rgb(106,158,31)">{{buy.rating}}</h3>
@@ -118,7 +118,7 @@
 
     <div class="report-list" ng-repeat="hold in fundHolds">
         <h2>Holds</h2>
-        <div class="report-card" ng-click="openReport(hold.id, hold.name)">
+        <div class="report-card" ng-click="openReport(hold.url, hold.name)">
             <h2 class="optional">{{hold.name}}</h2>
             <h2 class="size-matters">{{hold.ticker}}</h2>
             <h3 style="color: rgb(89,89,89)">{{hold.rating}}</h3>
@@ -133,7 +133,7 @@
 
     <div class="report-list" ng-repeat="sell in fundSells">
         <h2>Sells</h2>
-        <div class="report-card" ng-click="openReport(sell.id, sell.name)">
+        <div class="report-card" ng-click="openReport(sell.url, sell.name)">
             <h2 class="optional">{{sell.name}}</h2>
             <h2 class="size-matters">{{sell.ticker}}</h2>
             <h3 style="color: rgb(198,35,36)">{{sell.rating}}</h3>
@@ -151,7 +151,7 @@
 <div ng-class="{'selector-reports-hidden': selected == 0}">
     <div class="report-list" ng-repeat="buy in techBuys">
         <h2>Bullish</h2>
-        <div class="report-card" ng-click="openReport(buy.id, buy.name)">
+        <div class="report-card" ng-click="openReport(buy.url, buy.name)">
             <h2 class="optional">{{buy.name}}</h2>
             <h2 class="size-matters">{{buy.ticker}}</h2>
             <h3 style="color: rgb(106,158,31)"> {{buy.rating}}</h3>
@@ -166,7 +166,7 @@
 
     <div class="report-list" ng-repeat="sell in techSells">
         <h2>Bearish</h2>
-        <div class="report-card" ng-click="openReport(sell.id, sell.name)">
+        <div class="report-card" ng-click="openReport(sell.url, sell.name)">
             <h2 class="optional">{{sell.name}}</h2>
             <h2 class="size-matters">{{sell.ticker}}</h2>
             <h3 style="color: rgb(198,35,36)">{{sell.rating}}</h3>

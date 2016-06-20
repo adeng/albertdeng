@@ -48,21 +48,6 @@ angular.module('main.services', [])
 	}
 })
 
-.factory('About', function($q, $http) {
-	
-	return {
-		loadItems: function(filename) {
-			var deferred = $q.defer();
-			
-			$http.get('/data/about/' + filename + '.json').success( function(data, status, headers, config) {
-				deferred.resolve(data);
-			});
-			
-			return deferred.promise;
-		}
-	}
-})
-
 .factory('General', function($q, $http) {
 	
 	return {
@@ -70,6 +55,15 @@ angular.module('main.services', [])
 			var deferred = $q.defer();
 			
 			$http.get('/data/icons.json').success( function(data, status, headers, config) {
+				deferred.resolve(data);
+			});
+			
+			return deferred.promise;
+		},
+		getJSON: function(url) {
+			var deferred = $q.defer();
+			
+			$http.get(url).success( function(data, status, headers, config) {
 				deferred.resolve(data);
 			});
 			

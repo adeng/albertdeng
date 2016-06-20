@@ -118,14 +118,19 @@ angular.module('main.controllers', [])
     }
 })
 
-.controller('AboutCtrl', function($scope, $rootScope, About) {
+.controller('AboutCtrl', function($scope, $rootScope, General) {
 	$scope.selected;
+	$scope.clicked = -1;
     $scope.selectBox = 0;
 	$scope.radioModel = 0;
 	$scope.classModel = 0;
 	$scope.classModel1 = 0;
 	$scope.classModel2 = 0;
     $rootScope.title = "About";
+
+	$scope.toggle = function (selected, toggle) {
+		$scope.clicked = !toggle ? -1 : selected;
+	}
 
 	$scope.set = function( curr ) {
 		switch(curr) {
@@ -150,7 +155,7 @@ angular.module('main.controllers', [])
 	$scope.filterClasses = function( param ) {
         $scope.selectBox = parseInt(param);
         
-		About.loadItems('education').then( function(val) {
+		General.getJSON('/data/about/education.json').then( function(val) {
 			var arr = new Array();
 			for( var a in val ) {
 				if( val[a].tags.indexOf( parseInt(param) ) != -1 )
@@ -165,7 +170,7 @@ angular.module('main.controllers', [])
 	$scope.filterWork = function( param ) {
         $scope.selectBox = parseInt(param);
         
-		About.loadItems('experience').then( function(val) {
+		General.getJSON('/data/about/experience.json').then( function(val) {
 			var arr = new Array();
 			for( var a in val ) {
 				if( param == 0 || (param == 1 && val[a].tech) || (param == 2 && val[a].biz))
@@ -179,7 +184,7 @@ angular.module('main.controllers', [])
 	$scope.filterClub = function( param ) {
         $scope.selectBox = parseInt(param);
         
-		About.loadItems('extracurriculars').then( function(val) {
+		General.getJSON('/data/about/extracurriculars.json').then( function(val) {
 			var arr = new Array();
 			for( var a in val ) {
 				if( param == 0 || (param == 1 && val[a].tech) || (param == 2 && val[a].biz))
@@ -190,16 +195,15 @@ angular.module('main.controllers', [])
 		});
 	}
 	
-	
-	About.loadItems('experience').then( function(val) {
+	General.getJSON('/data/about/experience.json').then( function(val) {
 		$scope.experiences = val;
 	});
 	
-	About.loadItems('extracurriculars').then( function(val) {
+	General.getJSON('/data/about/extracurriculars.json').then( function(val) {
 		$scope.extracurriculars = val;
 	});
 	
-	About.loadItems('education').then( function(val) {
+	General.getJSON('/data/about/education.json').then( function(val) {
 		$scope.classes = val;
 		$scope.gpa = $scope.calculateGPA();
 	});
@@ -252,8 +256,8 @@ angular.module('main.controllers', [])
         }
     });
 
-	$scope.openReport = function(id, name) {
-		$state.go('report', {"ticker": id, "title": name});
+	$scope.openReport = function(url, name) {
+		$state.go('report', {src: url, title: name});
 	}
     
     $scope.select = function(chosen) {
@@ -261,9 +265,12 @@ angular.module('main.controllers', [])
     }
 })
 
-.controller('ReportCtrl', function($scope, $rootScope, $stateParams) {
+.controller('ReportCtrl', function($scope, $rootScope, $stateParams, General) {
     $rootScope.title = $stateParams.title;
-	console.log("Loaded new page", $stateParams);
+
+	General.getJSON($stateParams.src).then( function(val) {
+		$scope.data = val;
+	});
 })
 
 .controller('StocksCtrl', function($q, $scope, $modal, $sce, Stocks) {

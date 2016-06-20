@@ -1,20 +1,43 @@
 <style>
     .img-container {
+        height: 100%;
+        /*max-height: 45vh;*/
+        /*overflow:hidden;*/
+        overflow-y: hidden;
+    }
+
+    .bottom-container {
+        position: absolute;
+        bottom: 0px;
+    }
+
+    .bottom-container p {
+        color: white;
+    }
+
+    .cover {
+        position: absolute;
         width: 100%;
-        max-height: 45vh;
-        overflow:hidden;
+        bottom: 0px;
+        height: 85%;
+        background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));
     }
     
     .img-header {
         text-align: center;
+        position: absolute;
+        top: 20%;
+        margin-left: 2%;
     }
     
     h1 {
-        color: rgb(5, 47, 97);
+        /*color: rgb(5, 47, 97);*/
+        color: white;
+        margin-bottom: 5%;
     }
     
     .img-container img {
-        width: 100%;
+        height: 100%;
     }
     
     #down {
@@ -100,19 +123,19 @@
 <!-- Indicators -->
 <div>
     <div class="img-container">
-        <img id="profile" src="https://scontent-mia1-1.xx.fbcdn.net/t31.0-8/13411862_10154240102112498_4738623494540866942_o.jpg" />
+        <!--<img id="profile" src="https://scontent-mia1-1.xx.fbcdn.net/t31.0-8/13411862_10154240102112498_4738623494540866942_o.jpg" />-->
         <div class="overlay"></div>
-        <img src="https://static.pexels.com/photos/1350/blur-blurred-background.jpg" />
-        <!--<img src="/data/img/cover.jpg" />-->
+        <!--<img src="https://static.pexels.com/photos/1350/blur-blurred-background.jpg" />-->
+        <img src="/data/img/cover.jpg" />
         <img id="down" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABq0lEQVR4Xu2Z4XHDMAiFYZOO0mySTNaM0k2STejpLr6qPdUGJIGvevntCN4nkHg20+I/Xlw/AQAqYHECaIHFCwCHYFoLiIjU1cfMKbmkBC3CAQAVgBbAGYBDsCKAWwDXIOaAlJkkJSgGIUyCGIXhBWCGYIZghmCGYIZghr4JwA3CDcINphizlKBwg//JDYrIGzM/rd8YR3gBEXln5k9r7B/zR8+fReRKRB9EdGPmu2WtXgBV7Dsz3yyxhwCoEtjWM0HoAdCI7YbgOgRL2RPRo0FdDcELoCF+S+PiaQcXgNcpvpX/bw4qCB4AO+JVMVtt4gbQC8EKYIb4oqELQA8EC4BZ4ocA8ELQApgpfhgADwQNgNnihwKwQjgCECF+OAALhD0AUeKnANBC+AtApPhpADQQWgCixU8FcATh5SHq2aTM88VXuAarcC+gDbizq5ol3BOeZvHpFbAl4YQwXXwYgIN2aG1WiPhQAAYIYeLDASgghIpPAbADIVx8GoAGhBTxqQAqCGR9n6i94jTPdb8P0AQ58zMAcObdicgNFRBB+cwxUAFn3p2I3JavgC907UpQ0qStQQAAAABJRU5ErkJggg==" />
-    </div>
-    
-    <div class="img-header">
-        <h1>Hello there!</h1>
     </div>
 </div>
 
-<div class="page-padding">
+<div class="cover">
+</div>
+
+<div class="page-padding bottom-container">
+    <h1>Hello there!</h1>
     <br class="size-matters" />
     <p>My name's Albert Deng and this is my website! Although, given the address, you've probably already figured that out by now.</p>
     <p>This website is a place for me to share my interests with like-minded people and keep track of my work. I will also regularly update my professional profile on this site.</p>
