@@ -11,6 +11,16 @@
         
         padding: 20px;
     }
+
+    .full-item {
+        flex-grow: 1;
+        flex-basis: 100%;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+        margin-left: 3%;
+        margin-right: 3%; 
+        transition: 5s;
+    }
     
     .image {
         text-align: center;
@@ -65,11 +75,15 @@
 		<div class="flex-item">
 			<h2>Developer</h2>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas egestas nisi nunc, sodales sodales lacus feugiat eu.</p>
-            <div class="down-container">
+            <div class="down-container" id="item1">
                 <img ng-if="clicked != 0" ng-click="toggle(0, 1)" class="down" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABmElEQVR4Xu2ZQZICIQxF4008ysxN9GTOUbyJcxSLBRsKugMkn3Txe2OVjU3e4wdKvcnm121zfqEAJmBzA2yBzQPATZAtwBbY3ABbYPMA8BRgC7AFNjfAFtg8ADwF2AKKFriLyL9iXMQhPyLyPirsLAEPEXmJyFNE/iISHtSUa091p/qr15GA/ID8wStJKGtvSmgJSLH/VJRdQUIJnzF+a+3Qk4ArJKEF31w47R5QhiFiErrhE9SZgDRm6MHgDXO4Ro2A6BKG4bUJyIs5NZFTIqZr0iYgooRp+N4ERJJgAj8qYPWeYAY/I2CVBFP4WQFoCebwFgJQElzgrQR4S3CDtxTgJcEV3lqAtQR3eA8BVhIg8F4CZiXA4D0FjEqAwnsL6JUAh0cI0EpYAo8ScCYh3U+/PJcX5Fen3q/DlTrVb7VWufYACDwyARlSIwEGv0LAUTuke1D4VQJaEuDwKwWUEpbArxaQJaTXZf87Ik8B9XGBHEgBSNsR52ICIq4KsiYmAGk74lxMQMRVQdbEBCBtR5yLCYi4KsiavmBLaEEmn9bgAAAAAElFTkSuQmCC" />
                 <img ng-if="clicked == 0" ng-click="toggle(0, 0)" class="down" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABt0lEQVR4Xu2Y0VHEMAxEdZ1QCnQClQGd0AmUwngumQlHnNjWaqWMlW/H2n1a2Xe5yeTPbXL/kgAyAZMTyBGYPAB5COYI5AhMTiBHYPIAuN8Cr0sDPrwa4TkCxfz7YvxNRFwgeAHYml+b7wLBA8CeeTcIbABH5l0gMAG0mKdDYAGomS9zX571MNxeBpQzgQHgyPx68resMbkprQH0GOtZC4NhCWDE0Mg7KhhWADRGNO92w7AAgDCA2KMJBhoAUjhyryoMJAALwRZ7/oGBAmAp1HJvyN9hU4FLu8xqaBNgJmxnaE1qaQCYCDo5uuE1RwHAhTTdWfdF0NojAKACOoxvl8I09AKAFR40DofQAyCS+RWEWlMrAHUhQMdrW6i0tQBQFTA0DhmHMwBXMK8ahyMAVzI/DKEG4ElEvnfiS/lOpxybWuNeROTrce+eBFzBfC0Jn8sPqH9sW8+AK5l/hFA1XxaeAShryjj8KGPp9frzXuy3YloAeImn1E0AFMyBi2QCAjeHIi0TQMEcuEgmIHBzKNIyARTMgYtkAgI3hyItE0DBHLhIJiBwcyjSMgEUzIGLZAICN4ci7RetBWhBOi0uBQAAAABJRU5ErkJggg==" />
             </div>
 		</div>
+        <div class="full-item" ng-if="clicked == 0">
+            <h1>Developer</h1>
+            <p>This is my experience as a developer. Or would be if I had any.</p>
+        </div>
 		<div class="flex-item">
 			<h2>Entrepreneur</h2>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas egestas nisi nunc, sodales sodales lacus feugiat eu.</p>
@@ -78,6 +92,10 @@
                 <img ng-if="clicked == 1" ng-click="toggle(1, 0)" class="down" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABt0lEQVR4Xu2Y0VHEMAxEdZ1QCnQClQGd0AmUwngumQlHnNjWaqWMlW/H2n1a2Xe5yeTPbXL/kgAyAZMTyBGYPAB5COYI5AhMTiBHYPIAuN8Cr0sDPrwa4TkCxfz7YvxNRFwgeAHYml+b7wLBA8CeeTcIbABH5l0gMAG0mKdDYAGomS9zX571MNxeBpQzgQHgyPx68resMbkprQH0GOtZC4NhCWDE0Mg7KhhWADRGNO92w7AAgDCA2KMJBhoAUjhyryoMJAALwRZ7/oGBAmAp1HJvyN9hU4FLu8xqaBNgJmxnaE1qaQCYCDo5uuE1RwHAhTTdWfdF0NojAKACOoxvl8I09AKAFR40DofQAyCS+RWEWlMrAHUhQMdrW6i0tQBQFTA0DhmHMwBXMK8ahyMAVzI/DKEG4ElEvnfiS/lOpxybWuNeROTrce+eBFzBfC0Jn8sPqH9sW8+AK5l/hFA1XxaeAShryjj8KGPp9frzXuy3YloAeImn1E0AFMyBi2QCAjeHIi0TQMEcuEgmIHBzKNIyARTMgYtkAgI3hyItE0DBHLhIJiBwcyjSMgEUzIGLZAICN4ci7RetBWhBOi0uBQAAAABJRU5ErkJggg==" />
             </div>
 		</div>
+        <div class="full-item" ng-if="clicked == 1">
+            <h1>Entrepreneur</h1>
+            <p>Where I say inspiring things but 80% of them are just buzzwords. Synergistic buzzwords.</p>
+        </div>
 		<div class="flex-item">
 			<h2>Investor</h2>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas egestas nisi nunc, sodales sodales lacus feugiat eu.</p>
@@ -86,6 +104,10 @@
                 <img ng-if="clicked == 2" ng-click="toggle(2, 0)" class="down" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABt0lEQVR4Xu2Y0VHEMAxEdZ1QCnQClQGd0AmUwngumQlHnNjWaqWMlW/H2n1a2Xe5yeTPbXL/kgAyAZMTyBGYPAB5COYI5AhMTiBHYPIAuN8Cr0sDPrwa4TkCxfz7YvxNRFwgeAHYml+b7wLBA8CeeTcIbABH5l0gMAG0mKdDYAGomS9zX571MNxeBpQzgQHgyPx68resMbkprQH0GOtZC4NhCWDE0Mg7KhhWADRGNO92w7AAgDCA2KMJBhoAUjhyryoMJAALwRZ7/oGBAmAp1HJvyN9hU4FLu8xqaBNgJmxnaE1qaQCYCDo5uuE1RwHAhTTdWfdF0NojAKACOoxvl8I09AKAFR40DofQAyCS+RWEWlMrAHUhQMdrW6i0tQBQFTA0DhmHMwBXMK8ahyMAVzI/DKEG4ElEvnfiS/lOpxybWuNeROTrce+eBFzBfC0Jn8sPqH9sW8+AK5l/hFA1XxaeAShryjj8KGPp9frzXuy3YloAeImn1E0AFMyBi2QCAjeHIi0TQMEcuEgmIHBzKNIyARTMgYtkAgI3hyItE0DBHLhIJiBwcyjSMgEUzIGLZAICN4ci7RetBWhBOi0uBQAAAABJRU5ErkJggg==" />
             </div>
 		</div>
+        <div class="full-item" ng-if="clicked == 2">
+            <h1>Investor</h1>
+            <p>Some say I'm too... <i>invested</i> in this hobby.</p>
+        </div>
 		<div class="flex-item">
 			<h2>Trader</h2>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas egestas nisi nunc, sodales sodales lacus feugiat eu.</p>
@@ -94,6 +116,10 @@
                 <img ng-if="clicked == 3" ng-click="toggle(3, 0)" class="down" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABt0lEQVR4Xu2Y0VHEMAxEdZ1QCnQClQGd0AmUwngumQlHnNjWaqWMlW/H2n1a2Xe5yeTPbXL/kgAyAZMTyBGYPAB5COYI5AhMTiBHYPIAuN8Cr0sDPrwa4TkCxfz7YvxNRFwgeAHYml+b7wLBA8CeeTcIbABH5l0gMAG0mKdDYAGomS9zX571MNxeBpQzgQHgyPx68resMbkprQH0GOtZC4NhCWDE0Mg7KhhWADRGNO92w7AAgDCA2KMJBhoAUjhyryoMJAALwRZ7/oGBAmAp1HJvyN9hU4FLu8xqaBNgJmxnaE1qaQCYCDo5uuE1RwHAhTTdWfdF0NojAKACOoxvl8I09AKAFR40DofQAyCS+RWEWlMrAHUhQMdrW6i0tQBQFTA0DhmHMwBXMK8ahyMAVzI/DKEG4ElEvnfiS/lOpxybWuNeROTrce+eBFzBfC0Jn8sPqH9sW8+AK5l/hFA1XxaeAShryjj8KGPp9frzXuy3YloAeImn1E0AFMyBi2QCAjeHIi0TQMEcuEgmIHBzKNIyARTMgYtkAgI3hyItE0DBHLhIJiBwcyjSMgEUzIGLZAICN4ci7RetBWhBOi0uBQAAAABJRU5ErkJggg==" />
             </div>
 		</div>
+        <div class="full-item" ng-if="clicked == 3">
+            <h1>Trader</h1>
+            <p>I miss the days when I had money. Then again, I guess that's the trade-off for being a trader.</p>
+        </div>
 		<div class="flex-item">
 			<h2>Economist</h2>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas egestas nisi nunc, sodales sodales lacus feugiat eu.</p>
@@ -102,6 +128,10 @@
                 <img ng-if="clicked == 4" ng-click="toggle(4, 0)" class="down" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABt0lEQVR4Xu2Y0VHEMAxEdZ1QCnQClQGd0AmUwngumQlHnNjWaqWMlW/H2n1a2Xe5yeTPbXL/kgAyAZMTyBGYPAB5COYI5AhMTiBHYPIAuN8Cr0sDPrwa4TkCxfz7YvxNRFwgeAHYml+b7wLBA8CeeTcIbABH5l0gMAG0mKdDYAGomS9zX571MNxeBpQzgQHgyPx68resMbkprQH0GOtZC4NhCWDE0Mg7KhhWADRGNO92w7AAgDCA2KMJBhoAUjhyryoMJAALwRZ7/oGBAmAp1HJvyN9hU4FLu8xqaBNgJmxnaE1qaQCYCDo5uuE1RwHAhTTdWfdF0NojAKACOoxvl8I09AKAFR40DofQAyCS+RWEWlMrAHUhQMdrW6i0tQBQFTA0DhmHMwBXMK8ahyMAVzI/DKEG4ElEvnfiS/lOpxybWuNeROTrce+eBFzBfC0Jn8sPqH9sW8+AK5l/hFA1XxaeAShryjj8KGPp9frzXuy3YloAeImn1E0AFMyBi2QCAjeHIi0TQMEcuEgmIHBzKNIyARTMgYtkAgI3hyItE0DBHLhIJiBwcyjSMgEUzIGLZAICN4ci7RetBWhBOi0uBQAAAABJRU5ErkJggg==" />
             </div>
 		</div>
+        <div class="full-item" ng-if="clicked == 4">
+            <h1>Economist</h1>
+            <p>The dismal science. A fitting career for my dismal life.</p>
+        </div>
 		<div class="flex-item">
 			<h2>3D Art</h2>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas egestas nisi nunc, sodales sodales lacus feugiat eu.</p>
@@ -110,5 +140,9 @@
                 <img ng-if="clicked == 5" ng-click="toggle(5, 0)" class="down" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABt0lEQVR4Xu2Y0VHEMAxEdZ1QCnQClQGd0AmUwngumQlHnNjWaqWMlW/H2n1a2Xe5yeTPbXL/kgAyAZMTyBGYPAB5COYI5AhMTiBHYPIAuN8Cr0sDPrwa4TkCxfz7YvxNRFwgeAHYml+b7wLBA8CeeTcIbABH5l0gMAG0mKdDYAGomS9zX571MNxeBpQzgQHgyPx68resMbkprQH0GOtZC4NhCWDE0Mg7KhhWADRGNO92w7AAgDCA2KMJBhoAUjhyryoMJAALwRZ7/oGBAmAp1HJvyN9hU4FLu8xqaBNgJmxnaE1qaQCYCDo5uuE1RwHAhTTdWfdF0NojAKACOoxvl8I09AKAFR40DofQAyCS+RWEWlMrAHUhQMdrW6i0tQBQFTA0DhmHMwBXMK8ahyMAVzI/DKEG4ElEvnfiS/lOpxybWuNeROTrce+eBFzBfC0Jn8sPqH9sW8+AK5l/hFA1XxaeAShryjj8KGPp9frzXuy3YloAeImn1E0AFMyBi2QCAjeHIi0TQMEcuEgmIHBzKNIyARTMgYtkAgI3hyItE0DBHLhIJiBwcyjSMgEUzIGLZAICN4ci7RetBWhBOi0uBQAAAABJRU5ErkJggg==" />
             </div>
 		</div>
+        <div class="full-item" ng-if="clicked == 5">
+            <h1>3D Artist</h1>
+            <p>Isn't like, all art 3D cause we're 3D? Dang dude, that's deep.</p>
+        </div>
 	</div>
 </div>
