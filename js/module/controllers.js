@@ -20,6 +20,11 @@ angular.module('main.controllers', [])
             $scope.splitViewObject.closedDisplayMode = WinJS.UI.SplitView.ClosedDisplayMode.inline;
         }
     }
+
+	$rootScope.yearsFrom = function(year) {
+		var d = new Date();
+		return d.getFullYear() - year + 1;
+	}
 })
 
 .controller('MainCtrl', function($scope, $rootScope) {

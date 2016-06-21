@@ -80,9 +80,7 @@
                 <img ng-if="clicked == 0" ng-click="toggle(0, 0)" class="down" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABt0lEQVR4Xu2Y0VHEMAxEdZ1QCnQClQGd0AmUwngumQlHnNjWaqWMlW/H2n1a2Xe5yeTPbXL/kgAyAZMTyBGYPAB5COYI5AhMTiBHYPIAuN8Cr0sDPrwa4TkCxfz7YvxNRFwgeAHYml+b7wLBA8CeeTcIbABH5l0gMAG0mKdDYAGomS9zX571MNxeBpQzgQHgyPx68resMbkprQH0GOtZC4NhCWDE0Mg7KhhWADRGNO92w7AAgDCA2KMJBhoAUjhyryoMJAALwRZ7/oGBAmAp1HJvyN9hU4FLu8xqaBNgJmxnaE1qaQCYCDo5uuE1RwHAhTTdWfdF0NojAKACOoxvl8I09AKAFR40DofQAyCS+RWEWlMrAHUhQMdrW6i0tQBQFTA0DhmHMwBXMK8ahyMAVzI/DKEG4ElEvnfiS/lOpxybWuNeROTrce+eBFzBfC0Jn8sPqH9sW8+AK5l/hFA1XxaeAShryjj8KGPp9frzXuy3YloAeImn1E0AFMyBi2QCAjeHIi0TQMEcuEgmIHBzKNIyARTMgYtkAgI3hyItE0DBHLhIJiBwcyjSMgEUzIGLZAICN4ci7RetBWhBOi0uBQAAAABJRU5ErkJggg==" />
             </div>
 		</div>
-        <div class="full-item" ng-if="clicked == 0">
-            <h1>Developer</h1>
-            <p>This is my experience as a developer. Or would be if I had any.</p>
+        <div class="full-item" ng-if="clicked == 0" ng-include="'../templates/about/bios/developer.html'">
         </div>
 		<div class="flex-item">
 			<h2>Entrepreneur</h2>

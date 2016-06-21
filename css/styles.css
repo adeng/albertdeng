@@ -80,9 +80,27 @@ tbody td {
     border-bottom: 1px solid #D2D2D2;
 }
 
-tbody tr:hover {
-    background-color: #F2F2F2;
+tbody tr {
+    border: 0px solid grey;
 }
+
+tbody tr:hover {
+    /*background-color: #F2F2F2;*/
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 3px solid grey;
+}
+
+/*tbody tr:active {
+    border-left: 10px solid lightgrey;
+    border-right: 10px solid lightgrey;
+    background-color: grey !important;
+}
+
+tbody tr:active td:first-child {
+    padding-left: 5px;
+}*/
 
 .display p {
     margin-left: 15px;
@@ -114,9 +132,14 @@ hr {
     font-weight: 600;
 }
 
+.win-pivot-header-items {
+    padding: 0px !important;
+}
+
 .header-pivot .win-pivot-header-area {
     background-color: #F2F2F2;
     position:fixed;
+    top: 37px;
     width: 100%;
     z-index: 1000;
 }
