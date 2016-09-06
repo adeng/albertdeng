@@ -9,6 +9,24 @@
         "url": "/data/stocks/SWHC.json"
     },
     {
+        "ticker": "MU",
+        "name": "Micron Technology, Inc.",
+        "sector": "Information Technology",
+        "industry": "Semiconductors",
+        "rating": "Buy",
+        "type": "fundamental",
+        "url": "/data/stocks/SWHC.json"
+    },
+    {
+        "ticker": "MOS",
+        "name": "Mosaic Co",
+        "sector": "Materials",
+        "industry": "Chemicals",
+        "rating": "Buy",
+        "type": "fundamental",
+        "url": "/data/stocks/SWHC.json"
+    },
+    {
         "ticker": "F",
         "name": "Ford Motor Co",
         "sector": "Consumer Discretionary",

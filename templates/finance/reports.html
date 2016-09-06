@@ -5,6 +5,7 @@
     
     .report-card {
         padding: 15px;
+        margin-bottom: 5px;
     }
     
     .report-card p {
@@ -25,10 +26,14 @@
     }
     
     .report-card:hover {
-        margin: 10px;
+        /*margin: 5px;*/
         border: 2px solid black;
-        transition: margin 0.2s;
+        /*transition: margin 0.2s;*/
         cursor: pointer;
+    }
+
+    .report-card:active {
+        transform: scale(0.98);
     }
     
     .win-container:hover {
@@ -101,9 +106,9 @@
     
 <!-- Fundamental Analysis Reports -->
 <div ng-class="{'selector-reports-hidden': selected == 1}">
-    <div class="report-list" ng-repeat="buy in fundBuys">
+    <div class="report-list">
         <h2>Buys</h2>
-        <div class="report-card" ng-click="openReport(buy.url, buy.name)">
+        <div class="report-card" ng-repeat="buy in fundBuys" ng-click="openReport(buy.url, buy.name)">
             <h2 class="optional">{{buy.name}}</h2>
             <h2 class="size-matters">{{buy.ticker}}</h2>
             <h3 style="color: rgb(106,158,31)">{{buy.rating}}</h3>
@@ -116,9 +121,9 @@
         </div>
     </div>
 
-    <div class="report-list" ng-repeat="hold in fundHolds">
+    <div class="report-list">
         <h2>No Opinion</h2>
-        <div class="report-card" ng-click="openReport(hold.url, hold.name)">
+        <div class="report-card" ng-repeat="hold in fundHolds" ng-click="openReport(hold.url, hold.name)">
             <h2 class="optional">{{hold.name}}</h2>
             <h2 class="size-matters">{{hold.ticker}}</h2>
             <h3 style="color: rgb(89,89,89)">{{hold.rating}}</h3>
@@ -131,9 +136,9 @@
         </div>
     </div>
 
-    <div class="report-list" ng-repeat="sell in fundSells">
+    <div class="report-list" >
         <h2>Sells</h2>
-        <div class="report-card" ng-click="openReport(sell.url, sell.name)">
+        <div class="report-card" ng-repeat="sell in fundSells" ng-click="openReport(sell.url, sell.name)">
             <h2 class="optional">{{sell.name}}</h2>
             <h2 class="size-matters">{{sell.ticker}}</h2>
             <h3 style="color: rgb(198,35,36)">{{sell.rating}}</h3>
@@ -149,9 +154,9 @@
 
 <!-- Technical Analysis Reports -->
 <div ng-class="{'selector-reports-hidden': selected == 0}">
-    <div class="report-list" ng-repeat="buy in techBuys">
+    <div class="report-list">
         <h2>Bullish</h2>
-        <div class="report-card" ng-click="openReport(buy.url, buy.name)">
+        <div class="report-card" ng-repeat="buy in techBuys" ng-click="openReport(buy.url, buy.name)">
             <h2 class="optional">{{buy.name}}</h2>
             <h2 class="size-matters">{{buy.ticker}}</h2>
             <h3 style="color: rgb(106,158,31)"> {{buy.rating}}</h3>
@@ -164,9 +169,9 @@
         </div>
     </div>
 
-    <div class="report-list" ng-repeat="sell in techSells">
+    <div class="report-list">
         <h2>Bearish</h2>
-        <div class="report-card" ng-click="openReport(sell.url, sell.name)">
+        <div class="report-card" ng-repeat="sell in techSells" ng-click="openReport(sell.url, sell.name)">
             <h2 class="optional">{{sell.name}}</h2>
             <h2 class="size-matters">{{sell.ticker}}</h2>
             <h3 style="color: rgb(198,35,36)">{{sell.rating}}</h3>
