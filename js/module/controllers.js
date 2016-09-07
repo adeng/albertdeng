@@ -275,6 +275,7 @@ angular.module('main.controllers', [])
 
 	General.getJSON($stateParams.src).then( function(val) {
 		$scope.data = val;
+		console.log(val);
 	});
 })
 

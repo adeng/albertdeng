@@ -5,15 +5,15 @@
 
     hr {
         color: white;
-        border-color: white;
+        border: 1px solid white;
         margin-top: 10px !important;
     }
 </style>
 
 <div class="outer-box">
     <div class="inner-box">
-        <h1>{{data.name}}</h1>
+        <h1>{{data.name}} ({{data.ticker}})</h1>
         <hr />
-        <h2>{{data.ticker}}</h2>
+        <p>{{data.description}}</p>
     </div>
 </div>
