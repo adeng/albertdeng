@@ -235,6 +235,10 @@ hr {
 /* NAVBAR
 -------------------------------------------------- */
 
+.navbar-selected {
+    box-shadow: inset 5px 0 0 0 #356A95;
+}
+
 /* Special class on .container surrounding .navbar, used for positioning it into place. */
 .navbar-wrapper {
   position: absolute;

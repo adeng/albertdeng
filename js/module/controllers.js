@@ -29,7 +29,6 @@ angular.module('main.controllers', [])
 
 .controller('MainCtrl', function($scope, $rootScope) {
     $rootScope.title = "Home";
-    
 })
 
 .controller('ProjectsCtrl', function($scope, $rootScope) {
