@@ -63,7 +63,7 @@ angular.module('main.services', [])
 		getJSON: function(url) {
 			var deferred = $q.defer();
 
-            var fullrl = 'https://cdn.rawgit.com/adeng/albertdeng/dev/data/' + filename;
+            var fullrl = 'https://cdn.rawgit.com/adeng/albertdeng/dev/data/' + url;
 			$http.get(fullrl).success( function(data, status, headers, config) {
 				deferred.resolve(data);
 			});
