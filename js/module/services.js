@@ -7,10 +7,11 @@ angular.module('main.services', [])
 			var deferred = $q.defer();
             var url = 'https://cdn.rawgit.com/adeng/albertdeng/dev/data/' + filename + '.json';
             // var url = '/data/' + filename + '.json'
-			
+			console.log("Fetching " + url);
 			$http.get(url).success( function(data, status, headers, config) {
 				deferred.resolve(data);
 			}).error( function(data, status, headers, config) {
+				console.log(data);
                 $http.get('/data/' + filename + '.json').success( function(data, status, headers, config) { 
                     deferred.resolve(data);
                 });
