@@ -57,11 +57,17 @@
         margin: auto;
     }
 
+    .icon-container {
+        width: 64px;
+        margin: auto;
+    }
+
     .flex-item h2 {
         text-align: center;
     }
 
     .flex-item p {
+        margin-top: 5px;
         text-align: center;
     }
 </style>
@@ -82,6 +88,9 @@
     <div class="container">
 		<div class="flex-item" ng-if="clicked == -1 || clicked == 0">
 			<h2>Developer</h2>
+            <div class="icon-container">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAI2SURBVHhe7Zo/TgJBFId3MPS2BAuPYGciFlqZiI030BvoCTwC3EBvoAWQWGkBJHbeQAoNLReQdX+Tt4CwwO7sm+eafV8zf5iE/X3MrLszBoqiKIqiKEpJMVRuZXxxHFL1X1Dr9FNlq1BZWlQAlaXF+R6Qdo1J4Xp9ugSoLC0qgErvfJ4fHVB1K+Ozw32qekdEwFezcbNjzAtK6lqLHVOtfozPj66oyyveBSBQ9CV3gTG7FWNamyTYsdEY26hU7iUkeBWwGJ66AgRMmuJYIrPwMQISvAlICm+ZTq9rz28jas3Y6w3fp2F4S805niV4EbAxfG/4QK0V6t1BW1oCuwDX8DHSElgF5A0fIymBTQBX+BgpCSwCcEGc4WMkJPDMAGNGK+E5CcMJ1dhhEVDrDl6nQXBJzTk5fynuZZUEzwyIqHf6T5zTVSI8YBMAuNasVHjAKgDklSAZHrALAK4SpMMDLwLARgnNxgm1ZqBPOjzwJgCskdDGXw2qz7B9xvwO6jk88CoALElo1zr91VlB0Gdt2xAID7wLAJAQPcycbgofY8dgrEB4ICIAJE37dWQZmxcxAUVFBVBZWvT/A6gsLSqAytIidsaf9R6Sdg3nRWcAlU7gOAuHnitvcFKE4eQ7emzGqRL1ZMZZwJ+HXwTvDo6Pz05LAO/uhQkPomtJ2mNIQ2YBtKPzWJjwMZDgsPmaSQC2rKIvahUufIzDDnTqe4Ddr1s+vy8o2ICxexCKoiiKoiiKsoYg+AGNFkNWSRTYqwAAAABJRU5ErkJggg==" >
+            </div>
 			<p>I sometimes make things.</p>
             <div class="down-container" id="item1">
                 <img ng-if="clicked != 0" ng-click="toggle(0, 1)" class="down" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABmElEQVR4Xu2ZQZICIQxF4008ysxN9GTOUbyJcxSLBRsKugMkn3Txe2OVjU3e4wdKvcnm121zfqEAJmBzA2yBzQPATZAtwBbY3ABbYPMA8BRgC7AFNjfAFtg8ADwF2AKKFriLyL9iXMQhPyLyPirsLAEPEXmJyFNE/iISHtSUa091p/qr15GA/ID8wStJKGtvSmgJSLH/VJRdQUIJnzF+a+3Qk4ArJKEF31w47R5QhiFiErrhE9SZgDRm6MHgDXO4Ro2A6BKG4bUJyIs5NZFTIqZr0iYgooRp+N4ERJJgAj8qYPWeYAY/I2CVBFP4WQFoCebwFgJQElzgrQR4S3CDtxTgJcEV3lqAtQR3eA8BVhIg8F4CZiXA4D0FjEqAwnsL6JUAh0cI0EpYAo8ScCYh3U+/PJcX5Fen3q/DlTrVb7VWufYACDwyARlSIwEGv0LAUTuke1D4VQJaEuDwKwWUEpbArxaQJaTXZf87Ik8B9XGBHEgBSNsR52ICIq4KsiYmAGk74lxMQMRVQdbEBCBtR5yLCYi4KsiavmBLaEEmn9bgAAAAAElFTkSuQmCC" />
@@ -92,6 +101,9 @@
         </div>
 		<div class="flex-item" ng-if="clicked == -1 || clicked == 1">
 			<h2>Entrepreneur</h2>
+            <div class="icon-container">
+                <img src="data:image/png;base64,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">
+            </div>
 			<p>I sometimes get ideas.</p>
             <div class="down-container">
                 <img ng-if="clicked != 1" ng-click="toggle(1, 1)" class="down" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABmElEQVR4Xu2ZQZICIQxF4008ysxN9GTOUbyJcxSLBRsKugMkn3Txe2OVjU3e4wdKvcnm121zfqEAJmBzA2yBzQPATZAtwBbY3ABbYPMA8BRgC7AFNjfAFtg8ADwF2AKKFriLyL9iXMQhPyLyPirsLAEPEXmJyFNE/iISHtSUa091p/qr15GA/ID8wStJKGtvSmgJSLH/VJRdQUIJnzF+a+3Qk4ArJKEF31w47R5QhiFiErrhE9SZgDRm6MHgDXO4Ro2A6BKG4bUJyIs5NZFTIqZr0iYgooRp+N4ERJJgAj8qYPWeYAY/I2CVBFP4WQFoCebwFgJQElzgrQR4S3CDtxTgJcEV3lqAtQR3eA8BVhIg8F4CZiXA4D0FjEqAwnsL6JUAh0cI0EpYAo8ScCYh3U+/PJcX5Fen3q/DlTrVb7VWufYACDwyARlSIwEGv0LAUTuke1D4VQJaEuDwKwWUEpbArxaQJaTXZf87Ik8B9XGBHEgBSNsR52ICIq4KsiYmAGk74lxMQMRVQdbEBCBtR5yLCYi4KsiavmBLaEEmn9bgAAAAAElFTkSuQmCC" />
@@ -102,6 +114,9 @@
         </div>
 		<div class="flex-item" ng-if="clicked == -1 || clicked == 2">
 			<h2>Analyst</h2>
+            <div class="icon-container">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAM3SURBVHhe7ZrBbtNAEEB31jGCW/gDKtEWTi00nEn/IP0CyK0BDuQL2n5BiwSEW8sXtHxBcyct6QlKkNo/gFupEnvYcSYoSePajtbrRN4nObOztrOe2dnxRhlhsVhyDbA0ylqjUwbALUQoqicoAkIbPG/n65vlNl9iDOMOKH38+VaNuiVAGT+Oj/XWq6U91oxg1AFrH35UwHEOWZ0Iet7GyetHR6ymjmSZOiu7F0UhnS1WQwEp97lphNgRUPrUQW5qAVG0pedXfUcWKR+oRynzKS20Nhdj2WYsAiZQp6R3UltsdtGrcp9xMnMAGc5NcVZ7fMlN42QZATPB1DkgbI3FvS4uaY+b+wiwDmCZW1LPAbqxOUAz1gEsc4v2HJAVNgdMiXUAy9yizQG0BocP7p55bASwNM6sRIyNAJapMSszHUbuI0DbTjDsfNL+AaaixUYAy0iiZkw3NgIMMTcRoGu88e+1EcAykqQz8uz9+SpKKAuQz1HgAzVSUAcgwG930fsc9W/QXEfA08b5S3TgWEjYFYAVALGqnl45ASvK59suFC6COoEZQHsElBq/DvuGxgGbrc2ldVZGiBpv/HwYUfdpjYB+9Udc4wkoZx0J2hyw0vhO63y0AALxj49+FXr+E+65ibonuDcjtDnARacyXPej4uyy+9ddOK0tH9xa/KTuccF5wZpxtOWA8bVPM0/Gs3r7mkU4atUebrAWEDXetKSWAxBwlZsBnvD/F0BE42stj0lCKq/BSdAMDo7uVeE+d2eOTgeMzLgjZOisFu5cj54DYbxAcoA2B4DAkZ2dFGoTNIFJ5XJIO8SE0FoePrg7tD8MbQ6g7S03+6jsvtbofKNdIalkOJXIFu72jmlnGFxDqFel+vzSV8yjzQG0t6cqT1YDyFAJcp9mwr3X+630UeMJEHvDFWOm0ZoE+yWuGN8Y9frrXrnvWMsEbfuAYYLtLf0QCoPCHsVO99o9OKsv0BK4QZLxkjD+vVojYABVfPe3v7gdRERgMK11bCKKPfBwna4JM94kqUSADqLGCzuf9L5UImCesA5gmVumzgGmmau3wDxhHcAyt2hZV2lgKufYJcAyt+TcAUL8A3h/rV3SjrpUAAAAAElFTkSuQmCC">
+            </div>
 			<p>I sometimes think about things.</p>
             <div class="down-container">
                 <img ng-if="clicked != 2" ng-click="toggle(2, 1)" class="down" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABmElEQVR4Xu2ZQZICIQxF4008ysxN9GTOUbyJcxSLBRsKugMkn3Txe2OVjU3e4wdKvcnm121zfqEAJmBzA2yBzQPATZAtwBbY3ABbYPMA8BRgC7AFNjfAFtg8ADwF2AKKFriLyL9iXMQhPyLyPirsLAEPEXmJyFNE/iISHtSUa091p/qr15GA/ID8wStJKGtvSmgJSLH/VJRdQUIJnzF+a+3Qk4ArJKEF31w47R5QhiFiErrhE9SZgDRm6MHgDXO4Ro2A6BKG4bUJyIs5NZFTIqZr0iYgooRp+N4ERJJgAj8qYPWeYAY/I2CVBFP4WQFoCebwFgJQElzgrQR4S3CDtxTgJcEV3lqAtQR3eA8BVhIg8F4CZiXA4D0FjEqAwnsL6JUAh0cI0EpYAo8ScCYh3U+/PJcX5Fen3q/DlTrVb7VWufYACDwyARlSIwEGv0LAUTuke1D4VQJaEuDwKwWUEpbArxaQJaTXZf87Ik8B9XGBHEgBSNsR52ICIq4KsiYmAGk74lxMQMRVQdbEBCBtR5yLCYi4KsiavmBLaEEmn9bgAAAAAElFTkSuQmCC" />
@@ -112,6 +127,9 @@
         </div>
 		<div class="flex-item" ng-if="clicked == -1 || clicked == 3">
 			<h2>Trader</h2>
+            <div class="icon-container">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAOHSURBVHhe7ZdfUhpBEMZ7Zo3P5gb6nBKlgrHypjeIN5ATILmAyQWCewK9gd4AfUoZTQGSPMsNknfZmXQPvRtY9g+ri7Ds/Kpkdnstivm6v+5ZsFgsFovFUloEr4Vi+0fjRAnorg1h0PvoDjj8LAonwE6nsaE9+YdvR2i4ws+/IPTA0/omizDFE+C2sasd2eHbZFAYD5T7e8+95sgUktfCoAB2+TIdAZ/4KpbCCYA/uAtCnGmAa62x7BOg50nZJwrZBH3e3TUOJMhzIWCTQ5OgBR72Wkd8F0nhKoCgRlj5+bnlCNmO3TwhdJevYlkqASij2/fNDjU6Dk2xfds4VkP5iPV9wqFYFOgeX8ayNALQbMdyvkRP7iop22ER6L5y17wUjin5DQ4bTC8YjcIAijkOJPqfWHgPMHN9KM/DHZs2IJU6hHUYaOWcaqWPwxsnqBlKTzU9BzZJQA5TvNuvtap8G8tCK4BKHsu5EzWuaLNUCcqTbSr3qKxrpZrSUUe9fbcrQezwI4MQIjX7xEIE8JuYKfmEJkabJkvwbYDJ+lBV+x/cs17VNaNQgzgwDxmlvRu+TGQuApBfaZN8O0FQ8lFZxY3hxwXfTmGy7qk6lvbh1FFXTwrlPOF5YQZyF8CUNZduWAQu+ccov/vljHO7boQIg8LINbXV33cjBervtd4KT1Xpe+igtJB3gcr9yanWIsis34hM1rGRUdbNP45hNi9U/VfNnejiOA7b+OMO6DuwydXJ5/woV3IRgMu6hd92zKEA2oDQMIhqdJRp+YSbi8kWzXy5Dle+z+fBiwUgvyuazRleUijroNVX+QYu5rW5yn0T9f3PQ60VudcX9QDf71k3TyU/3sEXybMFIL/zGAt38q54UltU3hwKMCWP4yvs90WSWQDyOx5Jz9E9X8Kbp+6LndyMKBpVvgjjXX7W7vxaZOoBcX73PU1lzaEAOvDQoSTvrKd5PPceEOf3cU9zaIKH99+ay1TyYWYSIMnvy+bprCQKMKvfOVJIYgUwfqc3sdDhxm9oVNrzHGPk4fE/DudOpAA73xubz/F7EYkUwJS1mHybWgW/RxFrAZrZmPGRv1fE71HECkD+xowfzsvvr+XxNGIFIMyJboX8HkWiAGXACsBr7iyLx9OwFcBrabEC8JqZong8DVsBvJYWKwCvU6yKx9OwFcBraSm9ABaLxWKxWCwWi6WMAPwDMb0CjCZ+n/0AAAAASUVORK5CYII=" >
+            </div>
 			<p>I sometimes lose money.</p>
             <div class="down-container">
                 <img ng-if="clicked != 3" ng-click="toggle(3, 1)" class="down" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABmElEQVR4Xu2ZQZICIQxF4008ysxN9GTOUbyJcxSLBRsKugMkn3Txe2OVjU3e4wdKvcnm121zfqEAJmBzA2yBzQPATZAtwBbY3ABbYPMA8BRgC7AFNjfAFtg8ADwF2AKKFriLyL9iXMQhPyLyPirsLAEPEXmJyFNE/iISHtSUa091p/qr15GA/ID8wStJKGtvSmgJSLH/VJRdQUIJnzF+a+3Qk4ArJKEF31w47R5QhiFiErrhE9SZgDRm6MHgDXO4Ro2A6BKG4bUJyIs5NZFTIqZr0iYgooRp+N4ERJJgAj8qYPWeYAY/I2CVBFP4WQFoCebwFgJQElzgrQR4S3CDtxTgJcEV3lqAtQR3eA8BVhIg8F4CZiXA4D0FjEqAwnsL6JUAh0cI0EpYAo8ScCYh3U+/PJcX5Fen3q/DlTrVb7VWufYACDwyARlSIwEGv0LAUTuke1D4VQJaEuDwKwWUEpbArxaQJaTXZf87Ik8B9XGBHEgBSNsR52ICIq4KsiYmAGk74lxMQMRVQdbEBCBtR5yLCYi4KsiavmBLaEEmn9bgAAAAAElFTkSuQmCC" />
