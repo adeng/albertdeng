@@ -278,7 +278,7 @@ angular.module('main.controllers', [])
 	});
 })
 
-.controller('StocksCtrl', function($q, $scope, $modal, $sce, Stocks, General) {
+.controller('StocksCtrl', function($q, $scope, $sce, Stocks, General) {
 	var tickers = [];
 	var promises = [ General.getJSON("finance/shorts.json"), General.getJSON("finance/longs.json"), General.getJSON("finance/closed.json") ];
 	
