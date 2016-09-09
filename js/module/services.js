@@ -5,8 +5,8 @@ angular.module('main.services', [])
 	return {
 		getPortfolio: function(filename) {
 			var deferred = $q.defer();
-            // var url = 'https://cdn.rawgit.com/adeng/albertdeng/master/data/' + filename + '.json';
-            var url = '/data/' + filename + '.json'
+            var url = 'https://cdn.rawgit.com/adeng/albertdeng/dev/data/' + filename + '.json';
+            // var url = '/data/' + filename + '.json'
 			
 			$http.get(url).success( function(data, status, headers, config) {
 				deferred.resolve(data);
