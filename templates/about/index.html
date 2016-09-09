@@ -1,2 +1,27 @@
-<div ng-include="'../templates/about/tabs.html'">
-</div>
+<win-pivot class="header-pivot">
+    <win-pivot-item header="'About'">
+        <div style="height:50px"></div>        
+        <div class="regular-pivot" ng-include="'../templates/about/views/resumes.html'">
+        </div>
+    </win-pivot-item>
+    <win-pivot-item header="'Education'">
+        <div style="height:50px"></div>
+        <div class="regular-pivot" ng-include="'../templates/about/views/education.html'">
+        </div>
+    </win-pivot-item>
+    <win-pivot-item header="'Experience'">
+        <div style="height:50px"></div>
+        <div class="regular-pivot" ng-include="'../templates/about/views/experience.html'">
+        </div>
+    </win-pivot-item>
+    <win-pivot-item header="'Extracurriculars'">
+        <div style="height:50px"></div>
+        <div class="regular-pivot" ng-include="'../templates/about/views/extracurriculars.html'">
+        </div>
+    </win-pivot-item>
+    <win-pivot-item header="'Bio and Skills'">
+        <div style="height:50px"></div>
+        <div class="regular-pivot" ng-include="'../templates/about/views/bio.html'">
+        </div>
+    </win-pivot-item>
+</win-pivot>

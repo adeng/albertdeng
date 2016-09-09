@@ -188,14 +188,33 @@ hr {
     width: 100%;
     padding: 0; /* used to be 5% */
     padding-bottom: 0%;
+    position: relative;
+}
+
+.gradient-box {
+    width: 100%;
+    height: 45%;
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.9));
 }
 
 .inner-box {
     margin: 0px; /* used to be 5px */
     background-color: #3498db;
+    background-size: cover !important;
+    background-position: center !important;
     color: white;
     padding: 5%;
     transition: left 0.5s;
+    min-height: 40vh;
+    position: relative;
+}
+
+.inner-box h1 {
+    position: absolute;
+    bottom: 10%;
+    z-index: 10;
 }
 
 .inner-box p {
