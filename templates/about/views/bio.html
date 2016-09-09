@@ -99,20 +99,16 @@
             </div>
 		</div>
         <div class="full-item" ng-if="clicked == 1" ng-include="'../templates/about/bios/entrepreneur.html'">
-            <h1>Entrepreneur</h1>
-            <p>Where I say inspiring things but 80% of them are just buzzwords. Synergistic buzzwords.</p>
         </div>
 		<div class="flex-item" ng-if="clicked == -1 || clicked == 2">
-			<h2>Equity Analyst</h2>
+			<h2>Analyst</h2>
 			<p>I sometimes think about things.</p>
             <div class="down-container">
                 <img ng-if="clicked != 2" ng-click="toggle(2, 1)" class="down" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABmElEQVR4Xu2ZQZICIQxF4008ysxN9GTOUbyJcxSLBRsKugMkn3Txe2OVjU3e4wdKvcnm121zfqEAJmBzA2yBzQPATZAtwBbY3ABbYPMA8BRgC7AFNjfAFtg8ADwF2AKKFriLyL9iXMQhPyLyPirsLAEPEXmJyFNE/iISHtSUa091p/qr15GA/ID8wStJKGtvSmgJSLH/VJRdQUIJnzF+a+3Qk4ArJKEF31w47R5QhiFiErrhE9SZgDRm6MHgDXO4Ro2A6BKG4bUJyIs5NZFTIqZr0iYgooRp+N4ERJJgAj8qYPWeYAY/I2CVBFP4WQFoCebwFgJQElzgrQR4S3CDtxTgJcEV3lqAtQR3eA8BVhIg8F4CZiXA4D0FjEqAwnsL6JUAh0cI0EpYAo8ScCYh3U+/PJcX5Fen3q/DlTrVb7VWufYACDwyARlSIwEGv0LAUTuke1D4VQJaEuDwKwWUEpbArxaQJaTXZf87Ik8B9XGBHEgBSNsR52ICIq4KsiYmAGk74lxMQMRVQdbEBCBtR5yLCYi4KsiavmBLaEEmn9bgAAAAAElFTkSuQmCC" />
                 <img ng-if="clicked == 2" ng-click="toggle(2, 0)" class="down" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABt0lEQVR4Xu2Y0VHEMAxEdZ1QCnQClQGd0AmUwngumQlHnNjWaqWMlW/H2n1a2Xe5yeTPbXL/kgAyAZMTyBGYPAB5COYI5AhMTiBHYPIAuN8Cr0sDPrwa4TkCxfz7YvxNRFwgeAHYml+b7wLBA8CeeTcIbABH5l0gMAG0mKdDYAGomS9zX571MNxeBpQzgQHgyPx68resMbkprQH0GOtZC4NhCWDE0Mg7KhhWADRGNO92w7AAgDCA2KMJBhoAUjhyryoMJAALwRZ7/oGBAmAp1HJvyN9hU4FLu8xqaBNgJmxnaE1qaQCYCDo5uuE1RwHAhTTdWfdF0NojAKACOoxvl8I09AKAFR40DofQAyCS+RWEWlMrAHUhQMdrW6i0tQBQFTA0DhmHMwBXMK8ahyMAVzI/DKEG4ElEvnfiS/lOpxybWuNeROTrce+eBFzBfC0Jn8sPqH9sW8+AK5l/hFA1XxaeAShryjj8KGPp9frzXuy3YloAeImn1E0AFMyBi2QCAjeHIi0TQMEcuEgmIHBzKNIyARTMgYtkAgI3hyItE0DBHLhIJiBwcyjSMgEUzIGLZAICN4ci7RetBWhBOi0uBQAAAABJRU5ErkJggg==" />
             </div>
 		</div>
-        <div class="full-item" ng-if="clicked == 2">
-            <h1>Equity Analyst</h1>
-            <p>Some say I'm too... <i>invested</i> in this hobby.</p>
+        <div class="full-item" ng-if="clicked == 2" ng-include="'../templates/about/bios/analyst.html'">
         </div>
 		<div class="flex-item" ng-if="clicked == -1 || clicked == 3">
 			<h2>Trader</h2>
@@ -122,9 +118,7 @@
                 <img ng-if="clicked == 3" ng-click="toggle(3, 0)" class="down" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABt0lEQVR4Xu2Y0VHEMAxEdZ1QCnQClQGd0AmUwngumQlHnNjWaqWMlW/H2n1a2Xe5yeTPbXL/kgAyAZMTyBGYPAB5COYI5AhMTiBHYPIAuN8Cr0sDPrwa4TkCxfz7YvxNRFwgeAHYml+b7wLBA8CeeTcIbABH5l0gMAG0mKdDYAGomS9zX571MNxeBpQzgQHgyPx68resMbkprQH0GOtZC4NhCWDE0Mg7KhhWADRGNO92w7AAgDCA2KMJBhoAUjhyryoMJAALwRZ7/oGBAmAp1HJvyN9hU4FLu8xqaBNgJmxnaE1qaQCYCDo5uuE1RwHAhTTdWfdF0NojAKACOoxvl8I09AKAFR40DofQAyCS+RWEWlMrAHUhQMdrW6i0tQBQFTA0DhmHMwBXMK8ahyMAVzI/DKEG4ElEvnfiS/lOpxybWuNeROTrce+eBFzBfC0Jn8sPqH9sW8+AK5l/hFA1XxaeAShryjj8KGPp9frzXuy3YloAeImn1E0AFMyBi2QCAjeHIi0TQMEcuEgmIHBzKNIyARTMgYtkAgI3hyItE0DBHLhIJiBwcyjSMgEUzIGLZAICN4ci7RetBWhBOi0uBQAAAABJRU5ErkJggg==" />
             </div>
 		</div>
-        <div class="full-item" ng-if="clicked == 3">
-            <h1>Trader</h1>
-            <p>I miss the days when I had money. Then again, I guess that's the trade-off for being a trader.</p>
+        <div class="full-item" ng-if="clicked == 3" ng-include="'../templates/about/bios/trader.html'">
         </div>
         <!--
 		<div class="flex-item">
