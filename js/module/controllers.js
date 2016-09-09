@@ -160,8 +160,8 @@ angular.module('main.controllers', [])
 	$scope.filterClasses = function( param ) {
         $scope.selectBox = parseInt(param);
         
-		General.getJSON('/data/about/education.json').then( function(val) {
-			var arr = new Array();
+		General.getJSON('about/education.json').then( function(val) {
+			var arr = [];
 			for( var a in val ) {
 				if( val[a].tags.indexOf( parseInt(param) ) != -1 )
 					arr.push( val[a] );
@@ -175,8 +175,8 @@ angular.module('main.controllers', [])
 	$scope.filterWork = function( param ) {
         $scope.selectBox = parseInt(param);
         
-		General.getJSON('/data/about/experience.json').then( function(val) {
-			var arr = new Array();
+		General.getJSON('about/experience.json').then( function(val) {
+			var arr = [];
 			for( var a in val ) {
 				if( param == 0 || (param == 1 && val[a].tech) || (param == 2 && val[a].biz))
 					arr.push( val[a] );
@@ -189,8 +189,8 @@ angular.module('main.controllers', [])
 	$scope.filterClub = function( param ) {
         $scope.selectBox = parseInt(param);
         
-		General.getJSON('/data/about/extracurriculars.json').then( function(val) {
-			var arr = new Array();
+		General.getJSON('about/extracurriculars.json').then( function(val) {
+			var arr = [];
 			for( var a in val ) {
 				if( param == 0 || (param == 1 && val[a].tech) || (param == 2 && val[a].biz))
 					arr.push( val[a] );
@@ -200,15 +200,15 @@ angular.module('main.controllers', [])
 		});
 	}
 	
-	General.getJSON('/data/about/experience.json').then( function(val) {
+	General.getJSON('about/experience.json').then( function(val) {
 		$scope.experiences = val;
 	});
 	
-	General.getJSON('/data/about/extracurriculars.json').then( function(val) {
+	General.getJSON('about/extracurriculars.json').then( function(val) {
 		$scope.extracurriculars = val;
 	});
 	
-	General.getJSON('/data/about/education.json').then( function(val) {
+	General.getJSON('about/education.json').then( function(val) {
 		$scope.classes = val;
 		$scope.gpa = $scope.calculateGPA();
 	});

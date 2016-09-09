@@ -5,7 +5,6 @@ angular.module('main.services', [])
 	return {
 		getPortfolio: function(filename) {
 			var deferred = $q.defer();
-            var url = 'https://cdn.rawgit.com/adeng/albertdeng/dev/data/' + filename + '.json';
             // var url = '/data/' + filename + '.json'
 			console.log("Fetching " + url);
 			$http.get(url).success( function(data, status, headers, config) {
@@ -55,7 +54,7 @@ angular.module('main.services', [])
 		getIcons: function() {
 			var deferred = $q.defer();
 			
-			$http.get('/data/icons.json').success( function(data, status, headers, config) {
+			$http.get('https://cdn.rawgit.com/adeng/albertdeng/dev/data/icons.json').success( function(data, status, headers, config) {
 				deferred.resolve(data);
 			});
 			
@@ -63,8 +62,9 @@ angular.module('main.services', [])
 		},
 		getJSON: function(url) {
 			var deferred = $q.defer();
-			
-			$http.get(url).success( function(data, status, headers, config) {
+
+            var fullrl = 'https://cdn.rawgit.com/adeng/albertdeng/dev/data/' + filename;
+			$http.get(fullrl).success( function(data, status, headers, config) {
 				deferred.resolve(data);
 			});
 			
