@@ -29,7 +29,6 @@ angular.module('main.controllers', [])
 
 .controller('MainCtrl', function($scope, $rootScope) {
     $rootScope.title = "Home";
-    
 })
 
 .controller('ProjectsCtrl', function($scope, $rootScope) {
@@ -230,7 +229,7 @@ angular.module('main.controllers', [])
 		return (sum/units).toFixed(3);
 	}
 })
-.controller('ReportsCtrl', function($scope, $rootScope, $state, Stocks) {
+.controller('ReportsCtrl', function($scope, $rootScope, $state, General) {
     $scope.fundBuys = [];
     $scope.fundHolds = [];
     $scope.fundSells = [];
@@ -238,7 +237,7 @@ angular.module('main.controllers', [])
     $scope.techSells = [];
     $scope.selected = 0;
     
-    Stocks.getPortfolio("reports").then( function( val ) {
+    General.getJSON("finance/reports.json").then( function( val ) {
         for(var i = 0; i < val.length; i++) {
             var temp = val[i];
             temp.icon = $rootScope.icons[val[i]['industry'].toLowerCase().replace(/\s/g, '')];
@@ -279,9 +278,9 @@ angular.module('main.controllers', [])
 	});
 })
 
-.controller('StocksCtrl', function($q, $scope, $modal, $sce, Stocks) {
-	var tickers = new Array();
-	var promises = [ Stocks.getPortfolio("shorts"), Stocks.getPortfolio("longs"), Stocks.getPortfolio("closed") ];
+.controller('StocksCtrl', function($q, $scope, $modal, $sce, Stocks, General) {
+	var tickers = [];
+	var promises = [ General.getJSON("finance/shorts.json"), General.getJSON("finance/longs.json"), General.getJSON("finance/closed.json") ];
 	
 	$q.all(promises).then( function( val ) {
 		$scope.shorts = val[0];

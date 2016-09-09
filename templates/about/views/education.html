@@ -54,27 +54,33 @@
         }
     }
     
+    #box-2 {
+        background: url("http://www.cfau-pd.net/images/bing-wallpaper/bing-wallpaper-5.jpg");
+    }
 </style>
 
 <div class="outer-box">
-    <div class="inner-box">
-        <h1>Quick Reference</h1>
-        <h3>Currently: Graduated June 2016</h3>
-        <h4><b>Undergrad:</b> University of California, Los Angeles</h4>
-        <ul>
-            <li>GPA: 3.96, <i><b>Summa Cum Laude</b></i></li>
-            <li>Degree: Business Economics, B.A.</li>
-            <li>Minor: Accounting</li>
-            <li>Concentration: Computing</li>
-        </ul>
-        <h4><b>High School:</b> Lynbrook High School</h4>
-        <ul>
-            <li>GPA: 3.97 unweighted, 4.44 weighted</li>
-            <li>SAT: 780 Reading, 790 Math, 710 Writing</li>
-            <li>AP: 5 in Comp Sci, Calc BC, US History, English Language, Psych, US Gov, English Literature, Statistics, Macro and Micro Econ</li>
-        </ul>
+    <div class="inner-box" id="box-2">
+        <h1>Education</h1>
+    </div>
+    <div class="gradient-box">
     </div>
 </div>
+
+<!--<h3>Currently: Graduated June 2016</h3>
+<h4><b>Undergrad:</b> University of California, Los Angeles</h4>
+<ul>
+    <li>GPA: 3.96, <i><b>Summa Cum Laude</b></i></li>
+    <li>Degree: Business Economics, B.A.</li>
+    <li>Minor: Accounting</li>
+    <li>Concentration: Computing</li>
+</ul>
+<h4><b>High School:</b> Lynbrook High School</h4>
+<ul>
+    <li>GPA: 3.97 unweighted, 4.44 weighted</li>
+    <li>SAT: 780 Reading, 790 Math, 710 Writing</li>
+    <li>AP: 5 in Comp Sci, Calc BC, US History, English Language, Psych, US Gov, English Literature, Statistics, Macro and Micro Econ</li>
+</ul>-->
 
 <div class="page-padding">
 	<div class="filter-btns">
@@ -90,7 +96,7 @@
             <h3 class="clickable" ng-class="{'selector-active': selectBox == 7}" ng-click="filterClasses(7)">Business</h3>
         </div>
         <select class="win-dropdown selector-hidden" ng-model="classModel" ng-change="filterClasses(classModel)">
-			<option value="0" selected="selected">All</option>
+			<option value="0" selected>All</option>
 			<option value="1">General Ed</option>
             <option value="2">Major Classes</option>
             <option value="3">Upper Div</option>
