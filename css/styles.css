@@ -2,13 +2,8 @@
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
 
-@font-face {
-    font-family: 'Segoe UI Semilight';
-    src: url(/fonts/segoeuisl.woff);
-}
-
 * { 
-    font-family: 'Segoe UI Semilight', 'Open Sans', sans-serif !important;
+    font-family: 'Open Sans', sans-serif !important;
     box-sizing: border-box;
     font-weight: 500;
 }
@@ -222,6 +217,10 @@ hr {
 
 .navbar-selected {
     box-shadow: inset 5px 0 0 0 #356A95;
+}
+
+.win-splitviewcommand-label {
+    user-select: none;
 }
 
 /* Special class on .container surrounding .navbar, used for positioning it into place. */
