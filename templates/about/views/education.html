@@ -72,7 +72,7 @@
     }
 
     .box-card:hover {
-        box-shadow: inset 0 0 0 2px grey;
+        box-shadow: inset 0 0 0 2px rgb(250,250,250);
     }
 
     .box-card h4 {
@@ -87,6 +87,48 @@
     .box-card li {
         font-size: 1.5vh;
         list-style-type: none;
+    }
+
+    .box-card-mobile {
+        margin-top: 40px !important;
+        background-color: #E2E2E2;
+        width: 85%;
+        margin: auto;
+        padding: 12px;
+    }
+
+    .box-card-mobile:hover {
+        background-color: white;
+        box-shadow: inset 0 0 0 2px #A2A2A2;
+        transition: box-shadow 0.2s;
+    }
+
+    .box-card-mobile {
+        display: none;
+    }
+
+    .box-card-mobile h4 {
+        font-size: 1.8vh;
+        margin: 5px;
+    }
+
+    .box-card-mobile ul {
+        margin: 5px;
+    }
+
+    .box-card-mobile li {
+        font-size: 1.5vh;
+        list-style-type: none;
+    }
+
+    @media (max-width: 700px) {
+        .box-card {
+            display: none;
+        }
+
+        .box-card-mobile {
+            display: block;
+        }
     }
 </style>
 
@@ -113,7 +155,21 @@
     </div>
 </div>
 
-
+<div class="box-card-mobile">
+    <h4>Currently: Graduated June 2016</h4>
+    <h4><b>Undergrad:</b> University of California, Los Angeles</h4>
+    <ul>
+        <li>GPA: 3.96, <i><b>Summa Cum Laude</b></i></li>
+        <li>Degree: Business Economics, B.A.</li>
+        <li>Minor: Accounting</li>
+        <li>Concentration: Computing</li>
+    </ul>
+    <h4><b>High School:</b> Lynbrook High School</h4>
+    <ul>
+        <li>GPA: 3.97 unweighted, 4.44 weighted</li>
+        <li>SAT: 780 Reading, 790 Math, 710 Writing</li>
+    </ul>
+</div>
 
 <div class="page-padding">
 	<div class="filter-btns">
