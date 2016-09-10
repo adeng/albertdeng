@@ -2,30 +2,14 @@
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
 
-@font-face {
-   font-family: 'Segoe UI';
-    src: url(/fonts/segoeui.ttf);
-}
-
-@font-face {
-    font-family: 'Segoe UI Semilight';
-    src: url(/fonts/segoeuisl.ttf);
-}
-
-@font-face {
-    font-family: 'Segoe UI Light';
-    src: url(/fonts/segoeuil.ttf);
-}
-
 * { 
-    font-family: 'Segoe UI Semilight', Arial, Helvetica, sans-serif !important;
+    font-family: 'Open Sans', sans-serif !important;
     box-sizing: border-box;
     font-weight: 500;
 }
 
 h1 { 
-    font-family: 'Segoe UI Light', Arial, Helvetica, sans-serif !important;
-    font-weight: 300;
+    font-weight: 100;
 }
 
 body {
@@ -45,10 +29,6 @@ p {
 
 ::-webkit-scrollbar { 
     display: none; 
-}
-
-.win-splitviewcommand-icon, .win-pivot-navbutton {
-    font-family: 'Segoe UI' !important;
 }
 
 .win-pivot-item-content {
@@ -237,6 +217,10 @@ hr {
 
 .navbar-selected {
     box-shadow: inset 5px 0 0 0 #356A95;
+}
+
+.win-splitviewcommand-label {
+    user-select: none;
 }
 
 /* Special class on .container surrounding .navbar, used for positioning it into place. */

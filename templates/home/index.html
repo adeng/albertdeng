@@ -1,11 +1,122 @@
-<div ng-include="'templates/home/header.html'">
+<style>
+    .img-container {
+        width: 100%;
+        max-height: 45vh;
+        overflow:hidden;
+    }
+    
+    .img-header {
+        text-align: center;
+    }
+    
+    h1 {
+        color: rgb(5, 47, 97);
+    }
+    
+    .img-container img {
+        width: 100%;
+    }
+    
+    #down {
+        display: none;
+    }
+
+    #profile {
+        width: 20%;
+        position: absolute;
+        display: inline;
+        left: 5%;
+        border: 3px solid white;
+    }
+    
+    @media (max-width: 650px) {
+        #profile {
+            width: 25%;
+        }
+    }
+
+    @media (orientation: landscape) {
+        #profile {
+            bottom: 40vh !important;
+        }
+    }
+
+    @media (orientation: portrait) {
+        #profile {
+            bottom: 45vh !important;
+        }
+    }
+    
+    @media (max-width: 500px), handheld {
+        .img-container {
+            /*background: linear-gradient(rgba(255,255,255,0), black);*/
+            height: 100vh;
+            max-height: 100vh !important;
+            width: auto;
+            background-image: url("/data/img/home/background.jpg");
+            background-size: cover; 
+        }
+        
+        .img-container img {
+            display:none;
+        }
+        
+        #down {
+            display: inline;
+            position: absolute;
+            bottom: 50px;
+            width: 44px;
+            left: 43vw;
+        }
+
+        #profile {
+            width: 50%;
+            left: 25%;
+            top: 40px;
+        }
+        
+        .overlay {
+            background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.9));
+            height: 50vh;
+            width: 100%;
+            position: absolute;
+            bottom: -45px;
+        }
+        
+        .img-header {
+            position: absolute;
+            bottom: 125px;
+            width: 100%;
+        }
+        
+        .img-header h1 {
+            color: white !important;
+            font-size: 10vw;
+        }
+    }
+</style>
+
+<!-- Indicators -->
+<div>
+    <div class="img-container">
+        <img id="profile" src="/data/img/home/profile.jpg" />
+        <div class="overlay"></div>
+        <img src="/data/img/home/background.jpg" />
+        <!--<img src="/data/img/cover.jpg" />-->
+        <img id="down" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABq0lEQVR4Xu2Z4XHDMAiFYZOO0mySTNaM0k2STejpLr6qPdUGJIGvevntCN4nkHg20+I/Xlw/AQAqYHECaIHFCwCHYFoLiIjU1cfMKbmkBC3CAQAVgBbAGYBDsCKAWwDXIOaAlJkkJSgGIUyCGIXhBWCGYIZghmCGYIZghr4JwA3CDcINphizlKBwg//JDYrIGzM/rd8YR3gBEXln5k9r7B/zR8+fReRKRB9EdGPmu2WtXgBV7Dsz3yyxhwCoEtjWM0HoAdCI7YbgOgRL2RPRo0FdDcELoCF+S+PiaQcXgNcpvpX/bw4qCB4AO+JVMVtt4gbQC8EKYIb4oqELQA8EC4BZ4ocA8ELQApgpfhgADwQNgNnihwKwQjgCECF+OAALhD0AUeKnANBC+AtApPhpADQQWgCixU8FcATh5SHq2aTM88VXuAarcC+gDbizq5ol3BOeZvHpFbAl4YQwXXwYgIN2aG1WiPhQAAYIYeLDASgghIpPAbADIVx8GoAGhBTxqQAqCGR9n6i94jTPdb8P0AQ58zMAcObdicgNFRBB+cwxUAFn3p2I3JavgC907UpQ0qStQQAAAABJRU5ErkJggg==" />
+    </div>
+    
+    <div class="img-header">
+        <h1>Hello there!</h1>
+    </div>
 </div>
 
-<!-- <hr class="featurette-divider">
-
-<div class="marketing" ng-include="'templates/home/circles.html'">
+<div class="page-padding">
+    <br class="size-matters" />
+    <p>My name's Albert Deng and this is my website! Although, given the address, you've probably already figured that out by now.</p>
+    <p>This website is a place for me to share my interests with like-minded people and keep track of my work. I will also regularly update my professional profile on this site.</p>
+    <p>Why does this website resemble a Windows 10 UWP app? I like Microsoft and thought it'd be fun to use WinJS and make it like that! This website is largely a labor of love and fun more than anything else :)</p>
+    <p>Feel free to browse around or click the link below to read my bio!</p>
+    <br />
+    <p>Note: this website is still a heavy work-in-progress, please bear with me! Many things probably won't work :P</p>
 </div>
-
-
-<div ng-include="'templates/home/featurettes.html'">
-</div> -->
