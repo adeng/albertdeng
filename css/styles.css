@@ -13,7 +13,7 @@ h1 {
 }
 
 body {
-  padding-bottom: 40px;
+  padding-bottom: 38px;
   color: #5a5a5a;
   /*background-color: #E6E6E6 !important;*/
   overflow: hidden !important;
@@ -581,7 +581,7 @@ to prevent collapsing during animation*/
     }
     
     p {
-        font-size: 18.5px !important;
+        /*font-size: 18.5px !important;*/
         padding: 5%;
     }
 }
