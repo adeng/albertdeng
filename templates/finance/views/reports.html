@@ -1,12 +1,14 @@
 <style>
     .report-card {
-        border: 2px solid #E6E6E6;
+        border: 2px solid #D2D2D2;
         padding: 15px;
-        margin-bottom: 5px;
-        background-color: #E6E6E6;
+        margin: 10px;
         -webkit-user-select: none;  /* Chrome all / Safari all */
         -moz-user-select: none;     /* Firefox all */
         -ms-user-select: none;      /* IE 10+ */
+        flex-grow: 1;
+        flex-basis: 400px;
+        padding: 20px;
     }
     
     .report-card p {
@@ -15,9 +17,10 @@
     }
     
     .report-list {
-        display: block;
         height: 100%;
         margin: 5%;
+        display: flex;
+        flex-wrap: wrap;
     }
     
     .report-card h3 {
@@ -28,9 +31,7 @@
     
     .report-card:hover {
         border: 2px solid black;
-        background-color: white;
         transition: border 0.2s;
-        transition: background-color 0.2s;
         cursor: pointer;
     }
 
