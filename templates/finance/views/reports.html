@@ -1,11 +1,12 @@
 <style>
     .report-card {
-        border: 2px solid #D2D2D2;
-    }
-    
-    .report-card {
+        border: 2px solid #E6E6E6;
         padding: 15px;
         margin-bottom: 5px;
+        background-color: #E6E6E6;
+        -webkit-user-select: none;  /* Chrome all / Safari all */
+        -moz-user-select: none;     /* Firefox all */
+        -ms-user-select: none;      /* IE 10+ */
     }
     
     .report-card p {
@@ -26,9 +27,10 @@
     }
     
     .report-card:hover {
-        /*margin: 5px;*/
         border: 2px solid black;
-        /*transition: margin 0.2s;*/
+        background-color: white;
+        transition: border 0.2s;
+        transition: background-color 0.2s;
         cursor: pointer;
     }
 
