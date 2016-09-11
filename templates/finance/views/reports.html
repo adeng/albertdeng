@@ -109,7 +109,7 @@
     </div>
 </div>
 
-<div class="page-padding">
+<div class="page-padding" ng-controller="ReportsCtrl">
     <!--<div class="selector-reports">
         <h3 class="clickable" ng-class="{'selector-reports-active': selected == 0}" ng-click="select(0)">Fundamental<span class="optional"> Analysis</span></h3>
         <h3 class="clickable" ng-class="{'selector-reports-active': selected == 1}" ng-click="select(1)">Technical<span class="optional"> Analysis</span></h3>
@@ -120,21 +120,20 @@
     <!-- Fundamental Analysis Reports -->
     <!--<div ng-class="{'selector-reports-hidden': selected == 1}">-->
         <div class="report-list">
-            <h2>Buys</h2>
-            <div class="report-card" ng-repeat="buy in fundBuys" ng-click="openReport(buy.url, buy.name)">
-                <h2 class="optional">{{buy.name}}</h2>
-                <h2 class="size-matters">{{buy.ticker}}</h2>
-                <h3 style="color: rgb(106,158,31)">{{buy.rating}}</h3>
+            <div class="report-card" ng-repeat="report in reports" ng-click="openReport(report.url, report.name)">
+                <h2 class="optional">{{report.name}}</h2>
+                <h2 class="size-matters">{{report.ticker}}</h2>
+                <!--<h3 style="color: rgb(106,158,31)">{{report.rating}}</h3>-->
                 <br />
                 <p>
-                    <img ng-src="{{buy.icon}}" width="20px" height="20px" />
-                    <span class="optional">{{buy.sector}} <b style="color: black">&#183;</b></span> 
-                    <span style="color: #777"> {{buy.industry}}</span>
+                    <img ng-src="{{report.icon}}" width="20px" height="20px" />
+                    <span class="optional">{{report.sector}} <b style="color: black">&#183;</b></span> 
+                    <span style="color: #777"> {{report.industry}}</span>
                 </p>
             </div>
         </div>
 
-        <div class="report-list">
+        <!--<div class="report-list">
             <h2>No Opinion</h2>
             <div class="report-card" ng-repeat="hold in fundHolds" ng-click="openReport(hold.url, hold.name)">
                 <h2 class="optional">{{hold.name}}</h2>
@@ -162,7 +161,7 @@
                     <span style="color: #777"> {{sell.industry}}</span>
                 </p>
             </div>
-        </div>
+        </div>-->
     <!--</div>-->
 
     <!-- Technical Analysis Reports -->

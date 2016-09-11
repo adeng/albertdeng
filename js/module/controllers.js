@@ -114,9 +114,6 @@ angular.module('main.controllers', [])
 .controller('FinanceCtrl', function($scope, $rootScope) {
     $rootScope.title = "Finance";
 	$scope.selected = 0;
-    
-    console.log("loaded");
-    
     $scope.set = function( input ) {
         $scope.selected = input;
     }
@@ -230,33 +227,31 @@ angular.module('main.controllers', [])
 	}
 })
 .controller('ReportsCtrl', function($scope, $rootScope, $state, General) {
-    $scope.fundBuys = [];
-    $scope.fundHolds = [];
-    $scope.fundSells = [];
-    $scope.techBuys = [];
-    $scope.techSells = [];
+    $scope.reports = [];
     $scope.selected = 0;
-    
+
     General.getJSON("finance/reports.json").then( function( val ) {
         for(var i = 0; i < val.length; i++) {
             var temp = val[i];
             temp.icon = $rootScope.icons[val[i]['industry'].toLowerCase().replace(/\s/g, '')];
             temp.icon = temp.icon == undefined ? $rootScope.icons['default'] : temp.icon;
+
+			$scope.reports.push(temp);
             
-            if( val[i].type == "fundamental") {
-                if( val[i].rating == 'Buy' )
-                    $scope.fundBuys.push(temp);
-                else if ( val[i].rating == 'Hold' )
-                    $scope.fundHolds.push(temp);
-                else
-                    $scope.fundSells.push(temp);
-            }
-            else {
-                if( val[i].rating == 'Buy' )
-                    $scope.techBuys.push(temp);
-                else
-                    $scope.techSells.push(temp);
-            }
+            // if( val[i].type == "fundamental") {
+            //     if( val[i].rating == 'Buy' )
+            //         $scope.fundBuys.push(temp);
+            //     else if ( val[i].rating == 'Hold' )
+            //         $scope.fundHolds.push(temp);
+            //     else
+            //         $scope.fundSells.push(temp);
+            // }
+            // else {
+            //     if( val[i].rating == 'Buy' )
+            //         $scope.techBuys.push(temp);
+            //     else
+            //         $scope.techSells.push(temp);
+            // }
         }
     });
 
