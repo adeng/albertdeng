@@ -1,38 +1,11 @@
 [
     {
-        "ticker": "SWHC",
-        "name": "Smith and Wesson Holding Corp",
-        "sector": "Consumer Discretionary",
-        "industry": "Leisure Products",
-        "rating": "Buy",
-        "type": "fundamental",
-        "url": "/data/stocks/SWHC.json"
-    },
-    {
-        "ticker": "MU",
-        "name": "Micron Technology, Inc.",
+        "ticker": "MSFT",
+        "name": "Microsoft Corp",
         "sector": "Information Technology",
-        "industry": "Semiconductors",
+        "industry": "Software",
         "rating": "Buy",
         "type": "fundamental",
-        "url": "/data/stocks/SWHC.json"
-    },
-    {
-        "ticker": "MOS",
-        "name": "Mosaic Co",
-        "sector": "Materials",
-        "industry": "Chemicals",
-        "rating": "Buy",
-        "type": "fundamental",
-        "url": "/data/stocks/SWHC.json"
-    },
-    {
-        "ticker": "F",
-        "name": "Ford Motor Co",
-        "sector": "Consumer Discretionary",
-        "industry": "Automobiles",
-        "rating": "Sell",
-        "type": "technical",
-        "url": null
+        "url": "stocks/MSFT.json"
     }
 ]

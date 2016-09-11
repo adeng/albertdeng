@@ -54,7 +54,7 @@ angular.module('main.services', [])
 		getIcons: function() {
 			var deferred = $q.defer();
 			
-			$http.get('https://cdn.rawgit.com/adeng/albertdeng/dev/data/icons.json').success( function(data, status, headers, config) {
+			$http.get('https://cdn.rawgit.com/adeng/albertdeng/dev/data/finance/icons.json').success( function(data, status, headers, config) {
 				deferred.resolve(data);
 			});
 			
