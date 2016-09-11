@@ -48,7 +48,7 @@
         }
     }
 
-    @media (max-width: 280px) {
+    @media (max-width: 340px) {
         .reduce {
             display: none;
         }
@@ -121,13 +121,25 @@
         list-style-type: none;
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 700px), (max-height: 660px) {
         .box-card {
             display: none;
         }
 
         .box-card-mobile {
             display: block;
+        }
+    }
+
+    @media (max-height: 700px) {
+        .box-card-mobile h4 {
+            font-size: 14px;
+            margin: 5px;
+        }
+
+        .box-card-mobile li {
+            font-size: 12px;
+            list-style-type: none;
         }
     }
 </style>
