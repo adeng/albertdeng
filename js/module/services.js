@@ -46,17 +46,16 @@ angular.module('main.services', [])
 			return deferred.promise;
 		},
 		getTickerInformation: function(ticker) {
-			var url = "https://api.tiingo.com/tiingo/daily/" + ticker.toLowerCase();
-			var headers = {
-				"Content-type" : "application/json",
-				"Authorization" : "Token ebe2dbfefbee23e974b77c3dece3eeec685fd510"
-			};
-
+			var deferred = $q.defer();
 			// var requests = [$http.get(url, headers).success(function(data) {deferred.resolve(data)}), $http.get(url + "/prices", headers).success(function(data) {deferred.resolve(data)})];
 
-			$http.get("/data/scripts/tiingo.php").success( function(data, status, headers, config) {
-				console.log(data);
+			$http.get("https://adeng-dev.azurewebsites.net/data/scripts/tiingo.php?ticker=" + ticker.toLowerCase()).success( function(data, status, headers, config) {
+				deferred.resolve(JSON.parse(data));
+			}).error(function(data, status, headers, config) {
+				deferred.resolve(data);
 			});
+
+			return deferred.promise;
 		}
 	}
 })

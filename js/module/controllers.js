@@ -259,8 +259,8 @@ angular.module('main.controllers', [])
         }
     });
 
-	$scope.openReport = function(url, name) {
-		$state.go('report', {src: url, title: name});
+	$scope.openReport = function(url, ticker, name) {
+		$state.go('report', {src: url, ticker: ticker, title: name});
 	}
     
     $scope.select = function(chosen) {
@@ -269,14 +269,16 @@ angular.module('main.controllers', [])
 })
 
 .controller('ReportCtrl', function($scope, $rootScope, $stateParams, General, Stocks) {
-    $rootScope.title = $stateParams.title;
+    $rootScope.title = $stateParams.ticker;
+	$scope.fetched = {};
+	$scope.fetched.name = "Loading...";
 
 	General.getJSON($stateParams.src).then( function(val) {
 		$scope.data = val;
-		
-		Stocks.getTickerInformation($scope.data.ticker).then( function(prices) {
-			console.log(prices);
-		});
+	});
+
+	Stocks.getTickerInformation($stateParams.ticker).then( function(prices) {
+		$scope.fetched = JSON.parse(prices);
 	});
 })
 
