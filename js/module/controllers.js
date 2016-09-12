@@ -8,6 +8,10 @@ angular.module('main.controllers', [])
     General.getIcons().then( function(val) {
         $rootScope.icons = val;
     });
+
+	$scope.hidePane = function() {
+		$scope.splitViewObject.closePane();
+	}
     
     function setPane() {
         document.getElementById("loader").innerHTML = "";
