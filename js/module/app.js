@@ -2,8 +2,6 @@
 	var home = angular.module('main', ['winjs', 'ui.router', 'main.controllers', 'main.services', 'main.directives'])
 	
 	.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
-		$locationProvider.html5Mode(true);
-
 		$stateProvider
 		
 		.state('home', {
