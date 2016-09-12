@@ -46,17 +46,17 @@ angular.module('main.services', [])
 			return deferred.promise;
 		},
 		getTickerInformation: function(ticker) {
-			var url = "https://api.tiingo.com/tiingo/daily/" + ticker + "/prices";
+			var url = "https://api.tiingo.com/tiingo/daily/" + ticker.toLowerCase();
 			var headers = {
 				"Content-Type" : "application/json",
 				"Authorization" : "Token ebe2dbfefbee23e974b77c3dece3eeec685fd510"
 			};
 
-			$http.get(url, headers).success( function(data, status, headers, config) {
-				console.log(data);
-			}).error( function(data, status, headers, config) {
-				console.log(data);
-			});
+			var requests = [$http.get(url, headers).success(function(data) {deferred.resolve(data)}), $http.get(url + "/prices", headers).success(function(data) {deferred.resolve(data)})];
+
+			$q.all(requests).then(function(val) {
+				return val;
+			})
 		}
 	}
 })
