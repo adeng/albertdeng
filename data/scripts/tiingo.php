@@ -11,5 +11,5 @@
     //     ]
     // ]);
     echo "Loaded";
-    echo file_get_contents("https://api.tiingo.com/tiingo/daily/msft");               
+    echo file_get_contents("https://api.tiingo.com/tiingo/daily/msft?token=ebe2dbfefbee23e974b77c3dece3eeec685fd510");               
 ?>
