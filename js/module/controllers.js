@@ -278,7 +278,8 @@ angular.module('main.controllers', [])
 	});
 
 	Stocks.getTickerInformation($stateParams.ticker).then( function(prices) {
-		$scope.fetched = JSON.parse(prices);
+		console.log(prices);
+		$scope.fetched = prices;
 	});
 })
 

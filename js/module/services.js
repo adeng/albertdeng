@@ -50,7 +50,7 @@ angular.module('main.services', [])
 			// var requests = [$http.get(url, headers).success(function(data) {deferred.resolve(data)}), $http.get(url + "/prices", headers).success(function(data) {deferred.resolve(data)})];
 
 			$http.get("https://adeng-dev.azurewebsites.net/data/scripts/tiingo.php?ticker=" + ticker.toLowerCase()).success( function(data, status, headers, config) {
-				deferred.resolve(JSON.parse(data));
+				deferred.resolve(data);
 			}).error(function(data, status, headers, config) {
 				deferred.resolve(data);
 			});
