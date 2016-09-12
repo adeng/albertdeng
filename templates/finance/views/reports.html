@@ -123,7 +123,7 @@
     <!-- Fundamental Analysis Reports -->
     <!--<div ng-class="{'selector-reports-hidden': selected == 1}">-->
         <div class="report-list">
-            <div class="report-card" ng-repeat="report in reports" ng-click="openReport(report.url, report.name)">
+            <div class="report-card" ng-repeat="report in reports" ng-click="openReport(report.url, report.ticker, report.name)">
                 <h2 class="optional">{{report.name}}</h2>
                 <h2 class="size-matters">{{report.ticker}}</h2>
                 <!--<h3 style="color: rgb(106,158,31)">{{report.rating}}</h3>-->

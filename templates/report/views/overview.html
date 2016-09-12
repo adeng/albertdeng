@@ -8,12 +8,16 @@
         border: 1px solid white;
         margin-top: 10px !important;
     }
+
+    #box-9 {
+        background: url("/data/img/home/background.jpg");
+    }
 </style>
 
 <div class="outer-box">
-    <div class="inner-box">
-        <h1>{{data.name}} ({{data.ticker}})</h1>
-        <hr />
-        <p>{{data.description}}</p>
+    <div class="inner-box" id="box-9">
+        <h1>{{fetched.name}}</h1>
+    </div>
+    <div class="gradient-box">
     </div>
 </div>

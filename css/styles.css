@@ -267,7 +267,7 @@ hr {
     box-shadow: inset 5px 0 0 0 #356A95;
 }
 
-.win-splitviewcommand-label {
+.win-splitviewcommand-label, .header-pivot {
     -webkit-user-select: none;  /* Chrome all / Safari all */
     -moz-user-select: none;     /* Firefox all */
     -ms-user-select: none;      /* IE 10+ */

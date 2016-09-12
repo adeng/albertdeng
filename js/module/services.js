@@ -45,6 +45,18 @@ angular.module('main.services', [])
 			
 			return deferred.promise;
 		},
+		getTickerInformation: function(ticker) {
+			var deferred = $q.defer();
+			// var requests = [$http.get(url, headers).success(function(data) {deferred.resolve(data)}), $http.get(url + "/prices", headers).success(function(data) {deferred.resolve(data)})];
+
+			$http.get("https://adeng-dev.azurewebsites.net/data/scripts/tiingo.php?ticker=" + ticker.toLowerCase()).success( function(data, status, headers, config) {
+				deferred.resolve(data);
+			}).error(function(data, status, headers, config) {
+				deferred.resolve(data);
+			});
+
+			return deferred.promise;
+		}
 	}
 })
 
@@ -54,7 +66,7 @@ angular.module('main.services', [])
 		getIcons: function() {
 			var deferred = $q.defer();
 			
-			$http.get('https://cdn.rawgit.com/adeng/albertdeng/dev/data/finance/icons.json').success( function(data, status, headers, config) {
+			$http.get('/data/finance/icons.json').success( function(data, status, headers, config) {
 				deferred.resolve(data);
 			});
 			
@@ -63,7 +75,7 @@ angular.module('main.services', [])
 		getJSON: function(url) {
 			var deferred = $q.defer();
 
-            var fullrl = 'https://cdn.rawgit.com/adeng/albertdeng/dev/data/' + url;
+            var fullrl = '/data/' + url;
 			$http.get(fullrl).success( function(data, status, headers, config) {
 				deferred.resolve(data);
 			});

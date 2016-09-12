@@ -6,6 +6,6 @@
         "industry": "Software",
         "rating": "Buy",
         "type": "fundamental",
-        "url": "stocks/MSFT.json"
+        "url": "stocks/msft.json"
     }
 ]

@@ -8,6 +8,10 @@ angular.module('main.controllers', [])
     General.getIcons().then( function(val) {
         $rootScope.icons = val;
     });
+
+	$scope.hidePane = function() {
+		$scope.splitViewObject.closePane();
+	}
     
     function setPane() {
         document.getElementById("loader").innerHTML = "";
@@ -255,8 +259,8 @@ angular.module('main.controllers', [])
         }
     });
 
-	$scope.openReport = function(url, name) {
-		$state.go('report', {src: url, title: name});
+	$scope.openReport = function(url, ticker, name) {
+		$state.go('report', {src: url, ticker: ticker, title: name});
 	}
     
     $scope.select = function(chosen) {
@@ -264,12 +268,18 @@ angular.module('main.controllers', [])
     }
 })
 
-.controller('ReportCtrl', function($scope, $rootScope, $stateParams, General) {
-    $rootScope.title = $stateParams.title;
+.controller('ReportCtrl', function($scope, $rootScope, $stateParams, General, Stocks) {
+    $rootScope.title = $stateParams.ticker;
+	$scope.fetched = {};
+	$scope.fetched.name = "Loading...";
 
 	General.getJSON($stateParams.src).then( function(val) {
 		$scope.data = val;
-		console.log(val);
+	});
+
+	Stocks.getTickerInformation($stateParams.ticker).then( function(prices) {
+		console.log(prices);
+		$scope.fetched = prices;
 	});
 })
 
