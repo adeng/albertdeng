@@ -52,11 +52,11 @@ angular.module('main.services', [])
 				"Authorization" : "Token ebe2dbfefbee23e974b77c3dece3eeec685fd510"
 			};
 
-			var requests = [$http.get(url, headers).success(function(data) {deferred.resolve(data)}), $http.get(url + "/prices", headers).success(function(data) {deferred.resolve(data)})];
+			// var requests = [$http.get(url, headers).success(function(data) {deferred.resolve(data)}), $http.get(url + "/prices", headers).success(function(data) {deferred.resolve(data)})];
 
-			$q.all(requests).then(function(val) {
-				return val;
-			})
+			$http.get("/data/scripts/tiingo.php").success( function(data, status, headers, config) {
+				console.log(data);
+			});
 		}
 	}
 })
