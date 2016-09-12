@@ -45,6 +45,17 @@ angular.module('main.services', [])
 			
 			return deferred.promise;
 		},
+		getTickerInformation: function(ticker) {
+			var url = "https://api.tiingo.com/tiingo/daily/" + ticker + "/prices";
+			var headers = {
+				"Content-Type" : "application/json",
+				"Authorization" : "Token ebe2dbfefbee23e974b77c3dece3eeec685fd510"
+			};
+
+			$http.get(url, headers).success( function(data, status, headers, config) {
+				console.log(data);
+			});
+		}
 	}
 })
 

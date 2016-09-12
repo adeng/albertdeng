@@ -268,12 +268,15 @@ angular.module('main.controllers', [])
     }
 })
 
-.controller('ReportCtrl', function($scope, $rootScope, $stateParams, General) {
+.controller('ReportCtrl', function($scope, $rootScope, $stateParams, General, Stocks) {
     $rootScope.title = $stateParams.title;
 
 	General.getJSON($stateParams.src).then( function(val) {
 		$scope.data = val;
-		console.log(val);
+		
+		Stocks.getTickerInformation($scope.data.ticker).then( function(prices) {
+			console.log(prices);
+		});
 	});
 })
 
