@@ -73,6 +73,9 @@
                     }
                 }
                 $("#output").val(o);
+
+                var uriContent = "data:application/octet-stream," + encodeURIComponent(o);
+                window.open(uriContent, 'output.csv');
             }
         </script>
     </head>
