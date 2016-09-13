@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script>
+            function getFile(data) {
+                // $.ajax({
+                //     url: src + ".xml",
+                //     success: function(data) {
+                //         console.log(data);
+                //     },
+                //     dataType: "xml"
+                // })
+                // var xmlHTTP = new XMLHttpRequest();
+                // xmlHTTP.open("GET", src + ".xml", false);
+                // xmlHTTP.send(null);
+                // console.log(xmlHTTP.responseText);
+                var $parsed = $($.parseXML(data));
+                console.log($.parseXML(data));
+
+                var jobRole = $parsed.find("NAME")[0].innerHTML;
+                var jobDesc = $parsed.find("ASSIGNED-ROLE-DESCRIPTION")[0].innerHTML;
+
+                var dutyRoles = [];
+                for(var i = 0; i < $parsed.find("APPLICATION").length; i++) {
+                    var app = $parsed.find("APPLICATION")[i];
+
+                    var entitlements = $(app).find("ENTITLEMENT");
+                    var uniqueEnts = [];
+                    for(var j = 0; j < entitlements.length; j++) {
+                        uniqueEnts.push(entitlements[j].childNodes[3].innerHTML.trim());
+                    }
+
+                    uniqueEnts.sort(function(a, b) {
+                        return a.localeCompare(b);
+                    });
+                    
+                    // console.log(app.childNodes[1]);
+                    dutyRoles.push([app.childNodes[3].childNodes[5].innerHTML.trim(), app.childNodes[3].childNodes[7].innerHTML.trim(), app.childNodes[1].innerHTML.trim().toUpperCase(), uniqueEnts]);
+                }
+
+                dutyRoles.sort(function(a, b) {
+                    return a[0].localeCompare(b[0]);
+                });
+
+                var uniqueRoles = [];
+                uniqueRoles.push(dutyRoles[0]);
+
+                for(var j = 1; j < dutyRoles.length; j++) {
+                    if(uniqueRoles[uniqueRoles.length - 1][0] != dutyRoles[j][0]) {
+                        uniqueRoles.push(dutyRoles[j]);
+                    }
+                }
+                
+                constructCSV(jobRole, jobDesc, uniqueRoles);
+            }
+
+            function constructCSV(jobRole, jobDesc, dutyRoles) {
+                var o = "Duties\n";
+                o += "\n";
+                o += "Job Role,Job Role Description,Duty Role,Description,Application\n";
+                o += "\n";
+                o += jobRole + ',"' + jobDesc + '","' + dutyRoles[0][0] + '","' + dutyRoles[0][1] + '","' + dutyRoles[0][2] + '"\n';
+                for(var i = 1; i < dutyRoles.length; i++) {
+                    o += ',,"' + dutyRoles[i][0] + '","' + dutyRoles[i][1] + '","' + dutyRoles[i][2] + '"\n';
+                }
+                o += "\nPrivileges\n";
+                o += "\n";
+                o += "Job Role,Granted Role,Granted Role Description,Privilege,Grant?\n\n";
+                for(var j = 0; j < dutyRoles.length; j++) {
+                    o += ',"' + dutyRoles[j][0] + '","' + dutyRoles[j][1] + '","' + dutyRoles[j][3][0] + '",\n';
+                    for(var k = 1; k < dutyRoles[j][3].length; k++) {
+                        o += ',,,"' + dutyRoles[j][3][k] + '",\n';
+                    }
+                }
+                $("#output").val(o);
+            }
+        </script>
+    </head>
+    <body>
+        <h2>Input</h2>
+        <textarea id="input">
+        </textarea>
+        <!--<label for="inputfile">Name of file: </label><input id="inputfile" type="text" />
+        <br />-->
+        <button id="execute" onclick="getFile($('#input').val())">Submit</button>
+        <h2>Output</h2>
+        <textarea id="output">
+        </textarea>
+    </body>
+</html>
