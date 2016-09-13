@@ -272,6 +272,7 @@ angular.module('main.controllers', [])
     $rootScope.title = $stateParams.ticker;
 	$scope.fetched = {};
 	$scope.fetched.name = "Loading...";
+	$scope.fetched.chart = "http://finviz.com/chart.ashx?t=" + $stateParams.ticker + "&ty=c&ta=1&p=d&s=l";
 
 	General.getJSON($stateParams.src).then( function(val) {
 		$scope.data = val;

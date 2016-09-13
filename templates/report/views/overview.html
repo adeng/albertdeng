@@ -1,12 +1,25 @@
 <style>
-    h1 {
-        margin-bottom: 0px;
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
-    hr {
-        color: white;
-        border: 1px solid white;
-        margin-top: 10px !important;
+    .full-item {
+        margin: 10px;
+        border: 2px solid #D2D2D2;
+        padding: 20px;
+    }
+
+    .flex-item {
+        margin: 10px;
+        flex-grow: 1;
+        padding: 20px;
+        border: 2px solid #D2D2D2;
+    }
+
+    .flex-item img { 
+        width: 100%;
     }
 
     #box-9 {
@@ -14,10 +27,30 @@
     }
 </style>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.min.js"></script>
+
 <div class="outer-box">
     <div class="inner-box" id="box-9">
         <h1>{{fetched.name}}</h1>
+        <div class="box-card">
+            <h4>{{fetched["0"].adjClose}}</h4>
+        </div>
     </div>
     <div class="gradient-box">
     </div>
+</div>
+
+<div class="page-padding container">
+    <div class="full-item">
+        <h2>Description</h2>
+        <p>{{fetched.description}}</p>
+    </div>
+
+    <div class="flex-item">
+        <h2>Analysts</h2>
+    </div>
+
+    <div class="flex-item">
+        <h2>Chart</h2>
+        <img ng-src="{{fetched.chart}}" />
 </div>
