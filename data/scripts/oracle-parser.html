@@ -19,9 +19,13 @@
                         uniqueEnts.push(entitlements[j].childNodes[3].innerHTML.trim());
                     }
 
-                    uniqueEnts.sort(function(a, b) {
-                        return a.localeCompare(b);
-                    });
+                    if(uniqueEnts.length > 0) {
+                        uniqueEnts.sort(function(a, b) {
+                            return a.localeCompare(b);
+                        });
+                    } else {
+                        uniqueEnts.push("None");
+                    }
                     
                     // console.log(app.childNodes[1]);
                     dutyRoles.push([app.childNodes[3].childNodes[5].innerHTML.trim(), app.childNodes[3].childNodes[7].innerHTML.trim(), app.childNodes[1].innerHTML.trim().toUpperCase(), uniqueEnts]);
