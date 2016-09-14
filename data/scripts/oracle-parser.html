@@ -3,17 +3,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script>
             function getFile(data) {
-                // $.ajax({
-                //     url: src + ".xml",
-                //     success: function(data) {
-                //         console.log(data);
-                //     },
-                //     dataType: "xml"
-                // })
-                // var xmlHTTP = new XMLHttpRequest();
-                // xmlHTTP.open("GET", src + ".xml", false);
-                // xmlHTTP.send(null);
-                // console.log(xmlHTTP.responseText);
                 var $parsed = $($.parseXML(data));
                 console.log($.parseXML(data));
 
@@ -95,13 +84,13 @@
     </head>
     <body>
         <h2>Input</h2>
-        <textarea id="input">
+        <textarea id="input" rows="10" cols="80">
         </textarea>
         <!--<label for="inputfile">Name of file: </label><input id="inputfile" type="text" />
         <br />-->
         <button id="execute" onclick="getFile($('#input').val())">Submit</button>
         <h2>Output</h2>
-        <textarea id="output">
+        <textarea id="output" rows="10" cols="80">
         </textarea>
     </body>
 </html>
