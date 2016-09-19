@@ -53,7 +53,7 @@
 
                     if(uniqueEnts[0] != "") {
                         uniqueEnts.sort(function(a, b) {
-                            return a.localeCompare(b);
+                            return a[0].localeCompare(b[0]);
                         });
                     } else {
                         uniqueEnts[0] = "None";
