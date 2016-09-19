@@ -2,11 +2,11 @@
     <head>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script>
-            var output = "";
+            var output = "ENTERPRISE ROLE NAME,ENTERPRISE ROLE DISPLAY NAME,ENTERPRISE ROLE DESCRIPTION,APPLICATION,DUTY ROLE HIERARCHY,DUTY ROLE NAME,DUTY ROLE DISPLAY NAME,DUTY ROLE DESCRIPTION,ENTITLEMENT,ENTITLEMENT DISPLAY NAME,ENTITLEMENT DESCRIPTION\n";
+            var total = 0;
 
             $(document).ready( function() {
-                var total = 0;
-                var processing = 0;
+                $("#progress").val("Ready for file upload. Upload one at a time.");
                 $("#drag").on({
                     'dragover dragenter': function(e) {
                         e.preventDefault();
@@ -15,20 +15,16 @@
                     'drop': function(e) {
                         e.preventDefault();
                         e.stopPropagation();
-                        var files = e.originalEvent.dataTransfer.files;
-                        total = files.length;
-                        $("#progress").val(total + " files uploaded. 0 completed");
+                        var file = e.originalEvent.dataTransfer.files[0];
+                        total++;
+                        $("#progress").val(total + " files uploaded. Processing.");
                         
-                        for(var i = 0; i < files.length; i++) {
-                            var f = new FileReader();
-                            f.readAsText(files[i]);
+                        var f = new FileReader();
 
-                            f.onload = function() {
-                                getFile(f.result);
-                                processing++;
-                                $("#progress").val(total + " files uploaded. " + processing + " completed");
-                            }
+                        f.onload = function() {
+                            getFile(f.result);
                         }
+                        f.readAsText(file);
                         return false;
                     }
                 });
@@ -39,6 +35,7 @@
                 console.log($.parseXML(data));
 
                 var jobRole = $parsed.find("NAME")[0].innerHTML;
+                var jobID = $parsed.find("ID")[0].innerHTML;
                 var jobDesc = $parsed.find("ASSIGNED-ROLE-DESCRIPTION")[0].innerHTML;
 
                 var dutyRoles = [];
@@ -48,7 +45,7 @@
                     var entitlements = $(app).find("ENTITLEMENT");
                     var uniqueEnts = [];
                     for(var j = 0; j < entitlements.length; j++) {
-                        uniqueEnts.push([entitlements[j].childNodes[3].innerHTML.trim(), entitlements[j].childNodes[5].innerHTML.trim()]);
+                        uniqueEnts.push([entitlements[j].childNodes[3].innerHTML.trim(), entitlements[j].childNodes[5].innerHTML.trim(), entitlements[j].childNodes[1].innerHTML.trim()]);
                     }
 
                     if(uniqueEnts[0] != "") {
@@ -60,7 +57,7 @@
                     }
                     
                     // console.log(app.childNodes[1]);
-                    dutyRoles.push([app.childNodes[3].childNodes[5].innerHTML.trim(), app.childNodes[3].childNodes[7].innerHTML.trim(), app.childNodes[1].innerHTML.trim().toUpperCase(), uniqueEnts]);
+                    dutyRoles.push([app.childNodes[3].childNodes[5].innerHTML.trim(), app.childNodes[3].childNodes[7].innerHTML.trim(), app.childNodes[1].innerHTML.trim().toUpperCase(), uniqueEnts, app.childNodes[3].childNodes[1].innerHTML.trim(), app.childNodes[3].childNodes[3].innerHTML.trim()]);
                 }
 
                 dutyRoles.sort(function(a, b) {
@@ -76,18 +73,19 @@
                     }
                 }
                 
-                constructCSV(jobRole, jobDesc, uniqueRoles);
+                constructCSV(jobID, jobRole, jobDesc, uniqueRoles);
             }
 
-            function constructCSV(jobRole, jobDesc, dutyRoles) {
+            function constructCSV(jobID, jobRole, jobDesc, dutyRoles) {
                 var o = "";
                 for(var j = 0; j < dutyRoles.length; j++) {
                     for(var k = 0; k < dutyRoles[j][3].length; k++) {
-                        o += '"' + jobRole + '","' + jobDesc + '","' + dutyRoles[j][0] + '","' + dutyRoles[j][1] + '","' + dutyRoles[j][3][k][0] + '","' + dutyRoles[j][3][k][1] + '",\n';
+                        o += '"' + jobID + '","' + jobRole + '","' + jobDesc + '","' + dutyRoles[j][2] + '","' + dutyRoles[j][4] + '","' + dutyRoles[j][5] + '","' + dutyRoles[j][0] + '","' + dutyRoles[j][1] + '","' + dutyRoles[j][3][k][2] + '","' + dutyRoles[j][3][k][0] + '","' + dutyRoles[j][3][k][1] + '",\n';
                     }
                 }
 
                 output += o;
+                $("#progress").val("Completed. Ready for next file. " + total + " files processed so far.");
             }
 
             function download(filename, text) {
@@ -118,12 +116,12 @@
         <div class="drag" id="drag">
             <h1 style="text-align: center">Drag file here to upload</h1>
         </div>
-        <input type="text" id="progress" disabled />
+        <input type="text" id="progress" style="width: 100%" disabled />
         <!--<textarea id="input" rows="10" cols="80">
         </textarea>-->
         <!--<label for="inputfile">Name of file: </label><input id="inputfile" type="text" />
         <br />-->
-        <button id="execute" onclick="download('output.csv', output)">Submit</button>
+        <button id="execute" onclick="download('output.csv', output)">Download</button>
         <!-- 
         <h2>Output</h2>
         <textarea id="output" rows="10" cols="80">
