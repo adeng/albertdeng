@@ -6,12 +6,23 @@
 	$endPos = strpos(substr($arr,$startPos), "</table>") + strlen("</table>");
     $ratings = substr($arr, $startPos, $endPos);
 
-echo $ratings;
-$dom = new DOMDocument();
-$dom->loadHTML($ratings);
+    $dom = new DOMDocument();
+    $dom->loadHTML($ratings);
+	
+    $ratingsArr = array();		
+    foreach($dom->getElementsByTagName('tr') as $node)
+    {
+		$numRatings = array();
+        foreach($node->getElementsByTagName('td') as $td) {
+            $val = $td->nodeValue;
+            if(is_numeric($val)) {
+                array_push($numRatings, $val);
+            }
+        }
+		array_push($ratingsArr, $numRatings);
+    }
+    $ratingsObj = array("buy" => $ratingsArr[1], "outperform" => $ratingsArr[2], "hold" => $ratingsArr[3], "underperform" => $ratingsArr[4], "sell" => $ratingsArr[5], "no" => $ratingsArr[6], "avg" => $ratingsArr[8]);
 
-foreach($dom->getElementsByTagName('tr') as $node)
-{
-    foreach($)
-}
+    echo json_encode($ratingsObj);
+
 ?>
