@@ -1,0 +1,110 @@
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script>
+            var output = [];
+            var total = 0;
+            var first_file = true;
+
+            $(document).ready( function() {
+                $("#progress").val("Ready for file upload. Upload one at a time.");
+                $("#drag").on({
+                    'dragover dragenter': function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    },
+                    'drop': function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        var file = e.originalEvent.dataTransfer.files[0];
+                        total++;
+                        $("#progress").val(total + " files uploaded. Processing.");
+                        
+                        var f = new FileReader();
+
+                        f.onload = function() {
+                            getFile(f.result);
+                        }
+                        f.readAsText(file);
+                        return false;
+                    }
+                });
+            });
+
+            function reset() {
+                total = 0;
+                $("#progress").val("Ready for file upload. Upload one at a time.");
+                output = "";
+                first_file = true;
+            }
+
+            var tempString = "";
+
+            function getFile(data) {
+                var first_split = data.split("\n");
+                // var second_split = first_split.split(",");
+                var i;
+                if($("#headers").prop("checked")) {
+                    i = first_file ? 0 : 1;
+                } else { i = 0; }
+                for(i; i < first_split.length; i++) {
+                    if(Math.abs(tempString.length - Math.pow(2,20) < 5000)) {
+                        output.push(tempString);
+                        tempString = "";
+                    }
+                    tempString += first_split[i];
+                }
+                output.push(tempString);
+                tempString = "";
+                first_file = false;
+                $("#progress").val("Completed. Ready for next file. " + total + " files processed so far.");
+            }
+
+            function constructCSV() {
+                download("output.csv", output.join());
+            }
+
+            function download(filename, text) {
+                var pom = document.createElement('a');
+                pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+                pom.setAttribute('download', filename);
+
+                if (document.createEvent) {
+                    var event = document.createEvent('MouseEvents');
+                    event.initEvent('click', true, true);
+                    pom.dispatchEvent(event);
+                }
+                else {
+                    pom.click();
+                }
+            }
+        </script>
+        <style>
+            .drag {
+                border: 2px solid black;
+                width: 90vw;
+                margin: 5%;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Spreadsheet Merge Tool</h2>
+        <div class="drag" id="drag">
+            <h1 style="text-align: center">Drag file here to upload</h1>
+        </div>
+        <input type="text" id="progress" style="width: 100%" disabled />
+        <!--<textarea id="input" rows="10" cols="80">
+        </textarea>-->
+        <!--<label for="inputfile">Name of file: </label><input id="inputfile" type="text" />
+        <br />-->
+        <label for="headers">Data has headers?</label>
+        <input type="checkbox" name="headers" id="headers" />
+        <br />
+        <button id="reset" onclick="reset()">Reset</button>
+        <button id="execute" onclick="constructCSV()">Download</button>
+        <!-- 
+        <h2>Output</h2>
+        <textarea id="output" rows="10" cols="80">
+        </textarea>-->
+    </body>
+</html>
