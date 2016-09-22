@@ -1,4 +1,5 @@
 <?php
+
     function getPos($array, $str) {
         $pos = strpos($array, $str) + strlen($str);
         $startPos = strpos(substr($array, $pos), "<table") + $pos;
@@ -24,7 +25,7 @@
         return $temp;
     }
 
-	$input = file_get_contents("http://www.reuters.com/finance/stocks/analyst?symbol=ORCL");
+	$input = file_get_contents("http://www.reuters.com/finance/stocks/analyst?symbol=" . $_GET["ticker"]);
 
     /* Analyst Recommendations */
     $arar = getPos($input, "Analyst Recommendations and Revisions");
