@@ -47,10 +47,8 @@
     $estimates = substr($input, $cea[0], $cea[1]);
 
     $estimatesArr = processDOM($estimates, false);
-    $intersect = array(1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0);
     $revEstArr = array();
     $epsEstArr = array();
-    echo $estimates;
 
     $ceArray = 'revEstArr';
     for($i = 0; $i < count($estimatesArr) - 1; $i++) {
@@ -62,6 +60,24 @@
         }
     }
     $estimatesObj = array("revEstimates" => $revEstArr, "epsEstimates" => $epsEstArr, "ltGrowthRate" => $estimatesArr[count($estimatesArr) - 1]);
-    echo json_encode($estimatesObj);
 
+    /* Historical Surprises */
+    $hs = getPos($input, "Historical Surprises");
+    $surprises = substr($input, $hs[0], $hs[1]);
+
+    $surprisesArr = processDOM($surprises, false);
+    $revSupArr = array();
+    $epsSupArr = array();
+
+    $hsArray = 'revSupArr';
+    for($i = 0; $i < count($surprisesArr); $i++) {
+        if($surprisesArr[$i][0] == "Earnings (per share)") {
+            $hsArray = 'epsSupArr';
+        }
+        if(count($surprisesArr[$i]) == 5) {
+            array_push(${$hsArray}, $surprisesArr[$i]);
+        }
+    }
+    $surprisesObj = array("revSurprises" => $revSupArr, "epsSupArr" => $epsSupArr);
+    echo json_encode($surprisesObj);
 ?>
