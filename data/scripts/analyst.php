@@ -52,6 +52,9 @@
 
     $ceArray = 'revEstArr';
     for($i = 0; $i < count($estimatesArr) - 1; $i++) {
+        if(count($estimatesArr[$i]) == 0) {
+            continue;
+        }
         if($estimatesArr[$i][0] == "Earnings (per share)") {
             $ceArray = 'epsEstArr';
         }
@@ -71,6 +74,9 @@
 
     $hsArray = 'revSupArr';
     for($i = 0; $i < count($surprisesArr); $i++) {
+        if(count($surprisesArr[$i]) == 0) {
+            continue;
+        }
         if($surprisesArr[$i][0] == "Earnings (per share)") {
             $hsArray = 'epsSupArr';
         }
@@ -80,6 +86,7 @@
     }
     $surprisesObj = array("revSurprises" => $revSupArr, "epsSupArr" => $epsSupArr);
 
+    /* Consensus Estimates Trend */
     $cet = getPos($input, "Consensus Estimates Trend");
     $trend = substr($input, $cet[0], $cet[1]);
 
@@ -89,6 +96,9 @@
 
     $cetArray = "revTreArr";
     for($i = 0; $i < count($trendArr); $i++) {
+        if(count($trendArr[$i]) == 0) {
+            continue;
+        }
         if($trendArr[$i][0] == "Earnings (per share)") {
             $cetArray = "epsTreArr";
         }
@@ -97,5 +107,29 @@
         }
     }
     $trendObj = array("revTrends" => $revTreArr, "epsTrends" => $epsTreArr);
-    echo json_encode($trendObj);
+
+    /* Estimates Revisions Summary */
+    $ers = getPos($input, "Estimates Revisions Summary");
+    $revisions = substr($input, $ers[0], $ers[1]);
+
+    $revisionsArr = processDOM($revisions, false);
+    $revRevArr = array();
+    $epsRevArr = array();
+
+    $ersArray = "revRevArr";
+    for($i = 0; $i < count($revisionsArr); $i++) {
+        if(count($revisionsArr[$i]) == 0) {
+            continue;
+        }
+        if($revisionsArr[$i][0] == "Earnings") {
+            $ersArray = "epsRevArr";
+        }
+        if(count($revisionsArr[$i]) == 5) {
+            array_push(${$ersArray}, $revisionsArr[$i]);
+        }
+    }
+    $revisionsObj = array("revRevisions" => $revRevArr, "epsRevisions" => $epsRevArr);
+
+    $result = array("header" => $headerObj, "ratings" => $ratingsObj, "estimates" => $estimatesObj, "surprises" => $surprisesObj, "trend" => $trendObj, "revisions" => $revisionsObj);
+    echo json_encode($result);
 ?>
