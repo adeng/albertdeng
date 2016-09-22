@@ -1,5 +1,4 @@
 <?php
-
     function getPos($array, $str) {
         $pos = strpos($array, $str) + strlen($str);
         $startPos = strpos(substr($array, $pos), "<table") + $pos;
@@ -132,5 +131,5 @@
     $revisionsObj = array("revRevisions" => $revRevArr, "epsRevisions" => $epsRevArr);
 
     $result = array("header" => $headerObj, "ratings" => $ratingsObj, "estimates" => $estimatesObj, "surprises" => $surprisesObj, "trend" => $trendObj, "revisions" => $revisionsObj);
-    echo json_encode($result);
+    echo json_encode($result, JSON_PRETTY_PRINT);
 ?>
