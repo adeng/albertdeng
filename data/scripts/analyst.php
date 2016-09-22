@@ -79,5 +79,23 @@
         }
     }
     $surprisesObj = array("revSurprises" => $revSupArr, "epsSupArr" => $epsSupArr);
-    echo json_encode($surprisesObj);
+
+    $cet = getPos($input, "Consensus Estimates Trend");
+    $trend = substr($input, $cet[0], $cet[1]);
+
+    $trendArr = processDOM($trend, false);
+    $revTreArr = array();
+    $epsTreArr = array();
+
+    $cetArray = "revTreArr";
+    for($i = 0; $i < count($trendArr); $i++) {
+        if($trendArr[$i][0] == "Earnings (per share)") {
+            $cetArray = "epsTreArr";
+        }
+        if(count($trendArr[$i]) == 6 && !in_array("--", $trendArr[$i])) {
+            array_push(${$cetArray}, $trendArr[$i]);
+        }
+    }
+    $trendObj = array("revTrends" => $revTreArr, "epsTrends" => $epsTreArr);
+    echo json_encode($trendObj);
 ?>
