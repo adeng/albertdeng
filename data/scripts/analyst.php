@@ -48,7 +48,20 @@
 
     $estimatesArr = processDOM($estimates, false);
     $intersect = array(1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0);
-    $estimatesObj = array();
-    echo json_encode($estimatesArr);
+    $revEstArr = array();
+    $epsEstArr = array();
+    echo $estimates;
+
+    $ceArray = 'revEstArr';
+    for($i = 0; $i < count($estimatesArr) - 1; $i++) {
+        if($estimatesArr[$i][0] == "Earnings (per share)") {
+            $ceArray = 'epsEstArr';
+        }
+        if(count($estimatesArr[$i]) == 6) {
+            array_push(${$ceArray}, $estimatesArr[$i]);
+        }
+    }
+    $estimatesObj = array("revEstimates" => $revEstArr, "epsEstimates" => $epsEstArr, "ltGrowthRate" => $estimatesArr[count($estimatesArr) - 1]);
+    echo json_encode($estimatesObj);
 
 ?>
