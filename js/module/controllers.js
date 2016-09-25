@@ -282,10 +282,6 @@ angular.module('main.controllers', [])
 		console.log(prices);
 		$scope.fetched = prices;
 	});
-
-	Stocks.getAnalystInformation($stateParams.ticker).then( function(analysts) {
-		console.log(analysts);
-	});
 })
 
 .controller('StocksCtrl', function($q, $scope, $sce, Stocks, General) {
