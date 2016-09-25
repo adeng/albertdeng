@@ -6,16 +6,12 @@
     </win-pivot-item>-->
     <win-pivot-item header="'Overview'">
         <div style="height:48px"></div>
-      <div class="regular-pivot" ng-include="'../templates/report/views/overview.html'">
-      </div>
+        <div class="regular-pivot" ng-include="'../templates/report/views/overview.html'">
+        </div>
     </win-pivot-item>
-    <win-pivot-item header="'Ratios'">
+    <win-pivot-item header="'Analysts'">
         <div style="height:48px"></div>
-      <div ng-include="'../templates/finance/views/portfolio.html'">
-      </div>
-    <win-pivot-item header="'Earnings'">
-        <div style="height:48px"></div>
-      <div ng-include="'../templates/finance/views/portfolio.html'">
-      </div>
+        <div ng-include="'../templates/report/views/analysts.html'">
+        </div>
     </win-pivot-item>
 </win-pivot>

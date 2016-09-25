@@ -49,7 +49,18 @@ angular.module('main.services', [])
 			var deferred = $q.defer();
 			// var requests = [$http.get(url, headers).success(function(data) {deferred.resolve(data)}), $http.get(url + "/prices", headers).success(function(data) {deferred.resolve(data)})];
 
-			$http.get("https://adeng-dev.azurewebsites.net/data/scripts/tiingo.php?ticker=" + ticker.toLowerCase()).success( function(data, status, headers, config) {
+			$http.get("https://adeng-dev.azurewebsites.net/data/scripts/finance/tiingo.php?ticker=" + ticker.toLowerCase()).success( function(data, status, headers, config) {
+				deferred.resolve(data);
+			}).error(function(data, status, headers, config) {
+				deferred.resolve(data);
+			});
+
+			return deferred.promise;
+		},
+		getAnalystInformation: function(ticker) {
+			var deferred = $q.defer();
+
+			$http.get("https://adeng-dev.azurewebsites.net/data/scripts/finance/analyst.php?ticker=" + ticker.toLowerCase()).success( function(data, status, headers, config) {
 				deferred.resolve(data);
 			}).error(function(data, status, headers, config) {
 				deferred.resolve(data);
