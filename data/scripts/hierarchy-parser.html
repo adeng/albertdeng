@@ -24,9 +24,8 @@
                 });
             });
 
-            function getFile(data, technical) {
-                if(technical == undefined)
-                    technical = false;
+            function getFile(data) {
+                technical = $(":checked").length;
 
                 var $parsed = $($.parseXML(data));
                 // console.log($.parseXML(data));
@@ -95,33 +94,6 @@
                             children: []
                         });
                     }
-
-                    // var ptr = obj[jobRole];
-                    // for(var j = 0; j < level; j++) {
-                    //     if(ptr[hierarchyItems[j]] == undefined)
-                    //         ptr[hierarchyItems[j]] = {};
-                    //     ptr = ptr[hierarchyItems[j]];
-
-                    //     // Final level, add entitlement
-                    //     if(j == level - 1) {
-                    //         ptr[hierarchyItems[j]] = package;
-                    //     }
-                    // }
-                    
-                    // if(level == 1) {
-                    //     var child = tree.parse({id: hierarchyItems[0], level: level, children: []});
-                    //     root.addChild(child);
-                    // } else {
-                    //     var parent = root;
-                        
-                    //     for(var i = 0; i < level - 1; i++) {
-                    //         parent = parent.first({strategy: 'post'}, function(node) {
-                    //             return node.model.id == hierarchyItems[i];
-                    //         });
-                    //     }
-                    //     var child = tree.parse({id: hierarchyItems[level - 1], level: level, children: []});
-                    //     parent.addChild(child);
-                    // }
                 }
 
                 // console.log(obj);
@@ -144,7 +116,6 @@
 
                 console.log(str);
                 download("output.csv", str);
-                console.log("Here");
             }
 
             function download(filename, text) {
@@ -175,6 +146,8 @@
         <div class="drag" id="drag">
             <h1 style="text-align: center">Drag file here to upload</h1>
         </div>
+        <label for="technical">Check if you want the technical name</label>
+        <input type="checkbox" id="technical" />
         <!--<textarea id="input" rows="10" cols="80">
         </textarea>-->
         <!--<label for="inputfile">Name of file: </label><input id="inputfile" type="text" />
