@@ -1,0 +1,187 @@
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="http://jnuno.com/tree-model-js/vendor/jnuno/TreeModel.js"></script>
+        <script>
+            $(document).ready( function() {
+                $("#drag").on({
+                    'dragover dragenter': function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    },
+                    'drop': function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        var file = e.originalEvent.dataTransfer.files[0];
+                        var f = new FileReader();
+                        f.readAsText(file);
+
+                        f.onload = function() {
+                            getFile(f.result);
+                        }
+                        return false;
+                    }
+                });
+            });
+
+            function getFile(data, technical) {
+                if(technical == undefined)
+                    technical = false;
+
+                var $parsed = $($.parseXML(data));
+                // console.log($.parseXML(data));
+
+                var jobRole = $parsed.find("ROLE-ID")[0].innerHTML;
+                var entitlements = $parsed.find("ENTITLEMENT-DETAILS");
+
+                // var obj = {};
+                // obj[jobRole] = {};
+
+                var obj = {id: jobRole, name: jobRole, level: 0, children: []};
+
+                var str = "Level,Job Role\n";
+
+                // Construct tree   
+                for(var i = 0; i < entitlements.length; i++) {
+                // for(var i = 0; i < 1; i++) {
+                    var entitlement = entitlements[i];
+
+                    var name = entitlement.childNodes[1].innerHTML.trim();
+                    var id = entitlement.childNodes[3].innerHTML.trim();
+                    var hierarchy = entitlement.childNodes[9].innerHTML.trim();
+
+                    // console.log(entitlement.childNodes);
+                    var package = [
+                        entitlement.childNodes[11].innerHTML.trim(),
+                        entitlement.childNodes[13].innerHTML.trim(),
+                        // 15 is duty role desc
+                        entitlement.childNodes[17].innerHTML.trim(),
+                        entitlement.childNodes[19].innerHTML.trim()
+                        // 21 is entitlement desc
+                    ];
+                    var hierarchyItems = hierarchy.split("-&gt;");
+
+                    var level = hierarchyItems.length;
+
+                    var ptr = obj;
+
+                    for(var a = 0; a < level; a++) {
+                        var found = -1;
+                        
+                        for(var j = 0; j < ptr.children.length; j++) {
+                            if(ptr.children[j].id == hierarchyItems[a]) {
+                                found = j;
+                                break;
+                            }
+                        }
+
+                        if(found == -1) {
+                            ptr.children.push({
+                                id: hierarchyItems[a],
+                                name: package[1],
+                                level: (a + 1),
+                                children: []
+                            });
+                            found = ptr.children.length - 1;
+                        }
+                        ptr = ptr.children[found];
+                    }
+                    
+                    if(package[3] != "NO DATA AVAILABLE") {
+                        ptr.children.push({
+                            id: package[2],
+                            name: package[3],
+                            level: level + 1,
+                            children: []
+                        });
+                    }
+
+                    // var ptr = obj[jobRole];
+                    // for(var j = 0; j < level; j++) {
+                    //     if(ptr[hierarchyItems[j]] == undefined)
+                    //         ptr[hierarchyItems[j]] = {};
+                    //     ptr = ptr[hierarchyItems[j]];
+
+                    //     // Final level, add entitlement
+                    //     if(j == level - 1) {
+                    //         ptr[hierarchyItems[j]] = package;
+                    //     }
+                    // }
+                    
+                    // if(level == 1) {
+                    //     var child = tree.parse({id: hierarchyItems[0], level: level, children: []});
+                    //     root.addChild(child);
+                    // } else {
+                    //     var parent = root;
+                        
+                    //     for(var i = 0; i < level - 1; i++) {
+                    //         parent = parent.first({strategy: 'post'}, function(node) {
+                    //             return node.model.id == hierarchyItems[i];
+                    //         });
+                    //     }
+                    //     var child = tree.parse({id: hierarchyItems[level - 1], level: level, children: []});
+                    //     parent.addChild(child);
+                    // }
+                }
+
+                // console.log(obj);
+                
+                var tree = new TreeModel();
+                var root = tree.parse(obj);
+
+                // Construct the output
+                var str = "";
+                root.walk(function(node) {
+                    str += node.model.level;
+                    for(var i = 0; i < node.model.level + 1; i++) {
+                        str += ",";
+                    }
+                    if(technical)
+                        str += node.model.id + "\n";
+                    else
+                        str += node.model.name + "\n";
+                });
+
+                console.log(str);
+                download("output.csv", str);
+                console.log("Here");
+            }
+
+            function download(filename, text) {
+                var pom = document.createElement('a');
+                pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+                pom.setAttribute('download', filename);
+
+                if (document.createEvent) {
+                    var event = document.createEvent('MouseEvents');
+                    event.initEvent('click', true, true);
+                    pom.dispatchEvent(event);
+                }
+                else {
+                    pom.click();
+                }
+            }
+        </script>
+        <style>
+            .drag {
+                border: 2px solid black;
+                width: 90vw;
+                margin: 5%;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Oracle User and Role Access Audit Report Processor</h2>
+        <div class="drag" id="drag">
+            <h1 style="text-align: center">Drag file here to upload</h1>
+        </div>
+        <!--<textarea id="input" rows="10" cols="80">
+        </textarea>-->
+        <!--<label for="inputfile">Name of file: </label><input id="inputfile" type="text" />
+        <br />-->
+        <!--<button id="execute" onclick="getFile($('#input').val())">Submit</button>
+        <h2>Output</h2>
+        <textarea id="output" rows="10" cols="80">
+        </textarea>-->
+    </body>
+</html>
