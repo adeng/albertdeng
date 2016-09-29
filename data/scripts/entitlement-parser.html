@@ -1,7 +1,6 @@
 <html>
     <head>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        <script src="http://jnuno.com/tree-model-js/vendor/jnuno/TreeModel.js"></script>
         <script>
             $(document).ready( function() {
                 $("#drag").on({
@@ -25,26 +24,29 @@
             });
 
             function getFile(data) {
-                technical = $(":checked").length;
-
                 var $parsed = $($.parseXML(data));
-                // console.log($.parseXML(data));
 
                 var jobRole = $parsed.find("ROLE-ID")[0].innerHTML;
+
                 var entitlements = $parsed.find("ENTITLEMENT-DETAILS");
 
-                // var obj = {};
-                // obj[jobRole] = {};
+                var obj = {
+                    jobRole: {
+                        "level": 0,
+                        "name": jobRole,
+                        "desc": "",
+                        "app": "",
+                        "entitlements": []
+                    }
+                };
 
-                var obj = {id: jobRole, name: jobRole, level: 0, children: []};
+                var secondObj = {};
 
-                var str = "Level,Job Role\n";
-
-                // Construct tree   
                 for(var i = 0; i < entitlements.length; i++) {
-                // for(var i = 0; i < 1; i++) {
+                    
                     var entitlement = entitlements[i];
 
+                    // Name and ID are useless
                     var name = entitlement.childNodes[1].innerHTML.trim();
                     var id = entitlement.childNodes[3].innerHTML.trim();
                     var hierarchy = entitlement.childNodes[9].innerHTML.trim();
@@ -53,69 +55,79 @@
                     var package = [
                         entitlement.childNodes[11].innerHTML.trim(),
                         entitlement.childNodes[13].innerHTML.trim(),
+                        entitlement.childNodes[15].innerHTML.trim(),
                         // 15 is duty role desc
                         entitlement.childNodes[17].innerHTML.trim(),
-                        entitlement.childNodes[19].innerHTML.trim()
+                        entitlement.childNodes[19].innerHTML.trim(),
+                        entitlement.childNodes[21].innerHTML.trim(),
                         // 21 is entitlement desc
+                        entitlement.childNodes[7].innerHTML.trim() // hopefully the app
                     ];
+
                     var hierarchyItems = hierarchy.split("-&gt;");
 
                     var level = hierarchyItems.length;
 
-                    var ptr = obj;
-
-                    for(var a = 0; a < level; a++) {
-                        var found = -1;
-                        
-                        for(var j = 0; j < ptr.children.length; j++) {
-                            if(ptr.children[j].id == hierarchyItems[a]) {
-                                found = j;
-                                break;
-                            }
+                    if(obj[hierarchyItems[hierarchyItems.length - 1]] == undefined) {
+                        obj[hierarchyItems[hierarchyItems.length - 1]] = {
+                            "level": level,
+                            "name": package[1],
+                            "desc": package[2],
+                            "app": package[6]
                         }
-
-                        if(found == -1) {
-                            ptr.children.push({
-                                id: hierarchyItems[a],
-                                name: package[1],
-                                level: (a + 1),
-                                children: []
-                            });
-                            found = ptr.children.length - 1;
-                        }
-                        ptr = ptr.children[found];
                     }
-                    
-                    if(package[3] != "NO DATA AVAILABLE") {
-                        ptr.children.push({
-                            id: package[2],
-                            name: package[3],
-                            level: level + 1,
-                            children: []
+
+                    if(package[4] != 'NO DATA AVAILABLE') {
+                        if(secondObj[hierarchyItems[hierarchyItems.length - 1]] == undefined)
+                            secondObj[hierarchyItems[hierarchyItems.length - 1]] = [];
+                        
+                        secondObj[hierarchyItems[hierarchyItems.length - 1]].push({
+                            'name': package[4],
+                            'desc': package[5],
+                            'dutyName': package[1]
                         });
                     }
                 }
 
-                // console.log(obj);
+                constructCSV(obj, secondObj);
+            }
+
+            function constructCSV(obj, secondObj) {
+                console.log(secondObj);
+                var secondString = "Job Role,Granted Role,Privilege,Privilege Description,Grant?\n\n";
+                var o = "Duties\n";
+                o += "\n";
+                o += "Level, Job Role,Job Role Description,Duty Role,Description,Application\n";
+                o += "\n";
                 
-                var tree = new TreeModel();
-                var root = tree.parse(obj);
+                for(var key in obj) {
+                    var item = obj[key];
+                    var first = true;
 
-                // Construct the output
-                var str = "";
-                root.walk(function(node) {
-                    str += node.model.level;
-                    for(var i = 0; i < node.model.level + 1; i++) {
-                        str += ",";
+                    if(item.level == 0) {
+                        o += '"' + item.level + '","' + item.name + '"\n';
+                    } else {
+                        o += '"' + item.level + '",,,"' + item.name + '","' + item.desc + '","' + item.app +'"\n';
                     }
-                    if(technical)
-                        str += node.model.id + "\n";
-                    else
-                        str += node.model.name + "\n";
-                });
+                }
 
-                console.log(str);
-                download("output.csv", str);
+                o +="\n";
+                    
+                for(var entitlement in secondObj) {
+                    var ent = secondObj[entitlement];
+
+                    for(var i = 0; i < ent.length; i++) {
+                        if(i == 0) {
+                            secondString += ',"' + ent[i].dutyName + '","' + ent[i].name + '","' + ent[i].desc + '",,\n';
+                        } else {
+                            secondString += ',,"' + ent[i].name + '","' + ent[i].desc + '",,\n';
+                        }
+                    }
+                }
+
+                o += secondString;
+
+                download("output.csv", o);
             }
 
             function download(filename, text) {
@@ -146,8 +158,6 @@
         <div class="drag" id="drag">
             <h1 style="text-align: center">Drag file here to upload</h1>
         </div>
-        <label for="technical">Check if you want the technical name</label>
-        <input type="checkbox" id="technical" />
         <!--<textarea id="input" rows="10" cols="80">
         </textarea>-->
         <!--<label for="inputfile">Name of file: </label><input id="inputfile" type="text" />
