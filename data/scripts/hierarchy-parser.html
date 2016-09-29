@@ -1,0 +1,207 @@
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="http://jnuno.com/tree-model-js/vendor/jnuno/TreeModel.js"></script>
+        <script>
+            $(document).ready( function() {
+                $("#drag").on({
+                    'dragover dragenter': function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    },
+                    'drop': function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        var file = e.originalEvent.dataTransfer.files[0];
+                        var f = new FileReader();
+                        f.readAsText(file);
+
+                        f.onload = function() {
+                            getFile(f.result);
+                        }
+                        return false;
+                    }
+                });
+            });
+
+            function getFile(data) {
+                var $parsed = $($.parseXML(data));
+                // console.log($.parseXML(data));
+
+                var jobRole = $parsed.find("ROLE-ID")[0].innerHTML;
+                var entitlements = $parsed.find("ENTITLEMENT-DETAILS");
+
+                // var obj = {};
+                // obj[jobRole] = {};
+
+                var tree = new TreeModel();
+                var root = tree.parse({id: jobRole, level: 0, children: []});
+
+                // Construct tree   
+                for(var i = 0; i < entitlements.length; i++) {
+                // for(var i = 0; i < 1; i++) {
+                    var entitlement = entitlements[i];
+
+                    var id = entitlement.childNodes[3].innerHTML.trim();
+                    var hierarchy = entitlement.childNodes[9].innerHTML.trim();
+
+                    // console.log(entitlement.childNodes);
+                    var package = [
+                        entitlement.childNodes[11].innerHTML.trim(),
+                        entitlement.childNodes[13].innerHTML.trim(),
+                        // 15 is duty role desc
+                        entitlement.childNodes[17].innerHTML.trim(),
+                        entitlement.childNodes[19].innerHTML.trim()
+                        // 21 is entitlement desc
+                    ];
+                    var hierarchyItems = hierarchy.split("-&gt;");
+
+                    var level = hierarchyItems.length;
+
+                    // var ptr = obj[jobRole];
+                    // for(var j = 0; j < level; j++) {
+                    //     if(ptr[hierarchyItems[j]] == undefined)
+                    //         ptr[hierarchyItems[j]] = {};
+                    //     ptr = ptr[hierarchyItems[j]];
+
+                    //     // Final level, add entitlement
+                    //     if(j == level - 1) {
+                    //         ptr[hierarchyItems[j]] = package;
+                    //     }
+                    // }
+                    
+                    if(level == 1) {
+                        var child = {id: hierarchyItems[0], level: level, children: []};
+                        root.addChild(child);
+                    } else {
+                        var parent = root.first({strategy: 'breadth'}, function(node) {
+                            return node.model.id == hierarchyItems[level - 2];
+                        });
+                        var child = {id: hierarchyItems[level - 1], level: level, children: []};
+                        parent.addChild(child);
+                    }
+                }
+
+                root.walk(function(node) {
+                    console.log(node.model.id, node.model.level);
+                });
+                // Parse tree
+
+                // var dutyRoles = [];
+                // for(var i = 0; i < $parsed.find("APPLICATION").length; i++) {
+                //     var app = $parsed.find("APPLICATION")[i];
+
+                //     var entitlements = $(app).find("ENTITLEMENT");
+                //     var uniqueEnts = [];
+                //     for(var j = 0; j < entitlements.length; j++) {
+                //         uniqueEnts.push(entitlements[j].childNodes[3].innerHTML.trim());
+                //     }
+
+                //     if(uniqueEnts[0] != "") {
+                //         uniqueEnts.sort(function(a, b) {
+                //             return a.localeCompare(b);
+                //         });
+                //     } else {
+                //         uniqueEnts[0] = "None";
+                //     }
+                    
+                //     // console.log(app.childNodes[1]);
+                //     dutyRoles.push([app.childNodes[3].childNodes[5].innerHTML.trim(), app.childNodes[3].childNodes[7].innerHTML.trim(), app.childNodes[1].innerHTML.trim().toUpperCase(), uniqueEnts]);
+                // }
+
+                // dutyRoles.sort(function(a, b) {
+                //     return a[0].localeCompare(b[0]);
+                // });
+
+                // var uniqueRoles = [];
+                // uniqueRoles.push(dutyRoles[0]);
+
+                // for(var j = 1; j < dutyRoles.length; j++) {
+                //     if(uniqueRoles[uniqueRoles.length - 1][0] != dutyRoles[j][0]) {
+                //         uniqueRoles.push(dutyRoles[j]);
+                //     }
+                // }
+                
+                // constructCSV(jobRole, jobDesc, uniqueRoles);
+            }
+            var str = "";
+
+            function parseTree(parent, level) {
+                if(Array.isArray(parent)) {
+                    for(var b = 0; b < level; b++) {
+                        str += ",";
+                    }
+                    str += parent[3] + "\n";
+                    return;
+                } else {
+                    for(var child in parent) {
+                        for(var a = 0; a < level; a++) {
+                            str += ",";
+                        }
+                        str += child + "\n";
+                        parseTree(parent[child], level + 1);
+                    }
+                }
+            }
+
+            function constructCSV(jobRole, jobDesc, dutyRoles) {
+                var o = "Duties\n";
+                o += "\n";
+                o += "Job Role,Job Role Description,Duty Role,Description,Application\n";
+                o += "\n";
+                o += jobRole + ',"' + jobDesc + '","' + dutyRoles[0][0] + '","' + dutyRoles[0][1] + '","' + dutyRoles[0][2] + '"\n';
+                for(var i = 1; i < dutyRoles.length; i++) {
+                    o += ',,"' + dutyRoles[i][0] + '","' + dutyRoles[i][1] + '","' + dutyRoles[i][2] + '"\n';
+                }
+                o += "\nPrivileges\n";
+                o += "\n";
+                o += "Job Role,Granted Role,Granted Role Description,Privilege,Grant?\n\n";
+                for(var j = 0; j < dutyRoles.length; j++) {
+                    o += ',"' + dutyRoles[j][0] + '","' + dutyRoles[j][1] + '","' + dutyRoles[j][3][0] + '",\n';
+                    for(var k = 1; k < dutyRoles[j][3].length; k++) {
+                        o += ',,,"' + dutyRoles[j][3][k] + '",\n';
+                    }
+                }
+                $("#output").val(o);
+
+                download("output.csv", o);
+            }
+
+            function download(filename, text) {
+                var pom = document.createElement('a');
+                pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+                pom.setAttribute('download', filename);
+
+                if (document.createEvent) {
+                    var event = document.createEvent('MouseEvents');
+                    event.initEvent('click', true, true);
+                    pom.dispatchEvent(event);
+                }
+                else {
+                    pom.click();
+                }
+            }
+        </script>
+        <style>
+            .drag {
+                border: 2px solid black;
+                width: 90vw;
+                margin: 5%;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Oracle User and Role Access Audit Report Processor</h2>
+        <div class="drag" id="drag">
+            <h1 style="text-align: center">Drag file here to upload</h1>
+        </div>
+        <!--<textarea id="input" rows="10" cols="80">
+        </textarea>-->
+        <!--<label for="inputfile">Name of file: </label><input id="inputfile" type="text" />
+        <br />-->
+        <!--<button id="execute" onclick="getFile($('#input').val())">Submit</button>
+        <h2>Output</h2>
+        <textarea id="output" rows="10" cols="80">
+        </textarea>-->
+    </body>
+</html>
